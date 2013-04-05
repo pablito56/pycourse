@@ -1,0 +1,91 @@
+#-*- coding: utf-8 -*-
+u'''
+MOD 09: Functions
+'''
+
+# Let's declare a function
+
+
+def spam():       # Functions are declared with the 'def' keyword, its name, parrentheses and a colon
+    print "spam"  # Remeber to use indentation!
+
+spam()  # Functions are executed with its name followed by parentheses
+
+
+# Let's declare a function with arguments
+
+
+def eggs(arg1):         # Functions arguments are declared inside the parentheses
+    print "eggs", arg1
+
+spam("eggssss")  # Function calls specify arguments inside parentheses
+
+
+def func(arg1, arg2, arg3):         # There is no limit of arguments
+    print "func", arg1, arg2, arg3
+
+func("spam", "eggs", "fooo")
+
+
+print func("spam", "eggs", "fooo")  # By default functions return None
+
+
+def my_sum(arg1, arg2):
+    return arg1 + arg2    # Use the return keyword to output any result
+
+print my_sum(3, 5)
+
+
+print my_sum(3.333, 5)
+print my_sum("spam", "eggs")  # Given that Python is a dynalic language we can reuse the same method
+
+
+print my_sum(arg2="spam", arg1="eggs")  # Use keyword arguments to call arguments in different order
+
+
+# Let's declare a function with arguments and default values
+
+
+def my_pow(arg1, arg2=2):  # It is possible to define deault values for the arguments, always after arguments without default values
+    return arg1 ** arg2
+
+print my_pow(3)
+
+
+def my_func(arg1, arg2=2, arg3=3, arg4=4):
+    return arg1 ** arg2 + arg3 ** arg4
+
+print my_func(3, arg3=2)  # Use keyword arguments to call skip some of the arguments with default value
+
+
+# Let's use an arbitrary arguments list
+
+
+def my_func(arg1=1, arg2=2, *args):  # This arbitrary list is a (kind-off) tuple of positional arguments
+    print args
+    return arg1 + arg2
+
+my_func(2, 3)
+
+my_func(2, 3, 5, 7)
+
+spam = (5, 7)
+my_func(2, 3, *spam)  # It is possible to unpack a tuple or list as an arbitrary list of arguments
+
+
+# The same applies for keyword arguments
+
+
+def my_func(arg1=1, arg2=2, **kwargs):  # This arbitrary 'args' list is a (kind-off) tuple of positional arguments
+    print kwargs
+    return arg1 + arg2
+
+my_func(2, 3)
+
+my_func(2, 3, param3=5, param4=7)
+
+spam = {"param3": 5, "param4": 7}
+my_func(2, 3, **spam)  # It is possible to unpack a tuple or list as an arbitrary list of arguments
+
+
+# TODO: Lambdas?
