@@ -137,10 +137,49 @@ spammer.name = "John"
 spammer.surname = "Doe"
 spammer.age = 65
 spammer.male = True      # ... this is legal
+
 print spammer.name
 print spammer.surname
 print spammer.age
 print spammer.male
+
+
+# What about static or class methods?
+
+class Spam(object):
+    def method(self, arg=None):
+        print "Called 'method' with", self, arg
+
+    @classmethod                                    # This is a decorator
+    def cls_method(cls, arg=None):
+        print "Called 'cls_method' with", cls, arg
+
+    @staticmethod                                   # This is another decorator
+    def st_method(arg=None):
+        print "Called 'st_method' with", arg
+
+spammer = Spam()
+
+spammer.method(10)
+
+Spam.method(spammer, 100)   # Although it works, this is not exacty the same
+
+print spammer.method
+print Spam.method           # It is unbounded, not related with an instance
+
+spammer.cls_method(20)
+
+Spam.cls_method(200)
+
+print spammer.cls_method
+print Spam.cls_method     # Both are a bounded method... to the class
+
+spammer.st_method(30)
+
+Spam.st_method(300)
+
+print spammer.st_method
+print Spam.st_method     # Both are plain standard functions
 
 
 #===============================================================================
@@ -156,6 +195,9 @@ print spammer.male
 #     - There are no private attributes in Python
 #         - There is a convention to use underscore _ prefix
 #     - Classes definition is not closed. At any time you can add (or delete) an attribute
+#     - classmethod to specify class methods; bounded to the class, not its instances
+#        - Used to implement alternative constructors (e.g. dict.copy)
+#     - staticmethod to specify static methods; standard functions delcared inside the class
 #===============================================================================
 
 

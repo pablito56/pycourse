@@ -20,14 +20,14 @@ Python course structured in 3 big bocks: basic, advanced and utilities
 * Flow control
 * Iterators, comprehension and generators
 * Functions
-* Classes (pending staticmethod vs. classmethod)
+* Classes
 * Duck typing (pending)
 * Functional programming and iterables tools
 * Mutables vs. immutables (pending shallow vs. deep copy)
 * New-style vs. old-style
 * Modules
 * Packages (WIP)
-* Coding style (PEP8 and docstring)
+* Coding style (PEP8 and docstring) (pending)
 
 
 ## ADVANCED BLOCK (6 – 8h)
