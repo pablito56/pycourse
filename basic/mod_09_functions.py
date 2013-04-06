@@ -99,6 +99,7 @@ my_func(2, 3, **spam)  # It is possible to unpack a tuple or list as an arbitrar
 #     - Functions are executed with its name followed by parentheses
 #         - Provide input arguments inside the parentheses
 #         - Provide keywords arguments specifying their name
+#     - Functions can be declared and called outside classes
 #===============================================================================
 
 
