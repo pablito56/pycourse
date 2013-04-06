@@ -25,8 +25,11 @@ else:
 
 
 #==============================================================================
+# REMEMBER:
 # - Indentation is Python's way of grouping statements!!
 #    - Typically four spaces per indentation level
+#    - No curly brackets { } or semicolons ; used anywhere
+#    - This enforces a more readable code
 #==============================================================================
 
 
@@ -85,7 +88,7 @@ for item in spam:        # The for loop only iterates over the items of a sequen
     print item
 
 spam = [1, 2, 3]
-for item in spam[::-1]:  # There is no limit on the traversed sequence
+for item in spam[::-1]:  # As we saw, slicing may be slow. Keep it in mind
     print item
 
 

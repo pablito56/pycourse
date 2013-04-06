@@ -19,9 +19,9 @@ print bool_inst_1 is True
 
 
 #===============================================================================
-# - Every object has an identity (its address), a type and a value
+# - Every object has an identity (its address u pto now), a type and a value
 # - Use 'id' and 'is' to retrieve or compare the id of an object
-# - The interpreter may reuse values
+# - The interpreter may reuse values!
 #===============================================================================
 
 
@@ -52,7 +52,7 @@ print id(list_inst_1), 'vs.', id(list_inst_2)
 #===============================================================================
 
 
-# Let's check how immutable values are reused 
+# Let's check how immutable values are reused
 sevens = [7, 7, 7, 7, 7]
 print map(id, sevens)
 abcs = ["abc", "abc", "abc", "abc", "abc"]
@@ -75,6 +75,13 @@ lst_inst = ['instance', 'value']
 print lst_inst, '@', id(lst_inst)
 lst_inst.append('updated')
 print lst_inst, '@', id(lst_inst)
+
+
+#===============================================================================
+# EXERCISE:
+#  - Play a bit with http://www.pythontutor.com/visualize.html to understand Python
+#    binding and mutables and immutables behaviour
+#===============================================================================
 
 
 # Now let's play with dicts
@@ -317,4 +324,5 @@ print update_even_odd(range(100, 111))
 #===============================================================================
 # MORE INFO:
 # - http://docs.python.org/2.7/reference/datamodel.html#objects-values-and-types
+# - http://docs.python.org/2/reference/executionmodel.html#naming-and-binding
 #===============================================================================

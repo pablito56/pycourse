@@ -37,7 +37,7 @@ print my_sum(3, 5)
 
 
 print my_sum(3.333, 5)
-print my_sum("spam", "eggs")  # Given that Python is a dynalic language we can reuse the same method
+print my_sum("spam", "eggs")  # Given that Python is a dynamic language we can reuse the same method
 
 
 print my_sum(arg2="spam", arg1="eggs")  # Use keyword arguments to call arguments in different order
@@ -73,7 +73,7 @@ spam = (5, 7)
 my_func(2, 3, *spam)  # It is possible to unpack a tuple or list as an arbitrary list of arguments
 
 
-# The same applies for keyword arguments
+# The same applies for arbitrary keyword arguments
 
 
 def my_func(arg1=1, arg2=2, **kwargs):  # This arbitrary 'args' list is a (kind-off) tuple of positional arguments
@@ -88,4 +88,22 @@ spam = {"param3": 5, "param4": 7}
 my_func(2, 3, **spam)  # It is possible to unpack a tuple or list as an arbitrary list of arguments
 
 
-# TODO: Lambdas?
+#===============================================================================
+# REMEMBER:
+#     - Functions are declared with the 'def' keyword, its name, parrentheses and a colon
+#         - Specify arguments inside the parentheses
+#         - Define arguments' default values with an equal, after arguments without def val
+#         - Specify arbitrary arguments or keyword arguments with *args or **kwargs
+#            - Actually only the asterisks matter, the name is up to you
+#     - Use indentation for the body of the function, typically 4 spaces per level
+#     - Functions are executed with its name followed by parentheses
+#         - Provide input arguments inside the parentheses
+#         - Provide keywords arguments specifying their name
+#===============================================================================
+
+
+#===============================================================================
+# SOURCES:
+#  - http://docs.python.org/2/tutorial/controlflow.html#defining-functions
+#  - http://docs.python.org/2/tutorial/controlflow.html#more-on-defining-functions
+#===============================================================================

@@ -4,7 +4,7 @@ MOD 03: Numbers
 '''
 
 
-spam = 65              # an integer declaration
+spam = 65              # an integer declaration. Yes, no semicolon ; at the end
 print spam             # print is a reserved keyword / statement
 
 print type(spam)       # this is a functiona call
@@ -13,6 +13,7 @@ print type(spam)       # this is a functiona call
 # WARNING!
 #    - 'type' is std lib function to retrieve the type of an object
 #    - Never use 'type' in your code for type checking, only for demo or debugging purposes
+#        - We will talk about it later in duck typing module
 #===============================================================================
 
 eggs = 2

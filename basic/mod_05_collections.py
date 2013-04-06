@@ -151,6 +151,11 @@ print len(eggs)
 print len("spam")  # Obtain its length
 
 
+# Let's obtain min and max values (slow)
+print min([5, 6, 2])
+print max("xyzw abcd XYZW ABCD")
+
+
 # Let's see how indexing works
 spam = ["1st", "2nd", "3rd", "4th", "5th"]
 eggs = (spam, 1.2345, "fooo")
@@ -173,10 +178,21 @@ spam = ("1st", "2nd", "3rd", "4th", "5th")
 print spam[1:3]                             # Use colon and a second index for slicing
 print type(spam[1:4])                       # It generates a brand new object (shallow copy)
 
+
+#===============================================================================
+# WARNING! Slicing is syntactic sugar, but it may be harmful
+#     - It creates a new object looping over the whole original collection, so
+#       it may be slow
+#     - It creates a shallow copy (i.e. it reuses objects inside original list),
+#       which can be problematic with mutables. Check mutables vs. immutables module
+#===============================================================================
+
+
+spam = ["1st", "2nd", "3rd", "4th", "5th"]
 print spam[:3]
 print spam[1:7]
 print spam[-2:7]                            # Negative indexes are also valid
-print spam[3:-2]                            # In slicing Python is able to set cleverly the indexes
+print spam[3:-2]
 
 print spam[:]                               # Without indexes it performs a shallow copy
 
@@ -188,9 +204,12 @@ print spam[::-2]                             # A negative step traverse the sequ
 print spam[::-1]                             # Useful to reverse a sequence
 
 
-# Let's obtain min and max values (slow)
-print min([5, 6, 2])
-print max("xyzw abcd XYZW ABCD")
+#===============================================================================
+# - In slicing Python is able to cleverly set the indexes
+#     - No IndexError when slicing index is out of range
+#     - First (0) and last (-1) index is automatically filled
+#     - Step is 1 by default and does not need to be multiple of sequence length
+#===============================================================================
 
 
 # Let's try something different

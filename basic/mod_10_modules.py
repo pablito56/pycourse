@@ -94,7 +94,10 @@ print "Outside if. This is evaluated always."
 
 
 #===============================================================================
-# - REMEMBER:
-#     - A Python module is a file
-#     - Use if __name__ == "__main__": to detect when a module is being imported
+# LESSONS LEARNT:
+# - The module name depends on how the module is being evaluated (imported or executed)
+#    - It also depends on the packages path used in the import
+# - The module name can be a special values such as '__main__', '__console__'...
+#    - Use if __name__ == "__main__": to detect when a module (script) is imported or executed
+# - All code is evaluated (and executed) only once when imported
 #===============================================================================
