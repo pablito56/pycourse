@@ -33,14 +33,14 @@ print type(spammer)
 
 #===============================================================================
 # - All classes must inherit from object (or from a subclass of object)
-#    - More about it in new-style vs old-style module
+#    - More about this in new-style vs old-style module
 #===============================================================================
 
 
 class Eggs(Spam):                                   # Ancestor superclasses inside parentheses
     this_is_a_class_attrib = "class_attrib_value"   # Class attributes inside the body, outside class methods
 
-    def __init__(self, instance_attrib_val):        # __init__ is the method called in the instances initialization
+    def __init__(self, instance_attrib_val):        # __init__ is the method called in the instances initialization (not constructor)
         self.instance_attrib = instance_attrib_val
 
     def method(self, arg1, arg2=None):              # All methods must receive self (the instance) as first parameter
@@ -67,19 +67,25 @@ print egger.this_is_a_class_attrib                  # Retrieve class attributes 
 
 print Eggs.this_is_a_class_attrib
 
+print Eggs
+
 #===============================================================================
 # - Class attributes can be retrieved directly from the class too
+# - Classes are objects too
 #===============================================================================
 
 
 egger.method("arg1_value", "arg2_value")            # Call instance methods with a dot . and Python passes it as self
 
 print egger.method
+
+print Eggs.method
+
 inst_method = egger.method
 inst_method("arg1_value", "arg2_value")
 
 #===============================================================================
-# - Methods are also attributes of classes and instances
+# - Methods are also attributes (bounded) of classes and instances
 #===============================================================================
 
 
@@ -88,6 +94,7 @@ class Spam(object):
 
     def spam_method(self):
         print "spam_method", self, self.spam_class_attrib
+        print self.__class__                               # __class__ is a reserved attribute containing the class of any object
 
 
 class Eggs(object):
@@ -95,6 +102,7 @@ class Eggs(object):
 
     def eggs_method(self):
         print "eggs_method", self, self.eggs_class_attrib
+        print self.__class__
 
 
 class Fooo(Spam, Eggs):                                    # Specify a list of ancestor superclasses
@@ -104,17 +112,19 @@ class Fooo(Spam, Eggs):                                    # Specify a list of a
         self.spam_method()
         self.eggs_method()                                 # Retrieve superclasses attributes as if they were yours
         print "fooo_method", self, self.fooo_class_attrib
+        print self.__class__
 
 foooer = Fooo()
 
 foooer.fooo_method()
 
 foooer.spam_method()
-foooer.eggs_method()
+
+foooer.eggs_method()  # self is ALWAYS an instance of the same class
 
 print foooer.spam_class_attrib
 print foooer.eggs_class_attrib
-print foooer.fooo_class_attrib
+print foooer.fooo_class_attrib  # We have access to all own and ancestors' attributes
 
 
 # Given that Python is a dynamic language...
