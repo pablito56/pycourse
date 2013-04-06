@@ -140,8 +140,8 @@ print eggs.lower()                         # Convert to upper or lower case
 print spam.isupper()
 print spam.islower()                       # Check if string is in upper or lower case
 
-print " | spam # ".strip()
-print " | spam # ".strip(' |#')            # Remove leading and trailing characters (only whitespace by default)
+print repr(" | spam # ".strip())
+print repr(" | spam # ".strip(' |#'))      # Remove leading and trailing characters (only whitespace by default)
 
 print spam.isalpha()
 print eggs.isalnum()

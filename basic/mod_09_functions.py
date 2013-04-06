@@ -87,6 +87,12 @@ my_func(2, 3, param3=5, param4=7)
 spam = {"param3": 5, "param4": 7}
 my_func(2, 3, **spam)  # It is possible to unpack a tuple or list as an arbitrary list of arguments
 
+# functions are first classed objects
+def func_as_arg():
+    print 'hola que ase'
+
+my_func(1,2,third=func_as_arg)
+
 
 #===============================================================================
 # REMEMBER:
@@ -99,6 +105,8 @@ my_func(2, 3, **spam)  # It is possible to unpack a tuple or list as an arbitrar
 #     - Functions are executed with its name followed by parentheses
 #         - Provide input arguments inside the parentheses
 #         - Provide keywords arguments specifying their name
+#     - Functions are first classed objects
+#         - you can pass them as arguments
 #===============================================================================
 
 

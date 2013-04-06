@@ -35,21 +35,21 @@ print "'func.__module__' value:", func.__module__
 ##===============================================================================
 ## EXERCISE:
 ## - Execute this module with Python:
-##    $ python mod_0_modules.py
+##    $ python mod_10_modules.py
 ##
 ## - Open Python interpreter and import this module:
 ##    $ python
 ##      ...
-##    >>> import mod_0_modules
+##    >>> import mod_10_modules
 ##
 ## - Go to parent folder, open Python interpreter and import this module:
 ##    $ cd ..
 ##    $ python
 ##      ...
-##    >>> import base.mod_0_modules
+##    >>> import basic.mod_10_modules
 ##
 ## - Without closing Python interpreter, import the module again:
-##    >>> import base.mod_0_modules
+##    >>> import basic.mod_10_modules
 ##
 ## - WHAT HAPPENED? ANY IDEA?
 ##
