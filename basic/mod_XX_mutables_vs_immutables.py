@@ -19,7 +19,7 @@ print bool_inst_1 is True
 
 
 #===============================================================================
-# - Every object has an identity (its address u pto now), a type and a value
+# - Every object has an identity (its address up to now), a type and a value
 # - Use 'id' and 'is' to retrieve or compare the id of an object
 # - The interpreter may reuse values!
 #===============================================================================

@@ -88,6 +88,18 @@ spam = {"param3": 5, "param4": 7}
 my_func(2, 3, **spam)  # It is possible to unpack a tuple or list as an arbitrary list of arguments
 
 
+# Functions are first classed objects
+
+def function_caller(f):
+    f()
+
+
+def func_as_arg():
+    print 'hola que ase'
+
+function_caller(func_as_arg)  # Functions can be passed as arguments
+
+
 #===============================================================================
 # REMEMBER:
 #     - Functions are declared with the 'def' keyword, its name, parrentheses and a colon
@@ -100,6 +112,8 @@ my_func(2, 3, **spam)  # It is possible to unpack a tuple or list as an arbitrar
 #         - Provide input arguments inside the parentheses
 #         - Provide keywords arguments specifying their name
 #     - Functions can be declared and called outside classes
+#     - Functions are first classed objects
+#         - You can pass them as arguments
 #===============================================================================
 
 

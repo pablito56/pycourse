@@ -135,6 +135,7 @@ eggs = (spam, 1.2345, "fooo")
 print "eggs" in spam
 print "fooo" not in eggs
 print "am" in "spam"      # Check items membership
+print "spam".find("am")   # NOT recommended for membership
 
 print spam.count("1st")   # Count repetitions (slow)
 
