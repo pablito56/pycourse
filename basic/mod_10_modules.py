@@ -110,5 +110,5 @@ print "Outside if. This is evaluated always."
 # - The module name can be a special values such as '__main__', '__console__'...
 #    - Use if __name__ == "__main__": to detect when a module (script) is imported or executed
 # - All code is evaluated (and executed) only once when imported
-# - Modules (and not classes) are the basic level of code organization
+# - Modules (and not classes) are the basic unit of code organization
 #===============================================================================
