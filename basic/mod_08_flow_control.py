@@ -191,7 +191,7 @@ except:             # Use try and except to capture exceptions
 spam = {"one": 1, "two": 2, "three": 3}
 try:
     print spam[5]
-except IndexError, e:
+except IndexError, e:      # Inside the except clause 'e' will contain the exception instance
     print "IndexError", e
 except KeyError, e:        # Use several except clauses for different types of exceptions
     print "KeyError", e
