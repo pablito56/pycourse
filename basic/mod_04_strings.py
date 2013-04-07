@@ -182,3 +182,10 @@ print "{0:b} {0:c} {0:o} {0:x}".format(65)  # For integers, specify base represe
 #  - http://docs.python.org/2/library/stdtypes.html#string-methods
 #  - http://docs.python.org/2/library/string.html#formatstrings
 #===============================================================================
+
+#==============================================================================
+# TIME TO START WORKIN:
+#   - go to basic\exercises directory
+#   - execute the mod_04_strings.py
+#   - try to implement the functions indicated
+#==============================================================================
