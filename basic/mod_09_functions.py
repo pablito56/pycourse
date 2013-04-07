@@ -88,14 +88,6 @@ spam = {"param3": 5, "param4": 7}
 my_func(2, 3, **spam)  # It is possible to unpack a tuple or list as an arbitrary list of arguments
 
 
-# functions are first classed objects
-
-def func_as_arg():
-    print 'There should be one-- and preferably only one --obvious way to do it.'
-
-my_func(1,2,third=func_as_arg)
-
-
 # Functions are first classed objects
 
 def function_caller(f):
@@ -103,7 +95,7 @@ def function_caller(f):
 
 
 def func_as_arg():
-    print 'hola que ase'
+    print 'There should be one-- and preferably only one --obvious way to do it.'
 
 function_caller(func_as_arg)  # Functions can be passed as arguments
 
