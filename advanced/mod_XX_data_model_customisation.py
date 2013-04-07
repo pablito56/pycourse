@@ -1,36 +1,18 @@
 #-*- coding: utf-8 -*-
 u'''
-EXAMPLE 1: Classes: new-style vs. old-style, data model & customization
+MOD XX: Classes: data model & customization
 '''
 
 
-# Let's create an old-style class
-class MyOldClass:
-    def print_instance_class(self):
-        print type(self)
-        print self.__class__
-
-old_inst = MyOldClass()
-old_inst.print_instance_class()
-
-
-# Let's create an identical new-style class
-class MyNewClass(object):
-    def print_instance_class(self):
-        print type(self)
-        print self.__class__
-
-new_inst = MyNewClass()
-new_inst.print_instance_class()
-
-
 #===============================================================================
-# - New-style classes introduced in Python 2.2 to unify classes and types
+# REMEMBER:
+# - New-style classes were introduced in Python 2.2 to unify classes and types
 # - Provide unified object model with a full meta-model
 # - Other benefits: subclass most built-in types, descriptors (slots, properties, static and class methods)...
 # - By default all classes are old-style until Python 3
 #    - In Python 2 you have to inherit from 'object' to use new-style
-#    - You should avoid old-style
+#    - You must avoid old-style
+#    - So you must inherit ALWAYS from 'object'
 #
 # - Other changes introduced Python 2.2: __new__, new dir() behavior, metaclasses, new MRO (also in 2.3)
 #
@@ -38,24 +20,7 @@ new_inst.print_instance_class()
 #===============================================================================
 
 
-# Let's inherit from an old-style class
-class MyNewOldClass(MyOldClass):
-    pass
-
-new_old_inst = MyNewOldClass()
-new_old_inst.print_instance_class()
-
-# Let's inherit from an old-style class
-class MyGoodNewOldClass(MyOldClass, object):
-    pass
-
-good_new_old_inst = MyGoodNewOldClass()
-good_new_old_inst.print_instance_class()
-
-
-#===============================================================================
-# - You can inherit from both old-style classes and 'object' to have new-style classes
-#===============================================================================
+# Let's see what is this unified object model
 
 
 # Let's create a fractions class
