@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 u'''
-MOD 10: Classes
+MOD 12: Classes
 '''
 
 

@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 u'''
-MOD XX: mutables vs. immutables, deep copy
+MOD 15: mutables vs. immutables, deep copy
 '''
 
 
@@ -222,13 +222,13 @@ print test_list
 ##===============================================================================
 ## TIME TO START WORKING!
 ##
-## EXERCISE 0:
+## EXERCISE MOD 15:
 ## - Solve common mutable / immutable types usage errors
 ##
 ## INSTRUCTIONS:
-## - Go to exercices/exercise_0 and edit exercise_0.py
-## - Change the functions and class implementation to let tests_0.py pass
-## - Check tests with nosetests
+## - Go to exercices/mod_15 and edit exercise.py
+## - Change the functions and class implementation to let tests.py pass
+## - Check tests with nosetests (if you have them)
 ##===============================================================================
 ##===============================================================================
 
@@ -372,7 +372,7 @@ print spam
 
 
 #===============================================================================
-# MORE INFO:
+# SOURCES:
 # - http://docs.python.org/2.7/reference/datamodel.html#objects-values-and-types
 # - http://docs.python.org/2/reference/executionmodel.html#naming-and-binding
 # - http://docs.python.org/2/library/copy.html#copy.deepcopy
