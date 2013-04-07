@@ -91,7 +91,7 @@ my_func(2, 3, **spam)  # It is possible to unpack a tuple or list as an arbitrar
 # functions are first classed objects
 
 def func_as_arg():
-    print 'hola que ase'
+    print 'There should be one-- and preferably only one --obvious way to do it.'
 
 my_func(1,2,third=func_as_arg)
 
