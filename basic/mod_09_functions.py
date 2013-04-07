@@ -129,4 +129,5 @@ function_caller(func_as_arg)  # Functions can be passed as arguments
 # SOURCES:
 #  - http://docs.python.org/2/tutorial/controlflow.html#defining-functions
 #  - http://docs.python.org/2/tutorial/controlflow.html#more-on-defining-functions
+#  - http://docs.python.org/2/reference/compound_stmts.html#function
 #===============================================================================
