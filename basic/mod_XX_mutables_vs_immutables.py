@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 u'''
-EXAMPLE 0: Objects: type, id, value, mutable vs. immutable
+MOD XX: mutables vs. immutables, deep copy
 '''
 
 
@@ -194,7 +194,7 @@ print input
 #    - The same applies with shallow copy or constructor by copy
 # - Class attributes
 # - Functions parameters default value
-# - In-place modifications of function's mutable parameters 
+# - In-place modifications of function's mutable parameters
 #===============================================================================
 
 
@@ -318,11 +318,42 @@ print update_even_odd(range(100, 111))
 #    - The same applies with shallow copy or constructor by copy --> Use copy.deepcopy
 # - Class attributes --> Instantiate in the __init__
 # - Functions parameters default value --> Use None as default value and instantiate inside the function
-# - In-place modifications of function's mutable parameters --> Avoid it. Keep in mind waht you are doing 
+# - In-place modifications of function's mutable parameters --> Avoid it. Keep in mind what you are doing
 #===============================================================================
+
+
+# And, what about deep copy?
+
+spam = [1, 2, 3]
+eggs = {"spam": spam}
+
+import copy
+fooo = copy.deepcopy(eggs)
+
+print id(spam)
+print id(eggs["spam"])
+
+print id(fooo["spam"])
+
+fooo["spam"].append("shouldn't appear in 'eggs' or 'spam'")
+print fooo["spam"]
+
+print eggs["spam"]
+print spam
+
+
+#===============================================================================
+# - Use 'copy' to perform copies on demand:
+#    - Function 'copy' for shallow copies
+#    - Function 'deepcopy' for deep copies
+#        - Recursive, this is, slow
+# - You can define how your custom classes are copied or deepcopied (see Advanced Block)
+#===============================================================================
+
 
 #===============================================================================
 # MORE INFO:
 # - http://docs.python.org/2.7/reference/datamodel.html#objects-values-and-types
 # - http://docs.python.org/2/reference/executionmodel.html#naming-and-binding
+# - http://docs.python.org/2/library/copy.html#copy.deepcopy
 #===============================================================================
