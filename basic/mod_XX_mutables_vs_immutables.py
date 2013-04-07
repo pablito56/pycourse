@@ -188,6 +188,25 @@ print get_middle_item(input)
 print input
 
 
+# name binding with immutables might lead to error
+def list_changer(input_list):
+    input_list[0] = 10
+
+    input_list = range(1, 10)
+    print(input_list)
+    input_list[0] = 10
+    print(input_list)
+
+test_list = [5, 5, 5]
+list_changer(test_list)
+
+# what do you expect to be test_list?
+# >>> [10, 1, 2, 3, 4, 5, 6, 7, 8, ,9]
+# >>> [10, 5, 5]
+
+print test_list
+
+
 #===============================================================================
 # Mutable and immutable types common errors:
 # - Multiple assignment
@@ -195,6 +214,7 @@ print input
 # - Class attributes
 # - Functions parameters default value
 # - In-place modifications of function's mutable parameters 
+# - when expecting in-place modifications of function's mutable parameters, consider name binding 
 #===============================================================================
 
 
