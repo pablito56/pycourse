@@ -14,13 +14,14 @@ class Craps(object):
         self.dice = dice.Dice()
         self.playing = False
 
-    def play1Round(self):
+    def start(self):
         """Play one round of craps until win or lose."""
         self.state = CrapsStateComeOutRoll()
         self.playing = True
         while self.playing:
             self.dice.roll()
             self.state = self.state.evaluate(self, self.dice)
+            print 'Dice: %s  New State: %s' % (self.dice, self.state)
 
     def win(self):
         """Used by CrapsState when the roll was a winner."""
@@ -50,3 +51,8 @@ class CrapsStateComeOutRoll(CrapsState):
 class CrapsStatePointRoll(CrapsState):
     """Point roll rules."""
     pass
+
+if __name__ == '__main__':
+    crasp = Craps()
+    crasp.start()
+
