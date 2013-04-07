@@ -215,10 +215,11 @@ else:
 
 try:
     print 65 + "spam"
+    raise AttributeError           # Use raise to launch yourself exceptions
 except (IndexError, KeyError), e:
     print "Index or Key Error", e
 except TypeError, e:
-    print "KeyError", e
+    print "TypeError", e
 else:
     print "No exception"
 finally:
@@ -228,8 +229,9 @@ try:
     print 65 + 2
 except (IndexError, KeyError), e:
     print "Index or Key Error", e
+    raise                          # Use 'raise' without arguments to relaunch the exception
 except TypeError, e:
-    print "KeyError", e
+    print "TypeError", e
 else:
     print "No exception"
 finally:
