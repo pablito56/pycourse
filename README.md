@@ -21,10 +21,9 @@ Python course structured in 3 big bocks: basic, advanced and utilities
 * Iterators, comprehension and generators
 * Functions
 * Classes
-* Duck typing (pending)
+* Duck typing
 * Functional programming and iterables tools
 * Mutables vs. immutables (pending shallow vs. deep copy)
-* New-style vs. old-style
 * Modules
 * Packages (WIP)
 * Coding style (PEP8 and docstring) (pending)
