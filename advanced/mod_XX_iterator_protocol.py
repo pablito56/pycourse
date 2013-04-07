@@ -1,57 +1,7 @@
 #-*- coding: utf-8 -*-
 u'''
-MOD 11: Iterators
+MOD 11: Iterators protocol
 '''
-
-
-lst = range(5)
-
-for item in lst:
-    print item
-else:
-    print "Looped whole list"
-
-
-# What is really happening here?
-
-
-it = iter(lst)                            # Obtain an iterator
-try:
-    item = it.next()                      # Retrieve first item through the iterator
-    while True:
-        # Body of the for loop goes here
-        print item
-        item = it.next()                  # Retrieve next item through the iterator
-except StopIteration:                     # Capture iterator exception
-    # Body of the else clause goes here
-    print "Looped whole list"
-
-#===============================================================================
-# - Remember that for loops are really optimized at low level (C)
-#===============================================================================
-
-
-# Another example
-
-spam = "spam"
-it = iter(spam)
-
-print it.next()
-print it.next()
-print it.next()
-print it.next()
-print it.next()
-
-
-#===============================================================================
-# Python Iterators
-#  - Objects to loop over collections or other container objects
-#    - Fast and efficient, no copies or new objects created
-#  - Iterators implement method 'next'. Each time called it returns an item
-#     - When no more items are available it raises a StopIteration exception
-#  - Function 'iter' returns an iterator from an object
-#     - Internally it calls the method '__iter__' to retrieve the iterator
-#===============================================================================
 
 
 # Let's implement a custom class and a custom iterator
