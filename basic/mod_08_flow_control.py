@@ -236,10 +236,48 @@ finally:
     print "Finally we clean up"    # Use finally clause to ALWAYS execute clean up code
 
 
+# Let's see another construction
+
+try:
+    f = open("tmp_file.txt", "a")
+except:
+    pass
+else:
+    try:
+        f.write("I'm writing to a file...\n")
+    except:
+        pass
+    finally:
+        f.cose()
+
+
+# Not pythonic, too much code for only three real lines
+
+
+with open("tmp_file.txt", "a") as f:
+    f.write("I'm writing to a file...\n")
+
+# Where is the file closed? What happens if an exception is raised?
+
+
+#===============================================================================
+# Python context managers
+#  - Encapsulate common patterns used wrapping code blocks where real runs the program logic
+#     -  Usually try/exceopt/finally patterns
+#  - Several uses:
+#     - Automatic cleanup, closing files or network or DB connections when exiting the context block
+#     - Set temporary environment, like enable/disable logging, timing, profiling...
+#  - Use the 'with' and optionally the 'as' statements to open a context manager
+#     - It is automatically closed when code execution goes outside the block
+#===============================================================================
+
+
 #===============================================================================
 # SOURCES:
 #  - http://docs.python.org/2/tutorial/controlflow.html#if-statements
 #  - http://docs.python.org/2/reference/compound_stmts.html
 #  - http://docs.python.org/2/reference/expressions.html#conditional-expressions
 #  - http://docs.python.org/2/reference/simple_stmts.html
+#  - http://www.python.org/dev/peps/pep-0343/
+#  - http://docs.python.org/2/reference/compound_stmts.html#the-with-statement
 #===============================================================================

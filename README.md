@@ -1,46 +1,56 @@
 pycourse
 ========
 
-Python course structured in 3 modules: basic, advanced and utilities
+Python course structured in 3 big bocks: basic, advanced and utilities
 
 
 # Course content
 
 
-## BASIC MODULE (6 - 8h)
+## BASIC BLOCK (6 - 8h)
 
-* Python versions, work environment ¿virtualenv?
-* Basic types, mutables vs. immutables
-* Syntax and basic constructions
-  * Conditionals, if, ternary
-  * Loops, while, for, other looping methods 
-  * Context managers
-  * Slicing
-  * Closures, scopes, global & nonlocal
-  * Generators, iterators, yield
-  * try / except
-* Modules, packages and projects structure
-* Functions and methods
-* Decorators
-* Clases, new-style vs. old-style
-* Objects are dicts, __dict__
-* Inheritance
+* What is Python?
+* Python history and versions
+* Tools and environment
+* Numbers
+* Strings
+* Collections
+* Dictionaries
+* Booleans
+* Flow control
+* Iterators, comprehension and generators
+* Functions
+* Classes
+* Duck typing (pending)
+* Functional programming and iterables tools
+* Mutables vs. immutables (pending shallow vs. deep copy)
+* New-style vs. old-style
+* Modules
+* Packages (WIP)
+* Coding style (PEP8 and docstring) (pending)
 
 
-## ADVANCED MODULE (6 – 8h)
+## ADVANCED BLOCK (6 – 8h)
 
-* staticmethod, classmethod
+* Objects are dicts, _ _dict_ _, getattr...
 * Objects and its data model (customization)
-  * Protocols implementation (containers, iterators, keys access...)
-* Multiple inheritance, MRO, super, getattr
+  * Containers, key or index access
+  * Sequences
+  * Iterators
+  * Generators, yield
+  * Context managers
+  * ...
+* Namespaces, scope, closures, global (nonglobal)
+* Decorators
+* MRO, super, getattr
 * Descriptors
 * Properties and slots
 * Metaclasses
 * Common Java developers errors (getters and setters, staticmethod and classmethod, single class per module, fear to multiple inheritance...)
-* ¿Threads and GIL?
+* Threads and GIL
 
 
-## UTILITIES MODULE (6 - 8h)
+## UTILITIES BLOCK (6 - 8h)
 
 * Standatd library: useful functions: map, reduce, zip, globals, locals, all, filter…
 * Standatd library: most useful modules
@@ -48,6 +58,7 @@ Python course structured in 3 modules: basic, advanced and utilities
   * ABC?
   * itertools
   * functools
+  * contextlibs
   * datetime + tz
   * sys
   * os
