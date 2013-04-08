@@ -155,6 +155,7 @@ num = 0
 spam = "spam"
 for num, item in enumerate(spam, 1):     # Useful in for loops
     print item, "at index", num - 1
+
 print "Number of items processed:", num
 
 #==============================================================================
