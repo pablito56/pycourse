@@ -42,3 +42,5 @@ nosetests.xml
 
 # Vim
 *.swp
+basic/tmp_file.txt
+basic/__init__.py

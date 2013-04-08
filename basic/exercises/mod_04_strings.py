@@ -1,9 +1,7 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
-
 u'''
-Copyright (c) Telefonica I+D. All rights reserved.
-Description:
+Exercises MOD 04: Strings
 '''
 import unittest
 

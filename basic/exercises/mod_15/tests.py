@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 u'''
-Test exercise 0: mutable and immutable types common errors
+Test MOD 15: mutable and immutable types common errors
 '''
 import unittest
 import exercise_0 as source

@@ -9,24 +9,23 @@ Python course structured in 3 big bocks: basic, advanced and utilities
 
 ## BASIC BLOCK (6 - 8h)
 
-* What is Python?
-* Python history and versions
-* Tools and environment
-* Numbers
-* Strings
-* Collections
-* Dictionaries
-* Booleans
-* Flow control
-* Iterators, comprehension and generators
-* Functions
-* Classes
-* Duck typing
-* Functional programming and iterables tools
-* Mutables vs. immutables (pending shallow vs. deep copy)
-* Modules
-* Packages (WIP)
-* Coding style (PEP8 and docstring) (pending)
+* 00: What is Python?
+* 01: Python history and versions
+* 02: Tools and environment
+* 03: Numbers
+* 04: Strings
+* 05: Collections
+* 06: Dictionaries
+* 07: Booleans
+* 08: Flow control
+* 09: Functions
+* 10: Iterators, comprehension and generators
+* 11: Functional programming and iterables tools
+* 12: Classes
+* 13: Modules and packages
+* 14: Duck typing
+* 15: Mutables vs. immutables
+* 16: Way of working
 
 
 ## ADVANCED BLOCK (6 – 8h)

@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 u'''
-MOD XX: Functional programming and iterables tools
+MOD 11: Functional programming and iterables tools
 '''
 
 #===============================================================================
