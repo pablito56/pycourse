@@ -243,12 +243,12 @@ finally:
 try:
     f = open("tmp_file.txt", "a")
 except:
-    pass  # Do somethind?
+    pass  # Do something
 else:
     try:
         f.write("I'm writing to a file...\n")
     except:
-        pass  # Do somethind?
+        pass  # Do something
     finally:
         f.cose()
 
@@ -259,7 +259,7 @@ try:
     with open("tmp_file.txt", "a") as f:
         f.write("I'm writing to a file...\n")
 except:
-    pass  # Do somethind?
+    pass  # Do something
 
 # Where is the file closed? What happens if an exception is raised?
 
