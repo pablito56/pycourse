@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 u'''
-MOD 11: Iterators
+MOD 10: Iterators, comprehensions and generators
 '''
 
 
@@ -133,7 +133,7 @@ fooo = {s: len(s) for s in spam if s[0] in "tm"}  # Ofc, you can add more 'for' 
 print fooo
 
 
-# And Python also has generators, the next level of simplification and optimisation
+# And finally, Python also has generators, the next level of simplification and optimisation
 
 
 spam = [0, 1, 2, 3, 4]

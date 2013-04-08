@@ -1,9 +1,7 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
-
 u'''
-Copyright (c) Telefonica I+D. All rights reserved.
-Description: implement the craps game
+Exercises MOD 12: Classes
 '''
 
 
@@ -55,4 +53,3 @@ class CrapsStatePointRoll(CrapsState):
 if __name__ == '__main__':
     crasp = Craps()
     crasp.start()
-

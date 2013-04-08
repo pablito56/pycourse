@@ -32,7 +32,7 @@ MOD 01: Python history and versions
 
 
 #===============================================================================
-# 1995: Guido Van Rossum becomes Python's Benevolent Dictator for Life
+# 1995: Guido Van Rossum becomes Python's BDFL (Benevolent Dictator For Life)
 #===============================================================================
 
 
@@ -44,6 +44,12 @@ MOD 01: Python history and versions
 
 #===============================================================================
 # 1999: Python gets DARPA funding (not first time it gets funding)
+#===============================================================================
+
+
+#===============================================================================
+# 13 June 2000: PEP (Python Enhancement Proposal) system stablished, to let the
+#               community submit extensions and new features. Even Guido uses it
 #===============================================================================
 
 
@@ -108,5 +114,6 @@ MOD 01: Python history and versions
 #  - http://docs.python.org/2/license.html
 #  - http://en.wikipedia.org/wiki/History_of_Python
 #  - http://en.wikipedia.org/wiki/Benevolent_Dictator_For_Life
+#  - http://www.python.org/dev/peps/pep-0001/
 #  - http://docs.python.org/3.0/whatsnew/3.0.html
 #===============================================================================

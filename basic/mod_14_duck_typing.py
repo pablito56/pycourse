@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 u'''
-MOD XX: Duck typing
+MOD 14: Duck typing
 '''
 
 
