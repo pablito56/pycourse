@@ -202,20 +202,20 @@ try:
 except (IndexError, KeyError), e:  # Or even group exception types
     print "Index or Key Error", e
 except TypeError, e:
-    print "KeyError", e
+    print "TypeError", e
 
 try:
     print 65 + 2
 except (IndexError, KeyError), e:
     print "Index or Key Error", e
 except TypeError, e:
-    print "KeyError", e
+    print "TypeError", e
 else:
     print "No exception"           # Use else clause to run code in case no exception was raised
 
 try:
     print 65 + "spam"
-    raise AttributeError           # Use raise to launch yourself exceptions
+    raise AttributeError           # Use 'raise' to launch yourself exceptions
 except (IndexError, KeyError), e:
     print "Index or Key Error", e
 except TypeError, e:
@@ -243,21 +243,23 @@ finally:
 try:
     f = open("tmp_file.txt", "a")
 except:
-    pass
+    pass  # Do somethind?
 else:
     try:
         f.write("I'm writing to a file...\n")
     except:
-        pass
+        pass  # Do somethind?
     finally:
         f.cose()
 
 
 # Not pythonic, too much code for only three real lines
 
-
-with open("tmp_file.txt", "a") as f:
-    f.write("I'm writing to a file...\n")
+try:
+    with open("tmp_file.txt", "a") as f:
+        f.write("I'm writing to a file...\n")
+except:
+    pass  # Do somethind?
 
 # Where is the file closed? What happens if an exception is raised?
 
