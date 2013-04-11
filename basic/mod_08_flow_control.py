@@ -250,7 +250,7 @@ else:
     except:
         pass  # Do something
     finally:
-        f.cose()
+        f.close()
 
 
 # Not pythonic, too much code for only three real lines
