@@ -37,12 +37,12 @@ print "'func.__module__' value:", func.__module__
 ## EXERCISE:
 ##
 ## - Execute this module with Python:
-##    $ python mod_13_modules_and_packages.py.py
+##    $ python mod_13_modules_and_packages.py
 ##
 ## - Open Python interpreter and import this module:
 ##    $ python
 ##      ...
-##    >>> import mod_13_modules_and_packages.py
+##    >>> import mod_13_modules_and_packages
 ##
 ## - WHAT HAPPENED? Where is the 'Inside if...' trace?
 ##
@@ -82,7 +82,7 @@ print "Outside if. This is evaluated always."
 ## EXERCISE:
 ##
 ## - Without closing the Python interpreter import the module again:
-##    >>> import mod_13_modules_and_packages.py
+##    >>> import mod_13_modules_and_packages
 ##
 ## - WHAT HAPPENED? Where are all the output traces?
 ##
@@ -103,7 +103,7 @@ print "Outside if. This is evaluated always."
 ##    $ cd ..
 ##    $ python
 ##      ...
-##    >>> import basic.mod_13_modules_and_packages.py
+##    >>> import basic.mod_13_modules_and_packages
 ##
 ## - Close the interpreter
 ##
@@ -113,7 +113,7 @@ print "Outside if. This is evaluated always."
 ## - Open Python interpreter and try to import the module again:
 ##    $ python
 ##      ...
-##    >>> import basic.mod_13_modules_and_packages.py
+##    >>> import basic.mod_13_modules_and_packages
 ##
 ## - WHAT HAPPENED? What is the module name? What does the __init__.py file mean?
 ##
@@ -149,29 +149,29 @@ print "Outside if. This is evaluated always."
 ## EXERCISE:
 ##
 ## - Without closing Python interpreter, execute the function we defined:
-##    >>> basic.mod_13_modules_and_packages.py.func()
+##    >>> basic.mod_13_modules_and_packages.func()
 ##
 ## - Close the Python interpreter
 ##
 ## - Open Python interpreter and import this module in a different way:
 ##    $ python
 ##      ...
-##    >>> from basic import mod_13_modules_and_packages.py
+##    >>> from basic import mod_13_modules_and_packages
 ##
 ## - WHAT HAPPENED? What is the module name?
 ##
 ## - Execute the function again:
-##    >>> mod_13_modules_and_packages.py.func()
+##    >>> mod_13_modules_and_packages.func()
 ##
 ## - Import and execute the function again in a different way:
-##    >>> from basic.mod_13_modules_and_packages.py import func
+##    >>> from basic.mod_13_modules_and_packages import func
 ##    >>> func()
 ##
 ## - Execute the following:
-##    >>> print mod_13_modules_and_packages.py
+##    >>> print mod_13_modules_and_packages
 ##
 ## - Import again the module in a different way and execute the function:
-##    >>> from basic import mod_13_modules_and_packages.py as the_module
+##    >>> from basic import mod_13_modules_and_packages as the_module
 ##    >>> the_module.func()
 ##    >>> print the_module.__name__
 ##
@@ -214,8 +214,8 @@ print "Outside if. This is evaluated always."
 ##
 ## - Close the interpreter
 ##
-## - Edit the file basic/__init__.py and add at the end 'from mod_13_modules_and_packages.py import func'
-##    $ echo -e 'from mod_13_modules_and_packages.py import func\n' >> basic/__init__.py  # Don't forget double >
+## - Edit the file basic/__init__.py and add at the end 'from mod_13_modules_and_packages import func'
+##    $ echo -e 'from mod_13_modules_and_packages import func\n' >> basic/__init__.py  # Don't forget double >
 ##
 ## - Open Python interpreter and try again:
 ##    $ python
@@ -320,8 +320,8 @@ print "Outside if. This is evaluated always."
 ##    >>> sys.path.append("/Users/pev/wspace/pycourse/basic")
 ##
 ## - Import again this module:
-##    >>> import mod_13_modules_and_packages.py
-##    >>> print mod_13_modules_and_packages.py.__file__
+##    >>> import mod_13_modules_and_packages
+##    >>> print mod_13_modules_and_packages.__file__
 ##
 ## - WHAT HAPPENED? What is the module name?
 ##
