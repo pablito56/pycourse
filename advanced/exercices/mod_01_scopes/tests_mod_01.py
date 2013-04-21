@@ -11,7 +11,7 @@ Created on Nov 13, 2012
 
 Module 01 (scopes) exercise: tests
 
->>> import exercise_01_1 as cache_mod
+>>> import exercise_mod_01 as cache_mod
 
 >>> cache_mod.set_key("my_key", "my_value")
 
@@ -25,8 +25,8 @@ my_value
 None
 """
 import unittest
-import exercise_01_scopes as cache_mod
-# import solution_01_scopes as cache_mod
+import exercise_mod_01 as cache_mod
+# import solution_mod_01 as cache_mod
 
 
 class TestCache(unittest.TestCase):

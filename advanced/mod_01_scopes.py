@@ -8,18 +8,18 @@ MOD 01: Namespaces and scopes
 
 
 #===============================================================================
-# EXERCISE 1: pycourse/advanced/exercices/mod_01_scopes/exercise_01_scopes.py
+# EXERCISE: pycourse/advanced/exercices/mod_01_scopes/exercise_mod_01.py
 #
-# - Implement a simple in-memory cache
+# - Implement a simple in-memory cache:
 #     - Set and get a value associated to a key
 #     - Manage cache size to avoid taking too much memory (FIFO)
 #     - Manage key's ttl (with default value) to let values expire
 #
 # - Check the imports documentation
 #
-# - Run the tests in 'tests_01_scopes.py' executing 'nosetests -v' inside this folder
+# - Run the tests in 'tests_mod_01.py' executing 'nosetests -v' inside its folder
 #
-# - Check the solution in module 'solution_01_scopes.py'
+# - Check the solution in module 'solution_mod_01.py'
 #===============================================================================
 
 
@@ -83,6 +83,18 @@ print get_key("short_living_key")
 # - It is possible to access global names in a module (module attributes) from
 #   within its functions and classes
 #    - The same happens with imported names!
+#===============================================================================
+
+
+#===============================================================================
+# LESSONS LEARNT:
+# - It is possible to access global names in a module (module attributes) from
+#   within its functions and classes
+#    - The same happens with imported names!
+#
+# BONUS!
+# - This is the easiest way in Python to implement a singleton:
+#    - Use a module instead of a class
 #===============================================================================
 
 

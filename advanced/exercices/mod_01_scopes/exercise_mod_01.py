@@ -9,9 +9,9 @@ Created on Nov 13, 2012
 
 @contact: pablito56@gmail.com
 
-Module 01 (scopes) exercise: solution
+Module 01 (scopes) exercise: implement a simple cache
 
->>> import exercise_01_1 as cache_mod
+>>> import exercise_mod_01 as cache_mod
 
 >>> cache_mod.set_key("my_key", "my_value")
 
@@ -25,18 +25,18 @@ my_value
 None
 """
 #===============================================================================
-# EXERCISE 1:
+# EXERCISE:
 #
-# - Implement a simple in-memory cache
+# - Implement a simple in-memory cache:
 #     - Set and get a value associated to a key
 #     - Manage cache size to avoid taking too much memory (FIFO)
 #     - Manage key's ttl (with default value) to let values expire
 #
 # - Check the imports documentation
 #
-# - Run the tests in 'tests_01_scopes.py' executing 'nosetests -v' inside this folder
+# - Run the tests in 'tests_mod_01.py' executing 'nosetests -v' inside this folder
 #
-# - Check the solution in module 'solution_01_scopes.py'
+# - Check the solution in module 'solution_mod_01.py'
 #===============================================================================
 
 
@@ -47,7 +47,7 @@ import time
 from collections import OrderedDict
 
 
-CACHE = OrderedDict()
+CACHE = {}
 CACHE_SIZE = 5
 CACHE_TTL = 1  # Maybe this should be increased in slow machines to run the tests
 
@@ -57,20 +57,12 @@ def set_key(key, value, ttl=None):
     If no ttl is provided CACHE_TTL is taken by default.
     If cache length exceeds CACHE_SIZE when adding a key, the oldest (first inserted) key is removed (FIFO)
     """
-    CACHE[key] = (time.time() + (ttl or CACHE_TTL), value)
-    if len(CACHE) > CACHE_SIZE:
-        CACHE.popitem(last=False)
+    raise NotImplementedError
 
 
 def get_key(key):
     """Retrieve a key value from the cache.
-    Returns None if does not exist or the key expired.
+    Returns None if key does not exist or the key expired.
     If the key expired it is removed from the cache.
     """
-    content = CACHE.get(key, None)  # content = (expiration_time, value)
-    if content:
-        if content[0] > time.time():
-            return content[1]
-        else:
-            del CACHE[key]
-    return None
+    raise NotImplementedError
