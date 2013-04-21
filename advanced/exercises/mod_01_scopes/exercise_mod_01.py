@@ -54,7 +54,7 @@ CACHE_TTL = 1  # Maybe this should be increased in slow machines to run the test
 
 def set_key(key, value, ttl=None):
     """Set a key value in the cache with its expiration time.
-    If no ttl is provided CACHE_TTL is taken by default.
+    If no ttl (in seconds) is provided CACHE_TTL is taken by default.
     If cache length exceeds CACHE_SIZE when adding a key, the oldest (first inserted) key is removed (FIFO)
     """
     raise NotImplementedError

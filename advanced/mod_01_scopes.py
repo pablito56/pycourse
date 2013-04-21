@@ -8,7 +8,7 @@ MOD 01: Namespaces and scopes
 
 
 #===============================================================================
-# EXERCISE: pycourse/advanced/exercices/mod_01_scopes/exercise_mod_01.py
+# EXERCISE: pycourse/advanced/exercises/mod_01_scopes/exercise_mod_01.py
 #
 # - Implement a simple in-memory cache:
 #     - Set and get a value associated to a key
@@ -111,7 +111,7 @@ print path
 #===============================================================================
 
 
-# Remember to avoid collisions when importing
+# Just remember to avoid collisions when importing
 from os import path as ospath
 from sys import path as syspath
 print ospath
@@ -147,9 +147,9 @@ def get_power_func(y):
 
         def my_custom_power_func():  # No arguments provided?!?!
             print "Actual computation of {} raised to power of {}".format(x, y)
-            x = x ** y
-            return x
-        return my_custom_power_func()
+            return x ** y
+        x = my_custom_power_func()
+        return x
     return power_func
 
 raise_to_3 = get_power_func(3)
@@ -181,8 +181,19 @@ print two, three
 #
 #        - The outermost scope (searched last) is the namespace containing built-in names
 #
-#    - Only local scope and global namespaces can be modified
+#    - Only local scope and global namespaces can be modified. The rest are read only or
+#      a new variable in local scope is created
 #==============================================================================
+
+
+def factorial(x):
+    if x < 2:
+        return 1
+    return x * factorial(x - 1)
+
+
+# Without nested scopes recursive functions couldn't exist!
+print factorial(5)
 
 
 #===============================================================================
