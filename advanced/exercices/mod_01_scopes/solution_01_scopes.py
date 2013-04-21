@@ -9,7 +9,7 @@ Created on Nov 13, 2012
 
 @contact: pablito56@gmail.com
 
-Exercise 1 of module 01 (scopes): implement a simple cache
+Module 01 (scopes) exercise: solution
 
 >>> import exercise_01_1 as cache_mod
 
@@ -34,9 +34,9 @@ None
 #
 # - Check the imports documentation
 #
-# - Run the tests in 'tests_01_1.py' executing 'nosetests -v' inside this folder
+# - Run the tests in 'tests_01_scopes.py' executing 'nosetests -v' inside this folder
 #
-# - Check the solution in module 'solution_01_1.py'
+# - Check the solution in module 'solution_01_scopes.py'
 #===============================================================================
 
 
@@ -47,7 +47,7 @@ import time
 from collections import OrderedDict
 
 
-CACHE = {}
+CACHE = OrderedDict()
 CACHE_SIZE = 5
 CACHE_TTL = 1  # Maybe this should be increased in slow machines to run the tests
 
@@ -57,12 +57,20 @@ def set_key(key, value, ttl=None):
     If no ttl is provided CACHE_TTL is taken by default.
     If cache length exceeds CACHE_SIZE when adding a key, the oldest (first inserted) key is removed (FIFO)
     """
-    raise NotImplementedError
+    CACHE[key] = (time.time() + (ttl or CACHE_TTL), value)
+    if len(CACHE) > CACHE_SIZE:
+        CACHE.popitem(last=False)
 
 
 def get_key(key):
     """Retrieve a key value from the cache.
-    Returns None if key does not exist or the key expired.
+    Returns None if does not exist or the key expired.
     If the key expired it is removed from the cache.
     """
-    raise NotImplementedError
+    content = CACHE.get(key, None)  # content = (expiration_time, value)
+    if content:
+        if content[0] > time.time():
+            return content[1]
+        else:
+            del CACHE[key]
+    return None

@@ -9,7 +9,7 @@ Created on Nov 13, 2012
 
 @contact: pablito56@gmail.com
 
-Exercise 1 of module 01 (scopes) tests
+Module 01 (scopes) exercise: tests
 
 >>> import exercise_01_1 as cache_mod
 
@@ -25,8 +25,8 @@ my_value
 None
 """
 import unittest
-import exercise_01_1 as cache_mod
-# import solution_01_1 as cache_mod
+import exercise_01_scopes as cache_mod
+# import solution_01_scopes as cache_mod
 
 
 class TestCache(unittest.TestCase):
