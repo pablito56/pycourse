@@ -39,7 +39,7 @@ def factorial(x):
 
 
 def fibonacci(n):
-    "Return the nth fibonacci number"
+    """Return the nth fibonacci number"""
     if n < 2:
         return n
     return fibonacci(n - 1) + fibonacci(n - 2)
@@ -61,6 +61,7 @@ print t1_elapsed
 
 #===============================================================================
 # - Remember DRY: Don't Repeat Yourself!
+#    - Let's try to apply memoization in a generic way to not modified functions
 #===============================================================================
 
 
@@ -95,7 +96,6 @@ simcache.clear_keys()  # Let's clean the cache
 
 # Let's define the real fibonacci computation function
 def fibonacci(n):
-    "Return the nth fibonacci number"
     if n < 2:
         return n
     print "Real fibonacci func, calling recursively to", fibonacci, n
@@ -159,7 +159,6 @@ print fibonacci(10)  # Let's try with a bigger number
 # Let's apply these concepts to find a generic method to use memoization
 
 def fibonacci(n):
-    "Return the nth fibonacci number"
     if n < 2:
         return n
     return fibonacci(n - 1) + fibonacci(n - 2)
@@ -167,6 +166,8 @@ def fibonacci(n):
 def memoize_any_function(func_to_memoize):
     """Function to return a wrapped version of input function using memoization
     """
+    print "Called memoize_any_function"
+
     def memoized_version_of_func(n):
         """Wrapper using memoization
         """
@@ -188,7 +189,6 @@ print fibonacci(35)
 
 @memoize_any_function  # This is the simplest decorator syntax
 def fibonacci(n):
-    "Return the nth fibonacci number"
     if n < 2:
         return n
     return fibonacci(n - 1) + fibonacci(n - 2)
@@ -197,10 +197,27 @@ def fibonacci(n):
 print fibonacci(150)
 
 
+#===============================================================================
+# Python decorators:
+#     - A callable which receives a funtion as only argument and returns another
+#       function. Typically the resulting function wrapps the first function
+#       executing some code before and/or after the first is called.
+#
+#     - New in Python 2.4, they are the pythonic implementation of Decorator Pattern
+#
+#    - Used with the at @ symbol before a function or method
+#        - Don't forget to deal with 'self' as first argument of methods
+#
+#    - The decoration is done at import / evaluation time
+#===============================================================================
+
+
 # More about decorators
 
 
 def timing_decorator(decorated_func):
+    print "Called timing_decorator"
+
     def wrapper(*args):  # Use variable arguments to be compatible with any function
         """Wrapper for time executions
         """
@@ -213,9 +230,8 @@ def timing_decorator(decorated_func):
 
 
 @timing_decorator
-@memoize_any_function  # We can accumulate decorators, and they are run in strict order
+@memoize_any_function  # We can accumulate decorators
 def fibonacci(n):
-    "Return the nth fibonacci number"
     if n < 2:
         return n
     return fibonacci(n - 1) + fibonacci(n - 2)
@@ -225,14 +241,20 @@ simcache.clear_keys()
 print fibonacci(5)
 
 
+#===============================================================================
+# - It is possible to accumulate decorators
+# - Order matters, they are run in strict top - down order
+#===============================================================================
+
+
 # Why 'memoized_version_of_f' appears as the function name? Let's change it
 
 
-from functools import wraps
+import functools
 def memoize_any_function(decorated_func):
     """Function to return a wrapped version of input function using memoization
     """
-    @wraps(decorated_func)  # Smooth decoration changing function name and docstring
+    @functools.wraps(decorated_func)  # Use functools.wraps to smooth the decoration
     def memoized_version_of_f(*args):
         """Wrapper using memoization
         """
@@ -245,7 +267,7 @@ def memoize_any_function(decorated_func):
 
 
 def timing_decorator(decorated_func):
-    @wraps(decorated_func)
+    @functools.wraps(decorated_func)
     def wrapper(*args):  # Use variable arguments to be compatible with any function
         """Wrapper for time executions
         """
@@ -257,22 +279,33 @@ def timing_decorator(decorated_func):
     return wrapper
 
 
+#===============================================================================
+# - functools.wraps copies name, module and docstring of wrapped function to its wrapper
+#
+# - Use variable number of positional and keyword arguments for higher compatibility
+#===============================================================================
+
+
 @timing_decorator
-@memoize_any_function  # We can accumulate decorators, and they are run in strict order
+@memoize_any_function  # We can accumulate decorators, and they are run in strict top-down order
 def fibonacci(n):
-    "Return the nth fibonacci number"
     if n < 2:
         return n
     return fibonacci(n - 1) + fibonacci(n - 2)
 
 
 simcache.clear_keys()
-print fibonacci(5)  # Bear in mind that the decorator is called each time the function is called
+print fibonacci(5)
+
+
+#===============================================================================
+# - Decorators are executed each time the decorated function is called
+#    - Potential performance loss
+#===============================================================================
 
 
 @memoize_any_function
 def fibonacci(n):
-    "Return the nth fibonacci number"
     if n < 2:
         return n
     return fibonacci(n - 1) + fibonacci(n - 2)
@@ -285,3 +318,42 @@ def call_fibonacci(n):
 simcache.clear_keys()
 print call_fibonacci(30)
 
+
+#===============================================================================
+# Python decorators:
+#
+#     - A callable which receives a funtion as only argument and returns another
+#       function. Typically the resulting function wrapps the first function
+#       executing some code before and/or after the first is called.
+#
+#     - New in Python 2.4, they are the pythonic implementation of Decorator Pattern
+#
+#    - Used with the at @ symbol before a function or method
+#        - Don't forget to deal with 'self' as first argument of methods
+#
+#    - The decoration is done at import / evaluation time
+#
+#    - It is possible to accumulate decorators
+#        - Order matters, they are run in strict top - down order
+#
+#    - functools.wraps copies name, module and docstring of wrapped function to its wrapper
+#
+#    - Use variable number of positional and keyword arguments for higher compatibility
+#
+#    - Decorators are executed each time the decorated function is called
+#        - Potential performance loss
+#
+#    - Typical uses:
+#        - Memoization
+#        - Timing, profiling, logging, stats...
+#        - Overriding arguments, pre / post conditions
+#        - Retries
+#        - Exception handling
+#===============================================================================
+
+
+#===============================================================================
+# SOURCES:
+#  - http://en.wikipedia.org/wiki/Decorator_pattern
+#  - http://stackoverflow.com/a/1594484
+#===============================================================================
