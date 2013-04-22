@@ -181,8 +181,8 @@ print two, three
 #
 #        - The outermost scope (searched last) is the namespace containing built-in names
 #
-#    - Only local scope and global namespaces can be modified. The rest are read only or
-#      a new variable in local scope is created
+#    - Only local scope and global namespaces can be modified. The rest are read only (or
+#      a new variable is created in local scope, rebinding a name)
 #==============================================================================
 
 
