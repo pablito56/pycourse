@@ -9,12 +9,12 @@ Created on Nov 13, 2012
 
 @contact: pablito56@gmail.com
 
-Module XX (advanced decorators) exercise: tests
+Module 08 (advanced decorators) exercise: tests
 """
 import unittest
 import time
-from exercise_mod_XX import CachedAttrClass
-# from solution_mod_XX import CachedAttrClass
+from exercise_mod_08 import CachedAttrClass
+# from solution_mod_08 import CachedAttrClass
 
 
 class TestCachedAttribute(unittest.TestCase):

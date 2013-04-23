@@ -9,16 +9,16 @@ Created on Nov 13, 2012
 
 @contact: pablito56@gmail.com
 
-Module XX (descriptors) exercise: solution
+Module 08 (descriptors) exercise: solution
 """
 #===============================================================================
-# EXERCISE: pycourse/advanced/exercises/exercises/mod_XX_descriptors/exercise_mod_XX
+# EXERCISE: pycourse/advanced/exercises/exercises/mod_08_descriptors/exercise_mod_08
 #
 # - Use descriptor protocol to cache during a certain TTL the return value of a function as an attribute
 #
-# - Run the tests in 'tests_mod_XX.py' executing 'nosetests -v' inside its folder
+# - Run the tests in 'tests_mod_08.py' executing 'nosetests -v' inside its folder
 #
-# - Check the solution in module 'solution_mod_XX.py'
+# - Check the solution in module 'solution_mod_08.py'
 #===============================================================================
 
 

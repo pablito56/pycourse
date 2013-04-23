@@ -30,28 +30,17 @@ Python course structured in 3 big bocks: basic, advanced and utilities
 
 ## ADVANCED BLOCK (6 – 8h)
 
-* 01: Namespaces, scope, closures, global (nonglobal)
-    * Revisit custom power function 
-* 02: Decorators
-    * Logging, trace, timing, retry...
-* 02.5: Decorator classes, decorate classes
-    * Memoization
-* 03: Objects are dicts, `__dict__`, getattr / hasattr / setattr
-* 04: Objects data model and customization (str, repr)
-  * 05: Rich comparisson
-  * 06: Numeric operations & coercion
-  * 07: Attribute access
-  * 08: Containers (key or index access, slicing, copy)
-  * 09: Iterators / generators (yield) + patterns
-  * 10: Context managers
-* 11: Cooperative super call pattern: MRO and super
-* 12: Descriptors protocol
-* 13: Properties
-* 14: Slots
-* 15: Constructor and "destructor": `__new__` and `__del__`
-* 16: Metaclasses
-* 17: Common Java developers errors (getters and setters, abuse of staticmethod and classmethod, single class per module, fear to multiple inheritance, importing...)
-* 18: Threads and GIL
+* 01: Namespaces and scopes
+* 02: Globals and locals and global
+* 03: Decorators
+* 04: Advanced decorators
+* 05: Attributes look up
+* 06: Objects data model customisation
+* 07: Cooperative super call pattern: MRO and super
+* 08: Descriptors protocol
+* 09: Slots and properties
+* 10: Constructors and metaclasses
+* 11: Common Java developers errors (getters and setters, abuse of staticmethod and classmethod, single class per module, fear to multiple inheritance, importing...) ?
 
 
 ## UTILITIES BLOCK (6 - 8h)

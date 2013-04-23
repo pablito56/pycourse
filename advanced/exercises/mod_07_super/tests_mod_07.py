@@ -13,8 +13,8 @@ Module XY (cooperative super call pattern) exercise: apply cooperative super cal
 """
 from datetime import datetime
 import unittest
-import exercise_mod_XW as src
-# import solution_mod_XW as src
+import exercise_mod_07 as src
+# import solution_mod_07 as src
 
 
 class VerboseTestCase(unittest.TestCase):

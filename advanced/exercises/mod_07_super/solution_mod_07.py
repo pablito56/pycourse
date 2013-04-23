@@ -9,10 +9,10 @@ Created on Nov 13, 2012
 
 @contact: pablito56@gmail.com
 
-Module XW (cooperative super call pattern) exercise: apply cooperative super call pattern
+Module 07 (cooperative super call pattern) exercise: apply cooperative super call pattern
 """
 #===============================================================================
-# EXERCISE: pycourse/advanced/exercises/exercises/mod_XW_super/exercise_mod_XW
+# EXERCISE: pycourse/advanced/exercises/exercises/mod_07_super/exercise_mod_07
 #
 # - Implement all needed changes to let the tests pass. In particular, implement AmazingDict:
 #    - Access keys as attributes only if they already exist
@@ -21,9 +21,9 @@ Module XW (cooperative super call pattern) exercise: apply cooperative super cal
 #    - Print all attributes and keys accesses for query or modification
 # - Check: http://docs.python.org/2/reference/datamodel.html?highlight=__contains__#object.__contains__
 #
-# - Run the tests in 'tests_mod_XW.py' executing 'nosetests -v' inside its folder
+# - Run the tests in 'tests_mod_07.py' executing 'nosetests -v' inside its folder
 #
-# - Check the solution in module 'solution_mod_XW.py'
+# - Check the solution in module 'solution_mod_07.py'
 #===============================================================================
 
 
