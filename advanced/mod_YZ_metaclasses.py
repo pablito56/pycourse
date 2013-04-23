@@ -1,18 +1,20 @@
 #-*- coding: utf-8 -*-
 u'''
-EXAMPLE 3: creation and instantiation: __new__ and metaclasses
+MOD YZ: creation and instantiation: __new__ and metaclasses
 '''
 
+
 class VerboseCreator(object):
-    def __new__(cls, *args, **kwargs):
-        print "__new__", cls, args, kwargs
+    def __new__(cls, *args, **kwargs):      # This is the real constuctor of instances
+        print "CALLED __new__", cls, args, kwargs
         res = super(VerboseCreator, cls).__new__(cls, *args, **kwargs)
-        print "type:", type(res)
+        print "RETURN TYPE:", type(res)
         return res
 
-    def __init__(self, *args, **kwargs):
-        print "__init__", self, args, kwargs
+    def __init__(self, *args, **kwargs):      # This is only the instance initialization method
+        print "CALLED __init__", self, args, kwargs
         super(VerboseCreator, self).__init__(*args, **kwargs)
+
 
 verb_inst = VerboseCreator()
 
@@ -24,18 +26,24 @@ verb_inst = VerboseCreator()
 # - It takes the class as first argument followed by all object constructor arguments
 # - It returns the new instance
 #    - Later __init__ will be called on that instance
-# - super inside __new__ has to provide the class as first parameter
+# - When calling super inside __new__ you have to provide the class as first parameter
 #===============================================================================
 
+
+# What happens with inheritance?
 
 class VerboseCreatorDict(VerboseCreator, dict):
     pass
 
+
 verb_dict_inst = VerboseCreatorDict({'a': 1, 'b': 2})
+
 print verb_dict_inst
 
 
-# A more real example
+# Let's see a real world example
+
+
 class MySingleton(object):
     def __new__(cls, *args, **kwargs):
         if not hasattr(cls, '_inst'):
@@ -48,6 +56,7 @@ print id(inst_1), 'vs.', id(inst_2)
 
 
 # Another example
+
 class RoundedFloat(float):
     def __new__(cls, *args, **kwargs):
         if args:
@@ -58,8 +67,8 @@ print RoundedFloat(7.12345)
 
 
 #===============================================================================
-# Common uses:
-#   - Singleton pattern, although the most recommended implementation is using a module
+# Common uses of __new__:
+#   - Singleton pattern, although the most recommended implementation is just a module
 #   - Factory pattern, although we are gonna see a better solution
 #   - When subclassing immutable types, to customize the instance creation
 #   - In custom metaclasses in order to customize class creation
@@ -94,16 +103,30 @@ class MyMetaclass(type):
         new_class = super(MyMetaclass, mcs).__new__(mcs, name, bases, attrs)
         return new_class
 
+
 class TrueFalseClass(object):
     __metaclass__ = MyMetaclass
     class_attrib = "class attrib value"
+
     def ret_false(self, *args, **kwargs):
         return False
+
     def ret_true(self, *args, **kwargs):
         return True
 
 
+# Our metaclasses has been already called!
+
+
+#===============================================================================
+# - Classes are instantiated at import or evaluation time!
+#    - Metaclasses run at that moment
+#===============================================================================
+
+
 # Let's see a real example
+
+
 # Let's implement a logging decorator
 def _logging_decorator(func):
     def logging_wrapper(*args, **kwargs):
@@ -116,6 +139,8 @@ def _logging_decorator(func):
 
 # Let's define a metaclass using it
 from inspect import isfunction
+
+
 def _decorate_attrs(attrs):
     decorated_attrs = {}
     for name, func in attrs.items():
@@ -123,6 +148,7 @@ def _decorate_attrs(attrs):
             func = _logging_decorator(func)
         decorated_attrs[name] = func
     return decorated_attrs
+
 
 class LoggingMetaclass(type):
     def __new__(mcs, name, bases, attrs):
@@ -135,10 +161,13 @@ class LoggingMetaclass(type):
 class TrueFalseClass(object):
     __metaclass__ = LoggingMetaclass
     class_attrib = "class attrib value"
+
     def ret_false(self, *args, **kwargs):
         return False
+
     def ret_true(self, *args, **kwargs):
         return True
+
 
 tf_inst = TrueFalseClass()
 tf_inst.ret_true()
@@ -157,7 +186,11 @@ tf_inst.ret_false(1, "xyz", arg1=7)
 #    - Timing or profiling
 #    - Caching
 #    - ...
-# More info:
+#===============================================================================
+
+
+#===============================================================================
+# SOURCES:
 # - http://docs.python.org/2/reference/datamodel.html#customizing-class-creation
 # - http://www.voidspace.org.uk/python/articles/metaclasses.shtml
 #===============================================================================
