@@ -1,7 +1,8 @@
 #-*- coding: utf-8 -*-
 u'''
-EXAMPLE 2: MRO: super and getattr
+MOD XW: Cooperative super call pattern
 '''
+
 
 # Let's implement a verbose dict intercepting attribs and items access
 class VerboseDict(dict):
@@ -31,8 +32,8 @@ vd = VerboseDict({'a': 1, 'b': 2})
 vd['c'] = 3
 vd.x = 7
 vd.a = 0
-vd.a
-vd
+print vd.a
+print vd
 
 
 #===============================================================================
@@ -101,11 +102,11 @@ vd
 #    - Typically: super(CurrentClass, self).current_method(*current_args, **current_kwargs)
 # - Returns a proxy object that delegates method calls to a parent or sibling class of type.
 #
-# - http://docs.python.org/2/library/functions.html#super 
+# - http://docs.python.org/2/library/functions.html#super
 #===============================================================================
 
 
-# Let's implement verbose dict with super 
+# Let's implement verbose dict with super
 class VerboseDict(dict):
     def __getattribute__(self, name):
         print "__getattribute__", name
@@ -127,6 +128,7 @@ class VerboseDict(dict):
         print "__setattr__", name, value
         return super(VerboseDict, self).__setattr__(name, value)
 
+
 # Let's implement attribs dict with super
 class AttrDict(dict):
     def __getattr__(self, name):
@@ -138,7 +140,7 @@ class AttrDict(dict):
     def __setattr__(self, name, value):
         if name in self:
             # super(AttrDict, self).__setitem__(name, value)
-            # self.__setitem__(name, value)            
+            # self.__setitem__(name, value)
             self[name] = value
         else:
             super(AttrDict, self).__setattr__(name, value)
@@ -154,6 +156,7 @@ class AttrDict(dict):
 class VerboseAttribDict(VerboseDict, AttrDict):
     pass
 
+
 # Let's use this dict
 vd = VerboseAttribDict({'a': 1, 'b': 2})
 vd['c'] = 3
@@ -163,7 +166,7 @@ vd.a
 vd
 
 
-# Option 4: change VerboseDict to inherit from AttribDict --> with super no changes are required 
+# Option 4: change VerboseDict to inherit from AttribDict --> with super no changes are required!
 class VerboseDict(AttrDict):
     def __getattribute__(self, name):
         print "__getattribute__", name
@@ -205,6 +208,7 @@ vd
 
 
 # Let's see in detail how super and MRO work
+
 class A(object):
     def meth(self):
         print type(self), "A's method"
@@ -227,6 +231,7 @@ class D(B, C):
         print type(self), "D's method"
         super(D, self).meth()
 
+
 #==============================================================================
 # We have a diamond inheritance schema:
 #
@@ -244,6 +249,7 @@ d_inst.meth()
 
 
 # Another example
+
 class A2(object):
     def meth(self):
         print type(self), "A2's method"
@@ -265,6 +271,7 @@ class D2(B2):
     def meth(self):
         print type(self), "D2's method"
         super(D2, self).meth()
+
 
 #==============================================================================
 # We have a linear inheritance schema:
@@ -288,6 +295,7 @@ d_inst.meth()
 print D.__mro__
 print D2.__mro__
 
+
 #===============================================================================
 # Let's see it step by step:
 #
@@ -308,6 +316,7 @@ print D2.__mro__
 
 
 # Let's see what happens with attributes (getattr)
+
 class A3(object):
     class_attr = "A3"
 
@@ -315,12 +324,14 @@ class A3(object):
 class B3(A3):
     pass
 
+
 class C3(A3):
     class_attr = "C3"
 
 
 class D3(B3, C3):
     pass
+
 
 #==============================================================================
 # We have a diamond inheritance schema:
@@ -336,7 +347,6 @@ class D3(B3, C3):
 # Let's instantiate D and call the method again
 d_inst = D3()
 d_inst.class_attr
-
 
 
 #===============================================================================
@@ -356,12 +366,13 @@ d_inst.class_attr
 #   \ /
 #    D
 #
-# - With the old (wrong) MRO would be: D, B, object, C, object!!
+# - With the old version (wrong) MRO would be: D, B, object, C, object!!
 # - With the new one it is: D, B, C, object
 #===============================================================================
 
 
 # Let's go back again to our verbose attribute dict...
+
 class Verbose(object):
     def __getattribute__(self, name):
         print "__getattribute__", name
@@ -419,24 +430,24 @@ vd
 VerboseAttribDict.__mro__
 
 
-##===============================================================================
-##===============================================================================
-## TIME TO START WORKING!
-##
-## EXERCISE 2:
-## - Implement all needed changes to let the tests pass. In particular, implement AmazingDict:
-##    - Access keys as attributes only if they already exist
-##    - Lower attributes and key names for query or modification
-##    - Convert attributes or keys datetime values to strings when they are modified
-##    - Print all attributes and keys accesses for query or modification
-## - Check: http://docs.python.org/2/reference/datamodel.html?highlight=__contains__#object.__contains__
-##
-## INSTRUCTIONS:
-## - Go to exercices/exercise_2 and edit exercise_2.py
-## - Change the classes implementations to let tests_2.py pass
-## - Check tests executing nosetests
-##===============================================================================
-##===============================================================================
+# It's time to exercise with super
+
+
+#===============================================================================
+# EXERCISE: pycourse/advanced/exercises/exercises/mod_XW_super/exercise_mod_XW
+#
+# - Implement all needed changes to let the tests pass. In particular, implement AmazingDict:
+#    - Access keys as attributes only if they already exist
+#    - Lower attributes and key names for query or modification
+#    - Convert attributes or keys datetime values to strings when they are modified
+#    - Print all attributes and keys accesses for query or modification
+# - Check: http://docs.python.org/2/reference/datamodel.html?highlight=__contains__#object.__contains__
+#
+# - Run the tests in 'tests_mod_XW.py' executing 'nosetests -v' inside its folder
+#
+# - Check the solution in module 'solution_mod_XW.py'
+#===============================================================================
+
 
 # Solution step 1: implement __contains__ in Lower class
 class Lower(object):
@@ -463,7 +474,7 @@ class Lower(object):
         return super(Lower, self).__contains__(item.lower())
 
 
-# Nothing to do with Attr class implementation
+# Nothing to change in Attr class implementation
 class Attr(object):
     '''Access keys as attributes only if they already exist
     '''
@@ -504,7 +515,8 @@ class Verbose(object):
         print "__setattr__", name, value
         return super(Verbose, self).__setattr__(name, value)
 
-# Nothing to do with DateStr class implementation
+
+# Nothing to change in DateStr class implementation
 from datetime import datetime
 class DateStr(object):
     def __setitem__(self, key, value):
