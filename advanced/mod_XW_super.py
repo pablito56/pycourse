@@ -555,7 +555,7 @@ d3.ID = 1111
 print d3
 
 #===============================================================================
-# MORE INFO:
+# SOURCES:
 # - http://docs.python.org/2/library/functions.html#super
 # - http://www.python.org/download/releases/2.2.3/descrintro/#cooperation
 # - http://www.python.org/download/releases/2.2.3/descrintro/#mro
