@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 u'''
-MOD 06: data model & customization
+MOD 06: data model & customisation
 '''
 
 
@@ -74,26 +74,70 @@ print repr(fract1)
 #    - Python’s approach to operator overloading, allowing classes to define
 #      their own behavior with respect to language operators
 # - Python invokes these methods (if present) when special syntax is executed
-#    - Instatiation and object creation and deletion (__init__, __new__, __del__)
-#    - Representation (__str__, __repr__)
-#    - Rich comparison (__eq__, __ne__, __lt__ , __gt__, __le__, __ge__)
-#    - Numeric operations (__add__, __radd__, __iadd__, __sub__, __mul__...)
-#    - Hashing (use as dict key) and truth value testing (__hash__ and __nonzero__)
-#    - Copying the object (__copy__ and __deepcopy__)
-#    - Attribute access (__getattr__, __setattr__, __delattr__, __getattribute__)
-#    - Container types emulation (__len__, __getitem__, __setitem__, __contains__ ...)
-#    - Slicing (__getslice__ deprecated by __getitem__, __setslice__)
-#    - Iterator protocol (__iter__, __reversed__, next)
-#    - Context managers emulation (__enter__, __exit__)
-#    - Callable objects emulation (__call__)
-#    - Descriptors and slots (__get__, __set__, __delete__, __slots__)
+#
+#    - Instatiation and object creation and deletion
+#        - __init__, __new__, __del__
+#
+#    - Representation
+#        - __str__, __repr__
+#
+#    - Rich comparison
+#        - __eq__, __ne__, __lt__ , __gt__, __le__, __ge__
+#
+#    - Numeric operations
+#        - __add__, __radd__, __iadd__, __sub__, __mul__...
+#
+#    - ...
+#
+#===============================================================================
+
+
+#===============================================================================
+#    - ...
+#
+#    - Hashing (i.e. use as dict key) and truth value testing
+#        - __hash__ and __nonzero__
+#
+#    - Objects copy and deepcopy
+#        - __copy__ and __deepcopy__
+#
+#    - Attribute access
+#        - __getattr__, __setattr__, __delattr__, __getattribute__
+#
+#    - Container types emulation
+#        - __len__, __getitem__, __setitem__, __contains__ ...
+#
+#    - Slicing
+#        - __getslice__ (deprecated by __getitem__), __setslice__
+#
+#    - ...
+#
+#===============================================================================
+
+
+#===============================================================================
+#    - ...
+#
+#    - Iterator protocol
+#        - __iter__, __reversed__, next
+#
+#    - Context managers emulation
+#        - __enter__, __exit__
+#
+#    - Callable objects
+#        - __call__
+#
+#    - Descriptors and slots
+#        - __get__, __set__, __delete__, __slots__
 #
 # - Python applies coercion in some cases, but it has been removed in Py3k
 #
 # - http://docs.python.org/2.7/reference/datamodel.html#basic-customization
 #===============================================================================
 
+
 # Let's see some examples
+
 
 class Coefficients(object):
     """Store a sequence of numeric coefficients
@@ -411,22 +455,27 @@ print it.next()
 #===============================================================================
 
 
-# Time to start practice with classes customisation
+# Time to start practicing with classes customisation
 
 
 #===============================================================================
-# EXERCISE:
+# EXERCISE: advanced/exercises/mod_06_data_model/exercise_mod_06.py
 #
-# - Solve old-style class inheritance issue in CustomOptionParser
 # - Implement slicing and + and - operators in CustomOrderedDict
-# - Modify AttrDict to access the dictionary only if key already exists (otherwise act as normal attributes)
-# - Implement all required methods of Fraction
+#    - __getslice__ is deprecated by __getitem__ passing an slice object
+# - Modify AttrDict to access the dictionary ONLY if key already exists,
+#    otherwise act as with normal attributes
+# - Implement all required methods of Fraction to customise:
+#    - Full rich comparisson with Fractions and other numbers
+#    - + and * operator with Fractions and other numbers
+#    - Index access to numerator and denominator (0 and 1)
+#    - Key access to numerator and denominator ("num" and "den")
+#    - Length (always 2)
 # - http://docs.python.org/2.7/reference/datamodel.html
 #
-# INSTRUCTIONS:
-# - Go to exercices/exercise_1 and edit exercise_1.py
-# - Change the functions and class implementation to let tests_1.py pass
-# - Check tests with nosetests
+# - Run the tests in 'tests_mod_06.py' executing 'nosetests -v' inside its folder
+#
+# - Check the solution in module 'solution_mod_06.py'
 #===============================================================================
 
 

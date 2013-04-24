@@ -1,7 +1,35 @@
+#! /usr/bin/env python
 #-*- coding: utf-8 -*-
-u'''
-Solution exercise 1: old-style vs. new-style, classes customization
-'''
+u"""
+Created on Nov 13, 2012
+
+@author: pablito56
+
+@license: MIT
+
+@contact: pablito56@gmail.com
+
+Module 06 (data model & customisation) exercise: solution
+"""
+#===============================================================================
+# EXERCISE: advanced/exercises/mod_06_data_model/exercise_mod_06.py
+#
+# - Implement slicing and + and - operators in CustomOrderedDict
+#    - __getslice__ is deprecated by __getitem__ passing an slice object
+# - Modify AttrDict to access the dictionary ONLY if key already exists,
+#    otherwise act as with normal attributes
+# - Implement all required methods of Fraction to customise:
+#    - Full rich comparisson with Fractions and other numbers
+#    - + and * operator with Fractions and other numbers
+#    - Index access to numerator and denominator (0 and 1)
+#    - Key access to numerator and denominator ("num" and "den")
+#    - Length (always 2)
+# - http://docs.python.org/2.7/reference/datamodel.html
+#
+# - Run the tests in 'tests_mod_06.py' executing 'nosetests -v' inside its folder
+#
+# - Check the solution in module 'solution_mod_06.py'
+#===============================================================================
 
 
 from collections import OrderedDict
@@ -9,16 +37,22 @@ from collections import OrderedDict
 
 class CustomOrderedDict(OrderedDict):
     def __getitem__(self, key):
+        """Item access or slicing, returns new instance
+        """
         if isinstance(key, slice):
             return self.__class__(self.items()[key])
         return OrderedDict.__getitem__(self, key)
 
     def __add__(self, other):
+        """Overloading of + operator, in place modification returning itself
+        """
         res = self.__class__(self)
         res.update(other)
         return res
 
     def __sub__(self, other):
+        """Overloading of - operator, in place modification returning itself
+        """
         res = self.__class__(self)
         [res.pop(k, None) for k in other]
         return res
@@ -105,7 +139,7 @@ class Fraction(object):
     def __str__(self):
         '''Called by the str() and print to compute the “informal” string representation
         '''
-        return "{0} / {1}".format(self._num, self._den)
+        return "{0}/{1}".format(self._num, self._den)
 
     def __len__(self):
         '''Called to implement the built-in function len()
@@ -153,43 +187,4 @@ class Fraction(object):
         except AttributeError:
             return Fraction(self._num * other, self._den)
 
-
-fract1 = Fraction(5, 2)  # 2.5
-fract2 = Fraction(3, 2)  # 1.5
-fract3 = Fraction(25, 10)  # 2.5
-
-print fract1 != fract3  # 2.5 != 2.5
-print fract1 == fract3  # 2.5 == 2.5
-print fract2 < fract3  # 1.5 < 2.5
-
-# Let's try the other way
-print fract1 >= fract2   # 2.5 >= 1.5
-print fract2 >= fract3  # 1.5 >= 2.5
-
-# Let's try with other types
-print fract1 >= 2  # 2.5 >= 2
-print fract2 == 1.5  # 1.5 == 1.5
-
-# Let's try the other way with other types
-print 2 <= fract1  # 2 <= 2.5
-print 1.5 == fract2   # 1.5 == 1.5
-
-print 10 > fract1  # 10 > 2.5
-print 10 < fract1  # 10 < 2.5
-print fract1 < 10  # 2.5 < 10
-print fract1 > 10  # 2.5 > 10
-
-f1 = Fraction(7, 2)
-print len(f1)
-print f1['num'], "/", f1[1]
-f1[0] = 5
-f1['den'] = 3
-print f1
-
-fract1 = Fraction(5, 3)
-fract2 = Fraction(2, 3)
-print fract1 + fract2
-print fract1 + 5
-print 3 + fract1
-print fract1 * fract2
-print 5 * fract2
+    __rmul__ = __mul__

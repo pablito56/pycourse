@@ -3,8 +3,8 @@ u'''
 Test exercise 0: mutable and immutable types common errors
 '''
 import unittest
-import exercise_1 as source
-# import solution_1 as source
+import exercise_mod_06 as source
+# import solution_mod_06 as source
 
 
 class VerboseTestCase(unittest.TestCase):
@@ -16,18 +16,8 @@ class VerboseTestCase(unittest.TestCase):
         cls.longMessage = True
 
 
-class TestNewStyle(VerboseTestCase):
-    '''Test exercise 1: new-style classes
-    '''
-    def test_old_style_inheritance(self):
-        '''Check inheritance from old-style class as new-style
-        '''
-        custom_parser = source.CustomOptionParser()
-        self.assertEqual(type(custom_parser), custom_parser.__class__, "Type and class difer in CustomOptionParser")
-
-
 class TestCustomOrderedDict(VerboseTestCase):
-    '''Test exercise 1: data model
+    '''Test exercise mod 06 CustomOrderedDict
     '''
     def test_slicing(self):
         '''Check __getitem__ customization (slicing) of CustomOrderedDict
@@ -83,11 +73,10 @@ class TestCustomOrderedDict(VerboseTestCase):
 
 
 class TestAttrDict(VerboseTestCase):
-    '''Test exercise 1: data model and customization of basic type
+    '''Test exercise mod 06 AttrDict
     '''
     def test_setattr_existent(self):
-        '''Check __setattr__ customization of AttrDict
-        It must update a dictionary key only if it exists
+        '''Check __setattr__ customization of AttrDict. It must update a dictionary key only if it exists
         '''
         attr_d = source.AttrDict(zip("aeiou", range(1, 6)))
         attr_d.a = 0
@@ -96,8 +85,7 @@ class TestAttrDict(VerboseTestCase):
         self.assertEqual(attr_d.a, 0, "Wrong attribute assignment in AttrDict")
 
     def test_setattr_new(self):
-        '''Check __setattr__ customization of AttrDict
-        It must update a dictionary key only if it exists
+        '''Check __setattr__ customization of AttrDict. It must update a dictionary key only if it exists
         '''
         attr_d = source.AttrDict(zip("aeiou", range(1, 6)))
         attr_d.f = 6
@@ -106,8 +94,7 @@ class TestAttrDict(VerboseTestCase):
         self.assertEqual(attr_d.f, 6, "Wrong attribute assignment in AttrDict")
 
     def test_delattr_new(self):
-        '''Check __delattr__ customization of AttrDict
-        It must delete a dictionary key only if it exists
+        '''Check __delattr__ customization of AttrDict. It must delete a dictionary key only if it exists
         '''
         attr_d = source.AttrDict(zip("aeiou", range(1, 6)))
         attr_d.f = 6
@@ -116,13 +103,67 @@ class TestAttrDict(VerboseTestCase):
         self.assertTrue('f' not in attr_d.__dict__, "Wrong attribute deletion in AttrDict")
 
     def test_delattr_existent(self):
-        '''Check __delattr__ customization of AttrDict
-        It must delete a dictionary key only if it exists
+        '''Check __delattr__ customization of AttrDict. It must delete a dictionary key only if it exists
         '''
         attr_d = source.AttrDict(zip("aeiou", range(1, 6)))
         del attr_d.a
         self.assertTrue('a' not in attr_d, "Wrong attribute deletion in AttrDict")
         self.assertTrue('a' not in attr_d.__dict__, "Wrong attribute deletion in AttrDict")
+
+
+class TestFraction(VerboseTestCase):
+    """Test exercise mod 06 Fraction
+    """
+    def test_fraction_rich_comparisson(self):
+        """Test fractions rich comparisson operators overloading
+        """
+        fract1 = source.Fraction(5, 2)  # 2.5
+        fract2 = source.Fraction(3, 2)  # 1.5
+        fract3 = source.Fraction(25, 10)  # 2.5
+
+        self.assertFalse(fract1 != fract3)  # 2.5 != 2.5
+        self.assertTrue(fract1 == fract3)  # 2.5 == 2.5
+        self.assertTrue(fract2 < fract3)  # 1.5 < 2.5
+
+        # Let's try the other way
+        self.assertTrue(fract1 >= fract2)   # 2.5 >= 1.5
+        self.assertFalse(fract2 >= fract3)  # 1.5 >= 2.5
+
+        # Let's try with other types
+        self.assertTrue(fract1 >= 2)  # 2.5 >= 2
+        self.assertTrue(fract2 == 1.5)  # 1.5 == 1.5
+
+        # Let's try the other way with other types
+        self.assertTrue(2 <= fract1)  # 2 <= 2.5
+        self.assertTrue(1.5 == fract2)   # 1.5 == 1.5
+
+        self.assertTrue(10 > fract1)  # 10 > 2.5
+        self.assertFalse(10 < fract1)  # 10 < 2.5
+        self.assertTrue(fract1 < 10)  # 2.5 < 10
+        self.assertFalse(fract1 > 10)  # 2.5 > 10
+
+    def test_fraction_math_ops(self):
+        """Test fractions math operators overloading
+        """
+        fract1 = source.Fraction(5, 3)
+        fract2 = source.Fraction(2, 3)
+        self.assertEqual(fract1 + fract2, source.Fraction(7, 3))
+        self.assertEqual(fract1 + 5,  source.Fraction(20, 3))
+        self.assertEqual(3 + fract1, source.Fraction(14, 3))
+        self.assertEqual(fract1 * fract2, source.Fraction(10, 9))
+        self.assertEqual(5 * fract2, source.Fraction(10, 3))
+
+    def test_fraction_item_access(self):
+        """Test fractions math operators overloading
+        """
+        f1 = source.Fraction(7, 2)
+        self.assertEqual(len(f1), 2)
+        self.assertEqual(f1['num'], 7)
+        self.assertEqual(f1[1], 2)
+        f1[0] = 5
+        f1['den'] = 3
+        self.assertEqual(str(f1), "5/3")
+
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
