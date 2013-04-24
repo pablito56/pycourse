@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 u'''
-MOD YZ: creation and instantiation: __new__ and metaclasses
+MOD 10: creation and instantiation: __new__ and metaclasses
 '''
 
 

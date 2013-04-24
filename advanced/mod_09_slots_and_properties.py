@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 u'''
-MOD XY: Slots and properties
+MOD 10: Slots and properties
 '''
 
 
