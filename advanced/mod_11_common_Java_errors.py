@@ -32,3 +32,17 @@ MOD 11: common Java developers errors
 #    - You must understand what you are implementing, that's your work
 #    - "we're all grown-ups here"
 #===============================================================================
+
+
+#===============================================================================
+# - Abuse of type checking
+#    - Duck typing and EAFP (It is Easier to Ask for Forgiveness than Permission)
+#    - Get used to the "uncertainity" of the exact type of your arguments
+#===============================================================================
+
+
+#===============================================================================
+# - Don't forget the Zen of Python
+#===============================================================================
+
+import this
