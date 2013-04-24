@@ -117,6 +117,15 @@ print MyClass.__dict__['a_method'].__get__(None, MyClass)
 #===========================================================================
 
 
+#===============================================================================
+# WARNING!
+# - If you use a class decorator to decorate (class) methods you must implement
+#    the descriptor protocol in your decorator
+#    - Otherwise you will loose the reference to 'self' inside decorated methods
+#        (the instance of the decorated method class)
+#===============================================================================
+
+
 # Let's see another real world example
 
 
