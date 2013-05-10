@@ -45,32 +45,37 @@ Python course structured in 3 big bocks: basic, advanced and utilities
 
 ## UTILITIES BLOCK (6 - 8h)
 
-* Standatd library: useful functions: map, reduce, zip, globals, locals, all, filter…
 * Standatd library: most useful modules
-  * collections
   * ABC?
   * itertools
   * functools
   * contextlibs
-  * datetime + tz
+  * datetime + tz, time
   * sys
   * os
-  * json
-  * inspect
+  * json, ujson
+  * inspect + _getframe
   * cmd
   * logging
-  * Files access: os.path, shutil
-  * Commands execution: 
+  * Files access: os.path, copy2, shutil, mkdir
+  * argparse, configparser
+  * Commands execution: popen
   * Paralelism: thread, multiprocessing, GIL
+  * traceback
   * …
 * Unit testing, mocking (dependency injection vs. mocking abuse)
 * Debugging and profiling: ipdb, timeit, profile & cprofile, plop
-* Packaging and distribution: setuptools and distutils, buildout
+* Packaging and distribution: setuptools and distutils
 * Rremote access: fabric and paramiko
 * 3rd parties:
   * virtualenv
   * Web development: Django, Django rest fwk, Tastypie
   * Asynch processing: gevent and Twisted
   * HTTP requests: requests
-  * DB access: pymongo, python-mysql
+  * DB access: pymongo, redis, python-mysql, SQLAlchemy
   * …
+
+  DONE:
+  * Standatd library: useful functions: map, reduce, zip, globals, locals, all, filter…
+    * collections
+  
