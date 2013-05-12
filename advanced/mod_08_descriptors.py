@@ -103,6 +103,7 @@ print MyClass.__dict__['a_method']
 
 
 # Let's play around with this method
+print MyClass.__dict__['a_method']
 print MyClass.__dict__['a_method'].__get__
 print MyClass.__dict__['a_method'].__get__(inst, MyClass)
 print MyClass.__dict__['a_method'].__get__(None, MyClass)
