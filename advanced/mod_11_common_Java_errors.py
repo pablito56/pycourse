@@ -15,7 +15,7 @@ MOD 11: common Java developers errors
 # - Abuse of @staticmethod and @classmethod
 #    - @staticmethod has no sense. Only justification is organization of code
 #        - You can define functions and attributes directly in modules
-#    - @classmethod only used in decorators. Try to avoid class methods and attributes
+#    - @classmethod only used in constructors. Try to avoid class methods and attributes
 #===============================================================================
 
 

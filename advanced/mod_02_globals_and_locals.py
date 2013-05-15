@@ -110,7 +110,7 @@ print "AFTER func_b:", my_global_var  # Value was changed only in local scope
 
 
 def func_a():
-    print "INSIDE func_a globals:", globals()  # Even 'func_a' appears in globals
+    print "INSIDE func_a globals:", globals().keys()  # Even 'func_a' appears in globals
     print
     print "INSIDE func_a locals:", locals()
     print
@@ -118,20 +118,20 @@ def func_a():
     another_global_var = "AAA"
     print "INSIDE func_a:", another_global_var
     print
-    print "EXITING func_a globals:", globals()  # The value has been updated directly in globals
+    print "EXITING func_a globals:", globals().keys()  # The value has been updated directly in globals
     print
     print "EXITING func_a locals:", locals()  # Locals remains empty
 
 
 def func_b():
-    print "INSIDE func_b globals:", globals()
+    print "INSIDE func_b globals:", globals().keys()
     print
     print "INSIDE func_b locals:", locals()
     print
     another_global_var = "BBB"
     print "INSIDE func_b:", another_global_var
     print
-    print "EXITING func_b globals:", globals()  # The value remains unchanged in globals
+    print "EXITING func_b globals:", globals().keys()  # The value remains unchanged in globals
     print
     print "EXITING func_b locals:", locals()  # Now locals is not empty
 

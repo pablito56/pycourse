@@ -153,6 +153,11 @@ print fibonacci(10)  # Let's try with a bigger number
 #===============================================================================
 
 
+#===============================================================================
+# - How would you memoize any function, not just fibonacci?
+#===============================================================================
+
+
 # Do you remember functions are first class objects? They can be used as arguments or return values...
 # Do you remember we can declare functions inside other functions?
 

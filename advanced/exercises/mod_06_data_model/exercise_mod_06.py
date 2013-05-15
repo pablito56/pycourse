@@ -35,6 +35,19 @@ Module 06 (data model & customisation) exercise: customise CustomOrderedDict, At
 from collections import OrderedDict
 
 
+"""
+>>> cod = CustomOrderedDict()
+>>> cod['item0'] = 0
+>>> cod['item1'] = 1
+>>> cod['item2'] = 2
+>>> cod[0:1]
+CustomOrderedDict([('item0', 0)])
+>>> cod[1:2]
+CustomOrderedDict([('item1', 1)])
+>>> cod[0:2]
+CustomOrderedDict([('item0', 0), ('item1', 1)])
+"""
+
 class CustomOrderedDict(OrderedDict):
     def __getitem__(self, key):
         return OrderedDict.__getitem__(self, key)
