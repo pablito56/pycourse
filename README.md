@@ -40,7 +40,7 @@ Python course structured in 3 big bocks: basic, advanced and utilities
 * 08: Descriptors protocol
 * 09: Slots and properties
 * 10: Constructors and metaclasses
-* 11: Common Java developers errors (getters and setters, abuse of staticmethod and classmethod, single class per module, fear to multiple inheritance, importing...) ?
+* 11: Common Java developers errors
 
 
 ## UTILITIES BLOCK (6 - 8h)
@@ -50,23 +50,23 @@ Python course structured in 3 big bocks: basic, advanced and utilities
   * functools
   * contextlibs
   * datetime + tz, time
-  * sys and os
-  * json (and simplejson and ujson)
+  * System and filesystem access: sys, os, shutil
+  * Json handling (and simplejson and ujson)
   * CLIs: cmd
   * logging and traceback
-  * Filesystem access: os.path, copy2, shutil, mkdir
   * Scripts parametrization: argparse, configparser
   * Commands execution: popen
+  * Regular Expressions
+  * inspect + _getframe
 * 02: DB access: pymongo, redis, python-mysql, SQLAlchemy
 * 03: HTTP requests: urllib, httplib, requests
-* 04: Paralelism: thread, multiprocessing, GIL
+* 04: Paralelism: Threading, GIL, multiprocessing
 * 05: Asynch processing: gevent
 * 06: Web development: Django and Django rest fwk
-* 07: Unit testing and mocking (dependency injection vs. mocking abuse)
-* 08: Debugging and profiling: ipdb, timeit, profile & cprofile, plop
-* 09: Packaging and distribution: setuptools and distutils
+* 07: Unit testing and mocking
+* 08: Debugging and profiling: timeit, profile, ipdb, plop
+* 09: Packaging and distribution: setuptools, distutils, distribute
 * 10: Remote access: fabric and paramiko
-
 
 
 # Second round course content
@@ -86,17 +86,17 @@ Python course structured in 3 big bocks: basic, advanced and utilities
 * 09: List and dict comprehension
 * 10: Functions
 * 11: Classes
-* 12: Mutables vs. immutables
+* 12: Modules and packages
 
 
 ## INTERMEDIATE BLOCK:
-* 01: Functional programming and iterables tools
-* 02: Attributes look up
-* 03: Objects data model customisation
-* 04: Iterators and generators
-* 05: Advanced generators, yield and itertools
-* 06: Context managers and contextlib
-* 07: Modules and packages
+* 01: Mutables vs. immutables
+* 02: Functional programming and iterables tools
+* 03: Attributes look up
+* 04: Objects data model customisation
+* 05: Iterators and generators
+* 06: Advanced generators, yield and itertools
+* 07: Context managers and contextlib
 * 08: Duck typing
 * 09: Way of working
 
@@ -118,19 +118,20 @@ Python course structured in 3 big bocks: basic, advanced and utilities
 
 * 01: Standatd library: most useful modules
   * datetime + tz, time
-  * sys and os
-  * json (and simplejson and ujson)
+  * System and filesystem access: sys, os, shutil
+  * Json handling (and simplejson and ujson)
   * CLIs: cmd
   * logging and traceback
-  * Filesystem access: os.path, copy2, shutil, mkdir
   * Scripts parametrization: argparse, configparser
   * Commands execution: popen
+  * Regular Expressions
+  * inspect + _getframe
 * 02: DB access: pymongo, redis, python-mysql, SQLAlchemy
 * 03: HTTP requests: urllib, httplib, requests
-* 04: Paralelism: thread, multiprocessing, GIL
+* 04: Paralelism: Threading, GIL, multiprocessing
 * 05: Asynch processing: gevent
 * 06: Web development: Django and Django rest fwk
-* 07: Unit testing and mocking (dependency injection vs. mocking abuse)
-* 08: Debugging and profiling: ipdb, timeit, profile & cprofile, plop
-* 09: Packaging and distribution: setuptools and distutils
+* 07: Unit testing and mocking
+* 08: Debugging and profiling: timeit, profile, ipdb, plop
+* 09: Packaging and distribution: setuptools, distutils, distribute
 * 10: Remote access: fabric and paramiko
