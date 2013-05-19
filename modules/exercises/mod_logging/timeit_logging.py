@@ -39,7 +39,7 @@ def manual_interpolation():
 
 
 def manual_formatting():
-    """Execute string formatting manually
+    """Execute string formatting (str.format) manually
     """
     logger.debug("This is a test. Func %s, level %s, num %d" % ("logging_interpolating", "DEBUG", 1234567))
     logger.debug("This is a test. Func %s, level %s, num %d" % ("logging_interpolating", "DEBUG", 1234567 * 2))
