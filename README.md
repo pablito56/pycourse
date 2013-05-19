@@ -1,7 +1,7 @@
 pycourse
 ========
 
-Python course structured in 3 big bocks: basic, advanced and utilities
+Python course structured in 3 big blocks: basic, advanced and utilities
 
 
 # Course content
