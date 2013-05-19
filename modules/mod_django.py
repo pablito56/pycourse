@@ -542,7 +542,45 @@ MIDDLEWARE_CLASSES = (
 #==========================================================================================
 #
 #  10. Django REST Framework
+#       
+#       django plugin than eases the development of Web API 
 #
-#     https://pdihub.hi.inet/TDAF/tdaf-ebooks-python
+#     There is a framework in-house which everyone should follow:
+#        https://pdihub.hi.inet/TDAF/tdaf-ebooks-python
 #
 #==========================================================================================
+
+
+# 1. Request objects
+#       .DATA   - returns the parsed content of the request body
+#               - it supports flexible request parsing. not just form data                
+#       .QUERY_PARAMS
+#               - a more clear way to refer to query params than request.GET
+#
+#  more info:
+#       http://django-rest-framework.org/api-guide/requests.html
+
+
+# 2. Response objects
+#       - return content that can be rendered into multiple content types
+#       - objects are initialised with data, which should consists of native python primitives
+#       - with standard HTTP content negotiation it will be determined how it should render the response
+#
+# more info:
+#       http://django-rest-framework.org/api-guide/responses.html
+
+
+# 3. APIView model
+#       APIView is a class based view which subclasses django's View class
+#           - Requests passed to the handler will be REST's frameworks Requests instances
+#           - Handler methods may return REST framework's Response
+#           - the incoming requests is dispatched to the appropiate get/post/put/delete methods
+
+
+# 4. Serializers
+#       Allow complex data to be converted to native python datatypes
+#       Serializers also provide deserialization, allowing parsed data to be 
+#           converted back into complex types, after first validating the incoming data.
+#       It provides a Serializer class which gives you a powerful, generic way to control 
+#         the output of your responses, as well as a ModelSerializer class which provides a useful 
+#         shortcut for creating serializers that deal with model instances and querysets.
