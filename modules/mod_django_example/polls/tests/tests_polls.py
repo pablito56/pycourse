@@ -2,6 +2,7 @@ import datetime
 from django.utils import timezone
 from django.test import TestCase
 from polls.models import Poll
+from django.core.urlresolvers import reverse
 
 class PollMethodTest(TestCase):
 

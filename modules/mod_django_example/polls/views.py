@@ -13,13 +13,11 @@ class IndexView(generic.ListView):
 
     # ListView has a get_queryset() method we can override. 
     def get_queryset(self):
-    """
-    Return the last five published polls (not including those set to be
-    published in the future).
-    """
-    return Poll.objects.filter(
-        pub_date__lte=timezone.now()
-    ).order_by('-pub_date')[:5]
+        """
+        Return the last five published polls (not including those set to be
+        published in the future).
+        """
+        return Poll.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')[:5]
 
 
 class DetailView(generic.DetailView):
