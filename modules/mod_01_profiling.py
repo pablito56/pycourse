@@ -132,5 +132,7 @@ stats.strip_dirs().sort_stats('calls').print_stats(max_num_lines)
 #===============================================================================
 # SOURCES:
 #  - http://docs.python.org/2/library/timeit.html
+#  - http://pymotw.com/2/timeit/
 #  - http://docs.python.org/2/library/profile.html
+#  - http://pymotw.com/2/profile/
 #===============================================================================
