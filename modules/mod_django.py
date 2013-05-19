@@ -372,10 +372,8 @@ class Choice(models.Model):
 
 # The simplest view
 
-"""
-def vote(request, poll_id):
-    return HttpResponse("You're voting on poll %s." % poll_id)
-"""
+# def vote(request, poll_id):
+#    return HttpResponse("You're voting on poll %s." % poll_id)
 
 
 # for common operations like:
@@ -387,20 +385,18 @@ def vote(request, poll_id):
 # Generic views abstract common patterns to the point where you don’t even need to write Python code to write an app.
 
 
-"""
-class IndexView(generic.ListView):
-    template_name = 'polls/index.html'
-    context_object_name = 'latest_poll_list'
-
-    def get_queryset(self):
-        # Return the last five published polls.
-        return Poll.objects.order_by('-pub_date')[:5]
-
-
-class DetailView(generic.DetailView):
-    model = Poll
-    template_name = 'polls/detail.html'
-"""
+#class IndexView(generic.ListView):
+#    template_name = 'polls/index.html'
+#    context_object_name = 'latest_poll_list'
+#
+#    def get_queryset(self):
+#        # Return the last five published polls.
+#        return Poll.objects.order_by('-pub_date')[:5]
+#
+#
+#class DetailView(generic.DetailView):
+#    model = Poll
+#    template_name = 'polls/detail.html'
 
 
 # We’re using two generic views here: ListView and DetailView. 
