@@ -6,8 +6,8 @@ Mod: gevent module
 
 #==========================================================================================
 #
-#  desc
-#
+#  gevent is a Python networking library that uses greenlet to provide a synchronous 
+#       API on top of libevent event loop.
 #    
 #
 #==========================================================================================
@@ -124,7 +124,6 @@ print 'by requests: %s seconds' % t_by_requests.timeit(number=3)
 print 'by urllib2: %s seconds'%t_by_urllib2.timeit(number=3)
 
 
-
 from gevent import monkey; monkey.patch_all()
 print 'by requests: %s seconds' % t_by_requests.timeit(number=3)
 print 'by urllib2: %s seconds'%t_by_urllib2.timeit(number=3)
@@ -151,3 +150,12 @@ def by_grequests():
 
 t_by_grequests = Timer(stmt=by_grequests)  
 print 'by requests: %s seconds' % t_by_grequests.timeit(number=3)
+
+
+#===============================================================================
+# SOURCES:
+#  - http://www.gevent.org
+#  - https://github.com/kennethreitz/grequests
+#  - http://greenlet.readthedocs.org/en/latest/
+#===============================================================================
+
