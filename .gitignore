@@ -46,3 +46,8 @@ basic/tmp_file.txt
 basic/__init__.py
 .venv
 *.log
+
+# Examples config files
+advanced.ini
+basic.cfg
+conf.ini
