@@ -15,7 +15,9 @@ git+https://github.com/pablito56/pydemo
 pymongo==2.5.1
 readline==6.2.4.1
 requests==1.2.0
+grequests==0.2.0
 simplejson==3.3.0
 ujson==1.30
 wsgiref==0.1.2
 mysql-python==1.2.4
+
