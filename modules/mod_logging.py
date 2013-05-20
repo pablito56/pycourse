@@ -23,6 +23,18 @@ logging.info("This is a %s log trace. Times: %d", "INFO", 2)
 # logging module will execute the interpolation if required
 
 
+# Log exceptions
+try:
+    raise ValueError(7)
+except ValueError, e:
+    print "---"
+    # Use 'exc_info=True' to let logging include current exception traceback
+    logging.warning("Got a ValueError. Exception info:", exc_info=True)
+    print "---"
+    logging.exception("Got a ValueError. Exception info:")  # logging.error + exc_info=True
+    print "---"
+
+
 # logging.basicConfig can take additional arguments:
 logging.basicConfig(filename='app1.log', level=logging.INFO,
                     format="[%(process)d][%(levelname)s] %(asctime)s | %(module)s | %(message)s")
@@ -58,7 +70,7 @@ logger3.debug("This is a DEBUG log trace of module %d", 3)
 #
 #  logger1 | INFO | root.module1
 #  logger2 | WARNING | root.module2
-#  logger3 | DEBUG | root.module2.module3  
+#  logger3 | DEBUG | root.module2.module3
 #
 #==========================================================================================
 
@@ -97,7 +109,7 @@ logger.addHandler(fh)
 #  logger | __name__ | INFO
 #  logger | console1 | DEBUG
 #  logger | console2 | INFO
-#  logger | fh | WARNING  
+#  logger | fh | WARNING
 #
 #==========================================================================================
 
