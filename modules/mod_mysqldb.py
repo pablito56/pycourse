@@ -105,6 +105,7 @@ print cursor.fetchone()
 
 # using a dict cursor to improve working with a queryset
 import MySQLdb.cursors
+conn.commit()
 cursor.close()
 conn.close()
 conn = mysql.connect('localhost', 'user', 'user', 'mod_mysqldb', cursorclass=MySQLdb.cursors.DictCursor)
