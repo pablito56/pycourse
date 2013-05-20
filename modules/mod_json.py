@@ -64,7 +64,7 @@ pprint(json.loads(encoded_json))
 
 
 #===============================================================================
-# Note how dates are decoded as a plain string. You must do the conversion manually
+# Note how dates are decoded as a plain string. You must do the conversion "manually"
 #===============================================================================
 
 
@@ -84,6 +84,15 @@ print repr(json.dumps(data_list, separators=(",", ":")))
 #===============================================================================
 # - Check all accepted parameters in the documentation
 #    - Add custom parsers and handlers (for datetime...)
+#
+#    - Encode dates with custom handler:
+#    http://blog.codevariety.com/2012/01/06/python-serializing-dates-datetime-datetime-into-json/
+#
+#    - Custom decoding with custom 'object_hook':
+#    http://stackoverflow.com/questions/8793448/how-to-convert-to-a-python-datetime-object-with-json-loads
+#
+#    - Decode into OrderedDict using 'object_pairs_hook':
+#    http://docs.python.org/2/library/json.html?highlight=json#json.load
 #
 # - Internally 'json.loads' and 'json.dumps' create a decoder or encoder instance
 #    each time they are called, and this is not efficient
