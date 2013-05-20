@@ -54,6 +54,15 @@ logger3.info("This is an INFO log trace of module %d", 3)
 logger3.debug("This is a DEBUG log trace of module %d", 3)
 
 
+#==========================================================================================
+#
+#  logger1 | INFO | root.module1
+#  logger2 | WARNING | root.module2
+#  logger3 | DEBUG | root.module2.module3  
+#
+#==========================================================================================
+
+
 # You can setup different handlers
 
 
@@ -83,6 +92,16 @@ fh.setFormatter(fmtr3)
 logger.addHandler(fh)
 
 
+#==========================================================================================
+#
+#  logger | __name__ | INFO
+#  logger | console1 | DEBUG
+#  logger | console2 | INFO
+#  logger | fh | WARNING  
+#
+#==========================================================================================
+
+
 # Let's try it
 
 
@@ -95,8 +114,13 @@ logger.info("THIS IS AN INFO TRACE")
 logger.warning("THIS IS A WARNING TRACE")
 
 
+# checking the log file, it only appears warning info, due to stream level
+with open('mod_logging.log') as fp:
+    print fp.read()
+
+
 #===============================================================================
-# - Check logging.config to comnfigure your logs:
+# - Check logging.config to configure your logs:
 #    - logging.config.fileConfig to load setup from a file
 #        http://docs.python.org/2/howto/logging.html#configuring-logging
 #    - logging.config.dictConfig to load setup from a Python dictionary

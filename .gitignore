@@ -45,3 +45,4 @@ nosetests.xml
 basic/tmp_file.txt
 basic/__init__.py
 .venv
+*.log
