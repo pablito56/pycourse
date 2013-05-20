@@ -146,6 +146,7 @@ print repr(ujson.dumps(data_list))  # Always compact output
 # - Its API is similar to json/simplejson interface, but more simple
 #    - No encoder / decoder class (no internal instances)
 #    - No indent or separator parameters
+#    - Encodes datetime objects to seconds from epoch floats
 #===============================================================================
 
 
