@@ -1,13 +1,13 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 u'''
-Mod: mysqldb module 
+Mod: mysqldb module
 '''
 
 
 #==========================================================================================
 #
-#  MySQL-python 
+#  MySQL-python
 #     It is an interface to MySQL that:
 #
 #       - Compliance with Python db API 2.0 [http://www.python.org/dev/peps/pep-0249/]
@@ -27,7 +27,6 @@ Mod: mysqldb module
 # let's connect to our database
 
 import MySQLdb as mysql
-import sys
 conn = mysql.connect('localhost', 'user', 'user', 'mod_mysqldb')
 cursor = conn.cursor()
 
