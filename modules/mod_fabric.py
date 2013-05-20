@@ -109,3 +109,9 @@ def listdir(folder='.'):
     run('ls {0}'.format(folder))
 
 
+#===============================================================================
+# SOURCES:
+#  - http://docs.fabfile.org/en/1.6/
+#  - http://www.lag.net/paramiko/
+#  - https://pdihub.hi.inet/pev/fabric_dynalang
+#===============================================================================
