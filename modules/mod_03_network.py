@@ -55,6 +55,10 @@ from pprint import pprint
 pprint(r.json()["data"]["current_condition"][0])
 
 
+# compare it with using urllib2
+# https://gist.github.com/kennethreitz/973705
+
+
 #===============================================================================
 # - For low level socket operations use 'socket'
 # - Use 'requests' always if possible for HTTP operation
