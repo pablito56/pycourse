@@ -60,7 +60,7 @@ print t.repeat(repeat=3, number=100)
 #    - Provides both command line and programatic interfaces.
 #        - Provides timeit.Timer class
 #
-#    - Useful to comparte performance of different implementations.
+#    - Useful to compare performance of different implementations.
 #    - Remember that it may be affected by other processes in the machine.
 #===============================================================================
 
