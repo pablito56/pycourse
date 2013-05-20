@@ -96,6 +96,29 @@ print now.tzinfo
 #===============================================================================
 
 
+# Let's deal with http timestamps
+gmt = "Fri, 17 May 2013 11:49:45 GMT"
+
+
+# how would you get the epoch time?
+time_obj = time.strptime(gmt, '%a, %d %b %Y %H:%M:%S %Z')
+
+
+# and now...time.mktime()?
+time.mktime(time_obj)
+
+
+# but...
+time.gmtime(time.mktime(time_obj))
+time.gmtime(time.mktime(time_obj))
+
+
+# time.mktime is the inverse function for time.localtime
+# use calendar.timegm for getting the time in epoch
+import calendar
+time.gmtime(calendar.timegm(time_obj))
+
+
 #===============================================================================
 # SOURCES:
 #  - http://docs.python.org/2/library/time.html
