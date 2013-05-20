@@ -5,6 +5,9 @@ Mod: mysqldb module
 '''
 
 
+import MySQLdb as mysql
+
+
 #==========================================================================================
 #
 #  MySQL-python
@@ -26,7 +29,6 @@ Mod: mysqldb module
 
 # let's connect to our database
 
-import MySQLdb as mysql
 conn = mysql.connect('localhost', 'user', 'user', 'mod_mysqldb')
 cursor = conn.cursor()
 
@@ -68,14 +70,14 @@ cursor.execute("INSERT IGNORE INTO writers(Name) VALUES(%s)" % 'Francis Scott Fi
 
 #==========================================================================================
 #
-# WHAT HAS HAPPENED?  
+# WHAT HAS HAPPENED?
 #
 #==========================================================================================
 
 "INSERT IGNORE INTO writers(Name) VALUES(%s)" % 'Francis Scott Fitzgerald'
 
 
-# It is recommend to interpolate sql using the DB API. 
+# It is recommend to interpolate sql using the DB API.
 # It knows how to deal with strings, integers, booleans, None...
 
 
