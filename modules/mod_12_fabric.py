@@ -20,8 +20,8 @@ from fabric.api import parallel, task, serial, hosts
 #===========================================================================
 # EXERCISE:
 # - For each function in this module, execute it with fabric script:
-#    $ fab -f mod_fabric.py host_type -H sysadmin@dev-enabl-py-01
-#    $ fab -f mod_fabric.py host_and_date -H sysadmin@dev-enabl-py-01
+#    $ fab -f mod_12_fabric.py host_type -H team_0@dev-enabl-py-01,team_1@dev-enabl-py-01
+#    $ fab -f mod_12_fabric.py host_and_date -H team_0@dev-enabl-py-01,team_1@dev-enabl-py-01
 #    $ ...
 #===========================================================================
 
