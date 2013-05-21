@@ -11,10 +11,10 @@ MOD: Testing
 #    $ nosetests -sv
 #
 # - You can specify certain packages, modules, classes or tests. From parent folder:
-#    $ nosetests -sv mod_testing
-#    $ nosetests -sv mod_testing.mod_testing
-#    $ nosetests -sv mod_testing.mod_testing:TestMyMathLib
-#    $ nosetests -sv mod_testing.mod_testing:TestMyMathLib.test_sum
+#    $ nosetests -sv mod_11_testing
+#    $ nosetests -sv mod_11_testing.mod_testing
+#    $ nosetests -sv mod_11_testing.mod_testing:TestMyMathLib
+#    $ nosetests -sv mod_11_testing.mod_testing:TestMyMathLib.test_sum
 #===========================================================================
 
 
