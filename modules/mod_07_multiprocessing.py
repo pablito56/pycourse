@@ -41,11 +41,11 @@ def get_weather_3x_mp():
 
 #===========================================================================
 # EXERCISE:
-# - Execute the script 'mod_multiprocessing/mod_mp_requests.py':
-#    $ python mod_multiprocessing/mod_mp_requests.py
+# - Execute the script 'mod_07_multiprocessing/mod_mp_requests.py':
+#    $ python mod_07_multiprocessing/mod_mp_requests.py
 #
-# - Execute the script 'mod_multiprocessing/mod_mp_fibonacci.py':
-#    $ python mod_multiprocessing/mod_mp_fibonacci.py
+# - Execute the script 'mod_07_multiprocessing/mod_mp_fibonacci.py':
+#    $ python mod_07_multiprocessing/mod_mp_fibonacci.py
 #
 # - Compare the results
 #===========================================================================
