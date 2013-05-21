@@ -13,7 +13,7 @@ import MySQLdb as mysql
 #  MySQL-python
 #     It is an interface to MySQL that:
 #
-#       - Compliance with Python db API 2.0 [http://www.python.org/dev/peps/pep-0249/]
+#       - Compliance with Python db API 2.0 ( http://www.python.org/dev/peps/pep-0249/ )
 #       - Thread safety
 #       - Thread-friendliness (threads will not block each other)
 #
