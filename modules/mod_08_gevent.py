@@ -6,9 +6,9 @@ Mod: gevent module
 
 #==========================================================================================
 #
-#  gevent is a Python networking library that uses greenlet to provide a synchronous 
+#  gevent is a Python networking library that uses greenlet to provide a synchronous
 #       API on top of libevent event loop.
-#    
+#
 #
 #==========================================================================================
 
@@ -18,14 +18,14 @@ Mod: gevent module
 #
 #  greenlets
 #
-#   A greenlet is a small independent pseudo-thread. 
-#       Think about it as a small stack of frames; the outermost (bottom) frame is the initial function you called, 
-#       and the innermost frame is the one in which the greenlet is currently paused.  
+#   A greenlet is a small independent pseudo-thread.
+#       Think about it as a small stack of frames; the outermost (bottom) frame is the initial function you called,
+#       and the innermost frame is the one in which the greenlet is currently paused.
 #
-#   You work with greenlets by creating a number of such stacks and jumping execution between them. 
-#   Jumps are never implicit: a greenlet must choose to jump to another greenlet, 
-#   which will cause the former to suspend and the latter to resume where it was suspended. 
-#   Jumping between greenlets is called switching 
+#   You work with greenlets by creating a number of such stacks and jumping execution between them.
+#   Jumps are never implicit: a greenlet must choose to jump to another greenlet,
+#   which will cause the former to suspend and the latter to resume where it was suspended.
+#   Jumping between greenlets is called switching
 #
 #==========================================================================================
 
@@ -57,7 +57,7 @@ gr1.switch()
 #
 #  Gevent: a python networking library with
 #   - fast event loop based on libevent (for 1.0 will be libev)
-#   - using greenlet for lightweight execution units   
+#   - using greenlet for lightweight execution units
 #   - cooperative socket and ssl modules
 #
 #==========================================================================================
@@ -73,14 +73,14 @@ gevent.joinall(jobs, timeout=2)
 
 
 # gevent.spawn
-# The greenlets are spawned by creating a Greenlet instance and calling its start method. 
-# (The spawn() function is a shortcut that does exactly that). 
-gevent.spawn(lambda : 1/0)
+# The greenlets are spawned by creating a Greenlet instance and calling its start method.
+# (The spawn() function is a shortcut that does exactly that).
+gevent.spawn(lambda: 1 / 0)
 
 
-# The start method schedules an event that will switch to the greenlet created, 
-# as soon as the current greenlet gives up control. 
-# If there is more than one active event, they will be executed one by one, 
+# The start method schedules an event that will switch to the greenlet created,
+# as soon as the current greenlet gives up control.
+# If there is more than one active event, they will be executed one by one,
 # in an undefined order.
 
 gevent.sleep(1)
@@ -118,25 +118,29 @@ def by_urllib2():
 
 
 from timeit import Timer
-t_by_requests = Timer(stmt=by_requests) 
-t_by_urllib2 = Timer(stmt=by_urllib2)  
-print 'by requests: %s seconds' % t_by_requests.timeit(number=3)
-print 'by urllib2: %s seconds'%t_by_urllib2.timeit(number=3)
+t_by_requests = Timer(stmt=by_requests)
+t_by_urllib2 = Timer(stmt=by_urllib2)
+print 'by requests: {} seconds'.format(t_by_requests.timeit(number=3))
+print 'by urllib2: {} seconds'.format(t_by_urllib2.timeit(number=3))
 
 
 from gevent import monkey; monkey.patch_all()
-print 'by requests: %s seconds' % t_by_requests.timeit(number=3)
-print 'by urllib2: %s seconds'%t_by_urllib2.timeit(number=3)
+print 'by requests: {} seconds'.format(t_by_requests.timeit(number=3))
+print 'by urllib2: {} seconds'.format(t_by_urllib2.timeit(number=3))
 
 
 #==========================================================================================
 #
 #  Gevent: a python networking library with
 #   - fast event loop based on libevent (for 1.0 will be libev)
-#   - using greenlet for lightweight execution units   
+#   - using greenlet for lightweight execution units
 #   - cooperative socket and ssl modules
-#   - Ability to use standard library and 3rd party modules 
+#   - Ability to use standard library and 3rd party modules
 #       written for standard blocking sockets (gevent.monkey).
+#
+# - There is an initiative to create a standard asynchronous I/O library
+#    integrated in the core for Python 3.4, with its lightweight event loop
+#        - Tulip: http://www.python.org/dev/peps/pep-3156/
 #
 #==========================================================================================
 
@@ -144,11 +148,12 @@ print 'by urllib2: %s seconds'%t_by_urllib2.timeit(number=3)
 # requests it is not what we expected
 import grequests
 
+
 def by_grequests():
     jobs = (grequests.get(x) for x in urls)
     grequests.map(jobs)
 
-t_by_grequests = Timer(stmt=by_grequests)  
+t_by_grequests = Timer(stmt=by_grequests)
 print 'by requests: %s seconds' % t_by_grequests.timeit(number=3)
 
 
@@ -158,4 +163,3 @@ print 'by requests: %s seconds' % t_by_grequests.timeit(number=3)
 #  - https://github.com/kennethreitz/grequests
 #  - http://greenlet.readthedocs.org/en/latest/
 #===============================================================================
-

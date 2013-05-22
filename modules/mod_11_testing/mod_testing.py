@@ -11,10 +11,10 @@ MOD: Testing
 #    $ nosetests -sv
 #
 # - You can specify certain packages, modules, classes or tests. From parent folder:
-#    $ nosetests -sv mod_testing
-#    $ nosetests -sv mod_testing.mod_testing
-#    $ nosetests -sv mod_testing.mod_testing:TestMyMathLib
-#    $ nosetests -sv mod_testing.mod_testing:TestMyMathLib.test_sum
+#    $ nosetests -sv mod_11_testing
+#    $ nosetests -sv mod_11_testing.mod_testing
+#    $ nosetests -sv mod_11_testing.mod_testing:TestMyMathLib
+#    $ nosetests -sv mod_11_testing.mod_testing:TestMyMathLib.test_sum
 #===========================================================================
 
 
@@ -133,7 +133,18 @@ if __name__ == "__main__":
 
 
 #===============================================================================
+# - Regarding mocking, in Python monkey patching classes is trivial. It is really
+#    easy to replace instances methods or modules functions with your own stuff.
+# - To use real full-featured mocks use the 'mock' library:
+#    - http://www.voidspace.org.uk/python/mock/
+#    - It was added to Python standard library in 3.3 as 'unittest.mock'
+#        - http://docs.python.org/3/library/unittest.mock.html
+#===============================================================================
+
+
+#===============================================================================
 # SOURCES:
 #  - http://docs.python.org/2/library/unittest.html
 #  - http://pymotw.com/2/unittest/index.html
+#  - http://www.voidspace.org.uk/python/mock/
 #===============================================================================
