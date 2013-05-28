@@ -4,71 +4,7 @@ pycourse
 Python course structured in 3 big blocks: basic, advanced and utilities
 
 
-# Course content
-
-
-## BASIC BLOCK (6 - 8h)
-
-* 00: What is Python?
-* 01: Python history and versions
-* 02: Tools and environment
-* 03: Numbers
-* 04: Strings
-* 05: Collections
-* 06: Dictionaries
-* 07: Booleans
-* 08: Flow control
-* 09: Functions
-* 10: Iterators, comprehension and generators
-* 11: Functional programming and iterables tools
-* 12: Classes
-* 13: Modules and packages
-* 14: Duck typing
-* 15: Mutables vs. immutables
-* 16: Way of working
-
-
-## ADVANCED BLOCK (6 – 8h)
-
-* 01: Namespaces and scopes
-* 02: Globals and locals and global
-* 03: Decorators
-* 04: Advanced decorators
-* 05: Attributes look up
-* 06: Objects data model customisation
-* 07: Cooperative super call pattern: MRO and super
-* 08: Descriptors protocol
-* 09: Slots and properties
-* 10: Constructors and metaclasses
-* 11: Common Java developers errors
-
-
-## UTILITIES BLOCK (6 - 8h)
-
-* 01: Profiling and timing
-* 02: Standatd library: most useful modules
-  * 02_1: itertools
-  * 02_2: functools
-  * 02_3: contextlibs
-  * 02_4: datetime
-  * 02_5: system: System and filesystem access
-  * 02_6: json
-  * 02_7: logging
-  * 02_8: argparse: command line arguments
-  * 02_8: configparser: configuration files
-* 03: network: socket, urllib, httplib, requests
-* 04: mysqldb
-* 05: pymongo
-* 06: Threading and GIL
-* 07: multiprocessing
-* 08: gevent
-* 09: Django
-* 10: Debugging
-* 11: Unit testing
-* 12: Fabric: remote access
-
-
-# Second round course content
+# Course contents
 
 
 ## BASIC BLOCK:
@@ -134,3 +70,71 @@ Python course structured in 3 big blocks: basic, advanced and utilities
 * 08: Debugging and profiling: timeit, profile, ipdb, plop
 * 09: Packaging and distribution: setuptools, distutils, distribute
 * 10: Remote access: fabric and paramiko
+
+
+
+
+# Old course content (first round in 3 sessions)
+
+
+## BASIC BLOCK (6 - 8h)
+
+* 00: What is Python?
+* 01: Python history and versions
+* 02: Tools and environment
+* 03: Numbers
+* 04: Strings
+* 05: Collections
+* 06: Dictionaries
+* 07: Booleans
+* 08: Flow control
+* 09: Functions
+* 10: Iterators, comprehension and generators
+* 11: Functional programming and iterables tools
+* 12: Classes
+* 13: Modules and packages
+* 14: Duck typing
+* 15: Mutables vs. immutables
+* 16: Way of working
+
+
+## ADVANCED BLOCK (6 – 8h)
+
+* 01: Namespaces and scopes
+* 02: Globals and locals and global
+* 03: Decorators
+* 04: Advanced decorators
+* 05: Attributes look up
+* 06: Objects data model customisation
+* 07: Cooperative super call pattern: MRO and super
+* 08: Descriptors protocol
+* 09: Slots and properties
+* 10: Constructors and metaclasses
+* 11: Common Java developers errors
+
+
+## UTILITIES BLOCK (6 - 8h)
+
+* 01: Profiling and timing
+* 02: Standatd library: most useful modules
+  * 02_1: itertools
+  * 02_2: functools
+  * 02_3: contextlibs
+  * 02_4: datetime
+  * 02_5: system: System and filesystem access
+  * 02_6: json
+  * 02_7: logging
+  * 02_8: argparse: command line arguments
+  * 02_8: configparser: configuration files
+* 03: network: socket, urllib, httplib, requests
+* 04: mysqldb
+* 05: pymongo
+* 06: Threading and GIL
+* 07: multiprocessing
+* 08: gevent
+* 09: Django
+* 10: Debugging
+* 11: Unit testing
+* 12: Fabric: remote access
+
+

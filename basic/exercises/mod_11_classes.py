@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 u'''
-Exercises MOD 12: Classes
+Exercises MOD 11: Classes
 '''
 
 

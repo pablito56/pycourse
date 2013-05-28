@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 u'''
-MOD 09: Functions
+MOD 10: Functions
 '''
 
 # Let's declare a function

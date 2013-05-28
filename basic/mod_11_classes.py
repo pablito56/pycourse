@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 u'''
-MOD 12: Classes
+MOD 11: Classes
 '''
 
 
@@ -283,8 +283,8 @@ print Eggs.cls_method     # Now it is bounded to the subclass
 # ===============================================================================
 # TIME TO START WORKING:
 #   - http://www.itmaybeahack.com/book/python-2.6/html/p03/p03c03_patterns.html#state
-#   - how would you implement such a game?
-#   - open basic/exercises/mod_XX_classes.py and implement it in there
+#   - How would you implement such a game?
+#   - open basic/exercises/mod_11_classes.py and implement it in there
 # ===============================================================================
 
 

@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 u'''
-MOD 16: Way of working: next steps
+MOD 09: Way of working: next steps
 '''
 
 #===============================================================================
