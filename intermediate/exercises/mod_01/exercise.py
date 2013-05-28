@@ -1,17 +1,15 @@
 #-*- coding: utf-8 -*-
 u'''
-Solution MOD 15: mutable and immutable types common errors
+MOD 01: mutable and immutable types common errors
 '''
 
 
-# Multiple assignment of mutables
 def split_even_odd(numbers):
     '''Split incoming numbers iterable in two lists with even and odd numbers
     :param numbers: iterable with numbers
     :return (even, odd) lists with corresponding values
     '''
-    even = []
-    odd = []
+    even = odd = []
     for num in numbers:
         if num % 2:
             odd.append(num)
@@ -20,16 +18,11 @@ def split_even_odd(numbers):
     return even, odd
 
 
-# Mutable as class attribute
 class NumbersList(object):
     '''Class which handles even and odd numbers lists
     '''
-    even = None
-    odd = None
-
-    def __init__(self):
-        self.even = []
-        self.odd = []
+    even = []
+    odd = []
 
     def append_number(self, num):
         '''Add a number to its corresponding list (even or odd)
@@ -40,16 +33,11 @@ class NumbersList(object):
             self.even.append(num)
 
 
-# Mutable as function default value
-def update_even_odd(numbers, even=None, odd=None):
+def update_even_odd(numbers, even=[], odd=[]):
     '''Update incoming even and odd numbers lists with corresponding values of numbers iterable
     :param numbers: iterable with numbers
     :return (even, odd) lists with corresponding values
     '''
-    if even is None:
-        even = []
-    if odd is None:
-        odd = []
     for num in numbers:
         if num % 2:
             odd.append(num)
