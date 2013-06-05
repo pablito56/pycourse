@@ -11,7 +11,7 @@ MOD 02: global, globals and locals
 # EXERCISE: pycourse/advanced/exercises/exercises/mod_02_globals_and_locals/exercise_mod_02
 #
 # - Modify our simple in-memory cache:
-#     - Add a method to clear the cache content
+#     - Add a method to clear the cache content (don't use dict.clear())
 #
 # - Check the documentation
 #

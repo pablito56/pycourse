@@ -30,7 +30,7 @@ None
 # EXERCISE:
 #
 # - Modify our simple in-memory cache:
-#     - Add a method to clear the cache content
+#     - Add a method to clear the cache content (don't use dict.clear())
 #
 # - Check the documentation
 #
