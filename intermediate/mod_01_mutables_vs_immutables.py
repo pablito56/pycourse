@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 u'''
-MOD 15: mutables vs. immutables, deep copy
+MOD 01: mutables vs. immutables, deep copy
 '''
 
 
@@ -222,11 +222,11 @@ print test_list
 ##===============================================================================
 ## TIME TO START WORKING!
 ##
-## EXERCISE MOD 15:
+## EXERCISE MOD 01:
 ## - Solve common mutable / immutable types usage errors
 ##
 ## INSTRUCTIONS:
-## - Go to exercices/mod_15 and edit exercise.py
+## - Go to exercices/mod_01 and edit exercise.py
 ## - Change the functions and class implementation to let tests.py pass
 ## - Check tests with nosetests (if you have them)
 ##===============================================================================
