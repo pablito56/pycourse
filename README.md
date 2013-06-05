@@ -9,7 +9,7 @@ In addition, the last block covers the most useful Python's standard library or 
 
 # Usage
 
-All the course content is written down in Python scripts, designed to be executed with [pydemo](https://github.com/pablito56/pydemo pydemo GitHub repository):
+All the course content is written down in Python scripts, designed to be executed with [pydemo](https://github.com/pablito56/pydemo "pydemo GitHub repository"):
 ```shell
 me@my_laptop:~/workspace/pycourse $ cd basic/
 me@my_laptop:~/workspace/pycourse/basic $ pydemo mod_00_what_is_Python.py
