@@ -1,7 +1,48 @@
 pycourse
 ========
 
-Python course structured in 3 big blocks: basic, advanced and utilities
+Python course structured in 4 big blocks: basic, intermediate, advanced and utilities.
+
+It starts from the very beginning, explaining what is Python and its basic data types and structures, and ends explaining advanced language features such as descriptors or metaclasses.
+In addition, the last block covers the most useful Python's standard library or 3rd party modules and utilities. 
+
+
+# Usage
+
+All the course content is written down in Python scripts, designed to be executed with [pydemo](https://github.com/pablito56/pydemo pydemo GitHub repository):
+```shell
+me@my_laptop:~/workspace/pycourse $ cd basic/
+me@my_laptop:~/workspace/pycourse/basic $ pydemo mod_00_what_is_Python.py
+Loaded 1 files, 7 code blocks
+Python 2.7.2 (default, Oct 11 2012, 20:14:37)
+[GCC 4.2.1 Compatible Apple Clang 4.0 (tags/Apple/clang-418.0.60)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+(DemoHistoryConsole)
+>>>
+#-*- coding: utf-8 -*-
+'''
+MOD 00: What is Python?
+'''
+
+'\nMOD 00: What is Python?\n'
+>>>
+#===============================================================================
+# EXERCISE: Execute the following command:
+#     $ python -c "import this"
+#===============================================================================
+
+>>>
+#===============================================================================
+# From official website ( http://www.python.org/ ):
+#
+#     Python is a programming language that lets you work more quickly and integrate
+#     your systems more effectively. You can learn to use Python and see almost
+#     immediate gains in productivity and lower maintenance costs.
+#
+#===============================================================================
+
+>>>
+```
 
 
 # Course contents
