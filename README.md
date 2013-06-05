@@ -135,5 +135,3 @@ Python course structured in 3 big blocks: basic, advanced and utilities
 * 11: Testing
 * 12: Remote access: fabric and paramiko
 * 13: Packaging and distribution: distribute
-
-
