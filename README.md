@@ -1,10 +1,10 @@
 pycourse
 ========
 
-**DISCLAIMER:** Initially the course was planned in 3 sessions of 8 hours, and it was imparted internally at our company 3 times.
-However, based on the feedback of the attendees, currently (still WIP) it is being split into 4 sessions of around 8 hours.
-This way, some modules content is being enlarged, more exercises are being added and more time to solved the exercises will be allocated.
-You can find the old 3-sessions version in this tag: https://github.com/pablito56/pycourse/tree/v1.0_FirstRound
+> **DISCLAIMER:** Initially the course was planned in 3 sessions of 8 hours, and it was imparted internally at our company 3 times.
+> However, based on the feedback of the attendees, currently (still WIP) it is being split into 4 sessions of around 8 hours.
+> This way, some modules content is being enlarged, more exercises are being added and more time to solved the exercises will be allocated.
+> You can find the old 3-sessions version in this tag: https://github.com/pablito56/pycourse/tree/v1.0_FirstRound
  
 
 Python course structured in 4 big blocks: basic, intermediate, advanced and utilities.
