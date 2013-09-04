@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 u'''
-Mod: Iterator Tools
+Mod 06: Iterator Tools
 '''
 
 

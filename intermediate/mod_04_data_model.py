@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 u'''
-MOD 06: data model & customisation
+MOD 04: data model & customisation
 '''
 
 
