@@ -196,7 +196,7 @@ print 4 * c1
 #===============================================================================
 # - You don't have to define all the possible methods, Python can try to call the opposite
 #    - But you should do it to be compatible with other types!!
-# - Remember that Python 2.X will try to coerce, but this behaviour has been removed in Py3k
+# - Remember that Python 2.X could try to coerce, but this behaviour has been removed in Py3k
 # - It's up to you to implement compatibility with other types
 #
 # More info on numeric and comparisson operators:

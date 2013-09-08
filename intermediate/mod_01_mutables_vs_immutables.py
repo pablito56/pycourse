@@ -193,9 +193,9 @@ def list_changer(input_list):
     input_list[0] = 10
 
     input_list = range(1, 10)
-    print(input_list)
+    print input_list
     input_list[0] = 10
-    print(input_list)
+    print input_list
 
 test_list = [5, 5, 5]
 list_changer(test_list)
