@@ -9,7 +9,7 @@ def split_even_odd(numbers):
     :param numbers: iterable with numbers
     :return (even, odd) lists with corresponding values
     '''
-    even = odd = [] 
+    even = odd = []
     for num in numbers:
         if num % 2:
             odd.append(num)
@@ -35,7 +35,7 @@ class NumbersList(object):
             self.even.append(num)
 
 
-def update_even_odd(numbers, even=[], odd =[]):
+def update_even_odd(numbers, even=[], odd=[]):
     '''Update incoming even and odd numbers lists with corresponding values of numbers iterable.
     When no even or odd are provided, a default value is used.
     :param numbers: iterable with numbers

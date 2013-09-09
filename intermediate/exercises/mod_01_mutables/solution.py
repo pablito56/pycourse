@@ -40,7 +40,7 @@ class NumbersList(object):
             self.even.append(num)
 
 
-# Mutable as function default value (function default values are evaluated in defining scope!)
+# Mutable as function default value (function default values are evaluated at import time!)
 def update_even_odd(numbers, even=None, odd=None):
     '''Update incoming even and odd numbers lists with corresponding values of numbers iterable
     :param numbers: iterable with numbers

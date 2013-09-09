@@ -175,7 +175,7 @@ print result1, 'vs', result2
 # - Multiple assignment
 #    - The same applies with shallow copy or constructor by copy
 # - Class attributes
-# - Functions parameters default value (created in defining scope)
+# - Functions parameters default value (created at import time)
 #===============================================================================
 
 
@@ -215,8 +215,8 @@ print test_list
 #    - The same applies with shallow copy or constructor by copy
 # - Class attributes
 # - Functions parameters default value
-# - In-place modifications of function's mutable parameters 
-#   - when expecting in-place modifications of function's mutable parameters, consider name binding 
+# - In-place modifications of function's mutable parameters
+#   - when expecting in-place modifications of function's mutable parameters, consider name binding
 #===============================================================================
 
 
@@ -347,7 +347,7 @@ print update_even_odd(range(100, 111))
 a = {"1": [1, 2, 3]}
 b = a
 c = a.copy()
-print "@a:",id(a), "@b:",id(b),"@c:",id(c)
+print "@a:", id(a), "@b:", id(b), "@c:", id(c)
 print id(a['1']) == id(c['1'])
 print id(a['1']) == id(b['1'])
 print a, b, c
