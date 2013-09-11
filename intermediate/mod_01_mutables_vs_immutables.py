@@ -49,6 +49,8 @@ print id(list_inst_1), 'vs.', id(list_inst_2)
 # - Objects whose value is unchangeable once they are created are called immutable (numbers, strings, tuples)
 # - Mutable types allow in-place modifications (append in a list, pop in a dictionary...)
 # - Immutable types values may be reused by the interpreter (so their id is the same)
+# - id is guaranteed to be unique and constant during the lifecycle of an object
+# - To check the type of an object, use the builtin function isinstance
 #===============================================================================
 
 
@@ -173,7 +175,7 @@ print result1, 'vs', result2
 # - Multiple assignment
 #    - The same applies with shallow copy or constructor by copy
 # - Class attributes
-# - Functions parameters default value
+# - Functions parameters default value (created at import time)
 #===============================================================================
 
 
@@ -188,7 +190,7 @@ print get_middle_item(input)
 print input
 
 
-# name binding with immutables might lead to error
+# name binding with mutables might lead to error
 def list_changer(input_list):
     input_list[0] = 10
 
@@ -213,8 +215,8 @@ print test_list
 #    - The same applies with shallow copy or constructor by copy
 # - Class attributes
 # - Functions parameters default value
-# - In-place modifications of function's mutable parameters 
-#   - when expecting in-place modifications of function's mutable parameters, consider name binding 
+# - In-place modifications of function's mutable parameters
+#   - when expecting in-place modifications of function's mutable parameters, consider name binding
 #===============================================================================
 
 
@@ -341,6 +343,34 @@ print update_even_odd(range(100, 111))
 # - In-place modifications of function's mutable parameters --> Avoid it. Keep in mind what you are doing
 #===============================================================================
 
+# Reference assignment and copy:
+a = {"1": [1, 2, 3]}
+b = a
+c = a.copy()
+print "@a:", id(a), "@b:", id(b), "@c:", id(c)
+print id(a['1']) == id(c['1'])
+print id(a['1']) == id(b['1'])
+print a, b, c
+
+# b is a reference to a (they point to the same object)
+# c is a shallow copy of a: they are isolated but points to the same object
+# lets change keys
+b["1"].append(4)
+c["1"].append(4444)
+
+# What do you expect to be in a and c:
+# a={"1": [1, 2, 3, 4]}
+# c={"1": [1, 2, 3, 4444]}
+
+print a, c
+
+# But what if we add new keys to c:
+c["2"] = "new_key"
+print a, b, c
+
+# Changing c does not change a (they share the reference to the object value)
+c.pop("1")
+print a, b, c
 
 # And, what about deep copy?
 

@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 u'''
-MOD 05: Attribute look up
+MOD 03: Attribute look up
 '''
 
 

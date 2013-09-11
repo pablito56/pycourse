@@ -6,6 +6,8 @@ MOD 02: Functional programming and iterables tools
 #===============================================================================
 # - Standard library provides low level heavily optimized functions for functional
 #   programming and iterables and sequences manipulation tools
+# - Small introduction to functional programming in:
+#   http://docs.python.org/2/howto/functional.html
 #===============================================================================
 
 
