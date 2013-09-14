@@ -97,7 +97,7 @@ MOD 00: What is Python?
 * 10: Common Java developers errors
 
 
-## UTILITIES BLOCK:
+## MODULES BLOCK:
 
 * 01: Profiling and timing: profile, cprofile, timeit, plop
 * 02: Standatd library: most useful modules
