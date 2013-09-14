@@ -1,18 +1,10 @@
 #! /usr/bin/env python
 #-*- coding: utf-8 -*-
 u"""
-Created on Nov 13, 2012
-
-@author: pablito56
-
-@license: MIT
-
-@contact: pablito56@gmail.com
-
 Module 06 (data model & customisation) exercise: solution
 """
 #===============================================================================
-# EXERCISE: advanced/exercises/mod_06_data_model/exercise_mod_06.py
+# EXERCISE: advanced/exercises/mod_04_data_model/exercise_mod_04.py
 #
 # - Implement slicing and + and - operators in CustomOrderedDict
 #    - __getslice__ is deprecated by __getitem__ passing an slice object
@@ -26,9 +18,9 @@ Module 06 (data model & customisation) exercise: solution
 #    - Length (always 2)
 # - http://docs.python.org/2.7/reference/datamodel.html
 #
-# - Run the tests in 'tests_mod_06.py' executing 'nosetests -v' inside its folder
+# - Run the tests in 'tests_mod_04.py' executing 'nosetests -v' inside its folder
 #
-# - Check the solution in module 'solution_mod_06.py'
+# - Check the solution in module 'solution_mod_04.py'
 #===============================================================================
 
 
