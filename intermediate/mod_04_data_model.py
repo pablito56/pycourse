@@ -205,57 +205,6 @@ print 4 * c1
 #===============================================================================
 
 
-# Let's implement a custom context manager
-
-
-class TriFile(object):
-    """Context manager to handle three files opened at the same time
-    """
-    def __init__(self, file1, file2, file3):
-        self.file1 = file1
-        self.file2 = file2
-        self.file3 = file3
-
-    def __enter__(self):
-        """Enter the runtime context related to this object
-        """
-        print "CALLED __enter__"
-        self.f1 = open(self.file1, "a")
-        self.f2 = open(self.file2, "a")
-        self.f3 = open(self.file3, "a")
-        return self.f1, self.f2, self.f3
-
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        """Exit the runtime context related to this object
-        Parameters describe the exception that caused the
-        context to be exited or None.
-        """
-        print "CALLED __exit__", exc_type, exc_val, exc_tb
-        self.f1.close()
-        self.f2.close()
-        self.f3.close()
-        return True      # If we return True exceptions are not propagated
-
-
-# Let's try our context manager
-
-
-with TriFile("test_file1.txt", "test_file2.txt", "test_file3.txt") as tri_file_tuple:
-    f1, f2, f3 = tri_file_tuple
-    f1.write("Hello f1!\n")
-    f2.write("Hello f2!\n")
-    f3.write("Hello f3!\n")
-
-    raise TypeError  # Let's make it raise an exception on purpose
-
-
-#===============================================================================
-# More info on context managers:
-# - http://docs.python.org/2.7/reference/datamodel.html#with-statement-context-managers
-# - http://docs.python.org/2.7/library/stdtypes.html#typecontextmanager
-#===============================================================================
-
-
 # Let's customize dicts attribute access
 
 
@@ -459,7 +408,7 @@ print it.next()
 
 
 #===============================================================================
-# EXERCISE: advanced/exercises/mod_06_data_model/exercise_mod_06.py
+# EXERCISE: advanced/exercises/mod_04_data_model/exercise_mod_04.py
 #
 # - Implement slicing and + and - operators in CustomOrderedDict
 #    - __getslice__ is deprecated by __getitem__ passing an slice object
@@ -473,9 +422,9 @@ print it.next()
 #    - Length (always 2)
 # - http://docs.python.org/2.7/reference/datamodel.html
 #
-# - Run the tests in 'tests_mod_06.py' executing 'nosetests -v' inside its folder
+# - Run the tests in 'tests_mod_04.py' executing 'nosetests -v' inside its folder
 #
-# - Check the solution in module 'solution_mod_06.py'
+# - Check the solution in module 'solution_mod_04.py'
 #===============================================================================
 
 

@@ -3,8 +3,8 @@ u'''
 Test exercise 0: mutable and immutable types common errors
 '''
 import unittest
-import exercise_mod_06 as source
-# import solution_mod_06 as source
+import exercise_mod_04 as source
+# import solution_mod_04 as source
 
 
 class VerboseTestCase(unittest.TestCase):
@@ -49,8 +49,10 @@ class TestCustomOrderedDict(VerboseTestCase):
         # CustomOrderedDict([('a', 'AA'), ('e', 'E'), ('i', 'II'), ('o', 'O'), ('u', 'U'), ('x', 'XX'), ('y', 'Y')])
         #=======================================================================
         self.assertEqual(vowels + letters, expected, "Wrong addition in CustomOrderedDict (list)")
-        self.assertEqual(vowels + source.CustomOrderedDict(letters), expected, "Wrong addition in CustomOrderedDict (CustomOrderedDict)")
-        self.assertEqual(vowels, source.CustomOrderedDict(zip("aeiou", "AEIOU")), "Wrong addition in CustomOrderedDict (modified self)")
+        self.assertEqual(vowels + source.CustomOrderedDict(letters), expected,
+                         "Wrong addition in CustomOrderedDict (CustomOrderedDict)")
+        self.assertEqual(vowels, source.CustomOrderedDict(zip("aeiou", "AEIOU")),
+                         "Wrong addition in CustomOrderedDict (modified self)")
 
     def test_substraction(self):
         '''Check __sub__ customization of CustomOrderedDict
@@ -69,7 +71,8 @@ class TestCustomOrderedDict(VerboseTestCase):
         #=======================================================================
         self.assertEqual(vowels - letters, expected, "Wrong substraction in CustomOrderedDict (list)")
         self.assertEqual(vowels - letters_cod, expected, "Wrong substraction in CustomOrderedDict (CustomOrderedDict)")
-        self.assertEqual(vowels, source.CustomOrderedDict(zip("aeiou", "AEIOU")), "Wrong substraction in CustomOrderedDict (modified self)")
+        self.assertEqual(vowels, source.CustomOrderedDict(zip("aeiou", "AEIOU")),
+                         "Wrong substraction in CustomOrderedDict (modified self)")
 
 
 class TestAttrDict(VerboseTestCase):
