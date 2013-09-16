@@ -8,8 +8,9 @@ MOD 09: Way of working: next steps
 #
 #    - pip is used to list, search, install, upgrade and uninstall packages from
 #      PyPi, GitHub, or other VCSs
-#    - easy_install is a simple installer from PyPi. It comes with setuptools or distribute
-#    - distribute is a fork of setuptools. The latter is not compatible with Py3k.
+#    - easy_install is a simple installer from PyPi. It comes with setuptools 
+#    - setuptools has recently merged distribute, which was a fork of setuptools. 
+#       this versions is Py3k compatible.
 #      Both are a library to build, package and install Python projects.
 #        - A new packaging system is being implemented integrated in the std lib
 #
