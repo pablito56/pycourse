@@ -8,7 +8,7 @@ Mod 06: Iterator Tools
 #===============================================================================
 # itertools - Functions creating iterator for efficient looping
 #
-#   - The module standardizs a core of set of fast, memory efficient tools that 
+#   - The module standarizes a core set of fast, memory efficient tools that
 #       are useful themselves or in combinations
 #
 #===============================================================================
