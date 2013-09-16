@@ -13,12 +13,7 @@ def sum_chars_text(text):
             >>> ord(c)
             99
     '''
-    total = 0 
-    for i in text:
-        total += ord(i)
-    return total
-    #sum(bytearray(text))
-    #sum(map(ord, text))
+    pass
 
 
 def reverse_text_by_word(text):
@@ -27,7 +22,7 @@ def reverse_text_by_word(text):
         >>> reverse_text_by_word('Sparse is better than dense.')
         'dense. than better is Sparse'
     '''
-    return ' '.join(text.split()[::-1])
+    pass
 
 
 def remove_identation_multiline_string(text):
@@ -37,7 +32,7 @@ def remove_identation_multiline_string(text):
                                                   Flat is better than nested.""")
         "Complex is better than complicated. Flat is better than nested."
     '''
-    ' '.join(map(strip, text.splitlines()))
+    pass
 
 
 def join_str_unicode(*items):
@@ -46,16 +41,7 @@ def join_str_unicode(*items):
         >>> print join_str_unicode(u'el señor', 'de los anillos')
         'el señor de los anillos'
     '''
-    return_str = []
-    for i in items:
-        print i
-        if isinstance(i, unicode):
-            i = i.encode('utf-8')
-        return_str.append(i)
-    return ' '.join(return_str)
-
-        
-
+    pass
 
 
 class ModStringTestCase(unittest.TestCase):
@@ -79,7 +65,7 @@ class ModStringTestCase(unittest.TestCase):
 
     def test_join_str_and_unicode(self):
         items = ('el señor', u'de los anillos')
-        assert join_str_unicode(*items) == 'el se\xc3\xb1or de los anillos'
+        assert join_str_unicode(items) == 'el se\xc3\xb1or de los anillos'
 
 
 if __name__ == '__main__':

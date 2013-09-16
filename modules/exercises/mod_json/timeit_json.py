@@ -100,34 +100,34 @@ def json_w_instance():
 def simplejson_no_instance():
     """Execute 3 times encoding and decoding wih simplejson (no instance created)
     """
-    enc1 = simplejson.loads(ENCODED)
-    enc2 = simplejson.loads(ENCODED)
-    enc3 = simplejson.loads(ENCODED)
-    dec1 = simplejson.dumps(DATA)
-    dec2 = simplejson.dumps(DATA)
-    dec3 = simplejson.dumps(DATA)
+    enc1 = json.loads(ENCODED)
+    enc2 = json.loads(ENCODED)
+    enc3 = json.loads(ENCODED)
+    dec1 = json.dumps(DATA)
+    dec2 = json.dumps(DATA)
+    dec3 = json.dumps(DATA)
 
 
 def simplejson_w_instance():
     """Execute 3 times encoding and decoding wih simplejson creating instances
     """
-    enc1 = simplejson.loads(ENCODED)
-    enc2 = simplejson.loads(ENCODED)
-    enc3 = simplejson.loads(ENCODED)
-    dec1 = simplejson.dumps(DATA)
-    dec2 = simplejson.dumps(DATA)
-    dec3 = simplejson.dumps(DATA)
+    enc1 = json.loads(ENCODED)
+    enc2 = json.loads(ENCODED)
+    enc3 = json.loads(ENCODED)
+    dec1 = json.dumps(DATA)
+    dec2 = json.dumps(DATA)
+    dec3 = json.dumps(DATA)
 
 
 def ujson_no_instance():
     """Execute 3 times encoding and decoding wih ujson
     """
-    enc1 = ujson.loads(ENCODED)
-    enc2 = ujson.loads(ENCODED)
-    enc3 = ujson.loads(ENCODED)
-    dec1 = ujson.dumps(DATA)
-    dec2 = ujson.dumps(DATA)
-    dec3 = ujson.dumps(DATA)
+    enc1 = json.loads(ENCODED)
+    enc2 = json.loads(ENCODED)
+    enc3 = json.loads(ENCODED)
+    dec1 = json.dumps(DATA)
+    dec2 = json.dumps(DATA)
+    dec3 = json.dumps(DATA)
 
 
 def timeit_json():
@@ -136,12 +136,22 @@ def timeit_json():
     t_json_no_inst = timeit.timeit(json_no_instance, number=num_times)
     print "TIMING JSON NO INSTANCE ({} times): {:.5f}".format(num_times, t_json_no_inst)
 
+    t_json_w_inst = timeit.timeit(json_w_instance, number=num_times)
+    print "TIMING JSON WITH INSTANCE ({} times): {:.5f}".format(num_times, t_json_w_inst)
+
     t_simplejson_no_inst = timeit.timeit(simplejson_no_instance, number=num_times)
     print "TIMING SIMPLEJSON NO INSTANCE ({} times): {:.5f}".format(num_times, t_simplejson_no_inst)
+
+    t_simplejson_w_inst = timeit.timeit(simplejson_w_instance, number=num_times)
+    print "TIMING SIMPLEJSON WITH INSTANCE ({} times): {:.5f}".format(num_times, t_simplejson_w_inst)
 
     t_ujson_no_inst = timeit.timeit(ujson_no_instance, number=num_times)
     print "TIMING UJSON NO INSTANCE ({} times): {:.5f}".format(num_times, t_ujson_no_inst)
 
+    assert t_json_no_inst > t_json_w_inst
+    assert t_simplejson_no_inst > t_simplejson_w_inst
+    assert t_json_w_inst > t_ujson_no_inst + MIN_DIFFERENCE
+    assert t_simplejson_w_inst > t_ujson_no_inst + MIN_DIFFERENCE
 
 
 if __name__ == '__main__':

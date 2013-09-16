@@ -21,7 +21,7 @@ REQS_FILE = "requirements.txt"
 
 
 if env.hosts == []:
-    if env.user in ('sergisj', 'pev') and not getattr(env, 'password', None):
+    if env.user == 'pev' and not getattr(env, 'password', None):
         env.user = 'sysadmin'
         env.password = 'sysadmin'
     env.hosts = ['dev-enabl-py-01']
