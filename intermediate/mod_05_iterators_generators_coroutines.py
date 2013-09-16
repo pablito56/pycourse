@@ -287,7 +287,7 @@ def read_stripped_file_lines(f):
 
 
 def split_lines_in_words(lines_to_split):
-    """Generator which splits incoming iterator's lines into words
+    """Generator which splits incoming iterable's lines into words
     """
     for line in lines_to_split:
         for word in line.split():
@@ -295,7 +295,7 @@ def split_lines_in_words(lines_to_split):
 
 
 def filter_words_first_upper(words_to_filter):
-    """Generator which filters incoming iterator's words
+    """Generator which filters incoming iterable's words
         so its first letter must be uppercase
     """
     for word in words_to_filter:
@@ -304,7 +304,7 @@ def filter_words_first_upper(words_to_filter):
 
 
 def write_words_to_file(f, words):
-    """Function to write incoming iterator's words as lines in a file
+    """Function to write incoming iterable's words as lines in a file
     """
     for out_word in words:
         print ">> Writing word '{}'\n".format(out_word)
