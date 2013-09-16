@@ -15,6 +15,7 @@ def minimum(a, b):
         >>> minimum(8, 5)
         5
         """
+    min(a, b)
     # your code here
 
 
@@ -28,6 +29,7 @@ def maximum3(a, b, c):
     	>>> maximum3(2, 13, 5)
         13
     """
+    max(a,b,c)
     # your code here
 
 
@@ -41,6 +43,8 @@ def istrcmp(s1, s2):
     	>>> istrcmp("foo", "Bar")
         False
     """
+    return s1.lower() == s2.lower()
+
     # your code here
 
 
@@ -54,7 +58,7 @@ def unique(values):
         >>> unique([1, 2, 1, 3, 4, 2])
         [1, 2, 3, 4]
     """
-    # your code here
+    list(set(values))
 
 
 def isort(names):
@@ -63,5 +67,5 @@ def isort(names):
         >>> isort(['BOB', 'ALICE', 'dave', 'charlie'])
         ['ALICE', 'BOB', 'charlie', 'dave']
     """
-    # your code here
+    names.sort(key=lambda x: x[1])
 
