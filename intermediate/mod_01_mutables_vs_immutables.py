@@ -536,7 +536,7 @@ print spam
 #    - Function 'deepcopy' for deep copies
 #        - Recursive, this is, slow
 # - Some standard library data types also have constructor by copy (shallow)
-# - You can define how your custom classes are copied or deepcopied (see Intermedite Block)
+# - You can define how your custom classes are copied or deepcopied (see Intermediate Block)
 #===============================================================================
 
 
