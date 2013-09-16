@@ -451,6 +451,95 @@ print update_even_odd(range(100, 111))
 # - In-place modification of function's mutable arguments --> Avoid it. Keep in mind what you are doing
 #===============================================================================
 
+
+# Let's try to copy an object
+
+dict_inst = {"a": [1, 2, 3]}
+assign_copy = dict_inst         # Copy by assignment
+method_copy = dict_inst.copy()  # Alternative constructor by copy
+print dict_inst
+print assign_copy
+print method_copy
+
+print "@dict_inst:  ", id(dict_inst)
+print "@assign_copy:", id(assign_copy)
+print "@method_copy:", id(method_copy)
+
+# assign_copy is a reference to dict_inst: they point to the same object
+# method_copy is a shallow copy of dict_inst: they are different objects
+
+# lets change their content
+assign_copy["a"].append(4)
+method_copy["a"].append(4444)
+
+# What do you expect to be inside dict_inst and method_copy?
+# dict_inst = {"1": [1, 2, 3, 4]}
+# method_copy = {"1": [1, 2, 3, 4444]}
+
+print dict_inst
+print method_copy
+
+print id(dict_inst['a']) == id(assign_copy['a'])
+print id(dict_inst['a']) == id(method_copy['a'])
+
+# They are different objects but they contain (point to) the same list thanks to shallow copy
+
+# But what if we add new keys to method_copy?
+method_copy["b"] = "new_key"
+print dict_inst
+print assign_copy
+print method_copy
+
+# Changing method_copy content does not change dict_inst
+method_copy.pop("a")
+print dict_inst
+print assign_copy
+print method_copy
+
+
+# And, what about deep copy?
+
+
+spam = [1, 2, 3]
+eggs = {"spam": spam}
+
+import copy
+eggs_shallow_copy = copy.copy(eggs)
+eggs_deep_copy = copy.deepcopy(eggs)
+print eggs_shallow_copy
+print eggs_deep_copy
+
+print "@eggs:             ", id(eggs)
+print "@eggs_shallow_copy:", id(eggs_shallow_copy)
+print "@eggs_deep_copy:   ", id(eggs_deep_copy)
+
+print "@spam:        ", id(spam)
+print "@eggs['spam']:", id(eggs["spam"])
+
+print "@eggs_shallow_copy['spam']:", id(eggs_shallow_copy["spam"])
+print "@eggs_deep_copy['spam']:   ", id(eggs_deep_copy["spam"])
+
+eggs_shallow_copy["spam"].append("it has to appear in 'eggs' and 'spam'")
+print eggs_shallow_copy["spam"]
+
+eggs_deep_copy["spam"].append("shouldn't appear in 'eggs' or 'spam'")
+print eggs_deep_copy["spam"]
+
+print eggs["spam"]
+print spam
+
+
+#===============================================================================
+# - Assignment does not copy an object, just copies its reference
+# - Use 'copy' to perform copies on demand:
+#    - Function 'copy' for shallow copies
+#    - Function 'deepcopy' for deep copies
+#        - Recursive, this is, slow
+# - Some standard library data types also have constructor by copy (shallow)
+# - You can define how your custom classes are copied or deepcopied (see Intermedite Block)
+#===============================================================================
+
+
 #===============================================================================
 # SOURCES:
 # - http://docs.python.org/2.7/reference/datamodel.html#objects-values-and-types
