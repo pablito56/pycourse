@@ -4,77 +4,113 @@ MOD 01: mutables vs. immutables, deep copy
 '''
 
 
-# Let's instantiate a string and check its id, type and value
+# Let's instantiate a string and check its identity, type and value
 str_inst = 'abcd'
-print id(str_inst)
-print type(str_inst)
-print str_inst
+print "identity:", id(str_inst)
+print "type:", type(str_inst)
+print "value:", str_inst
+
+# Let's use the 'is' operator
+print str_inst is 'abcd'
 
 
-# Let's compare the ids of two bool values
-bool_inst_1 = True
-bool_inst_2 = True
-print bool_inst_1 is bool_inst_2
-print bool_inst_1 is True
+# What happened here?
+
+
+# Let's compare the ids of two int values
+int_inst_1 = 7
+int_inst_2 = 7
+print int_inst_1 is int_inst_2
+print int_inst_1 is 7
+print id(int_inst_1), 'vs.', id(int_inst_2)
+
+
+# Why both have the same id?
 
 
 #===============================================================================
 # - Every object has an identity (its address up to now), a type and a value
-# - Use 'id' and 'is' to retrieve or compare the id of an object
-# - The interpreter may reuse values!
+# - Both id and type are unchangeable
+# - Use 'id' function to retrieve the id of an object
+# - Use 'type' function to retrieve the type of an object
+#    - Remeber to be Pythonic (Duck Typing, EAFP...)
+# - Use 'is' operator to compare the id of two objects
+# - The interpreter may reuse objects binding them to different labels
 #===============================================================================
 
 
 # Let's do the same with lists
 lst_inst = []
 print lst_inst is []
+print id(lst_inst), 'vs.', id([])
 
 
-# WTF!? Let's try again with ints
-int_inst_1 = 7
-int_inst_2 = 7
-print id(int_inst_1), 'vs.', id(int_inst_2)
+# What!? Let's try again with bools
+bool_inst_1 = True
+bool_inst_2 = True
+print id(bool_inst_1), 'vs.', id(bool_inst_2)
 
-# Ok. Let's try again with other types
+# Ok. Let's try with other types
 none_inst = None
 print id(none_inst), 'vs.', id(None)
+
+# 'None' is a constant and is the only accepted value of types.NoneType
 
 list_inst_1 = []
 list_inst_2 = []
 print id(list_inst_1), 'vs.', id(list_inst_2)
 
 
+# Why it does not work with lists?
+
+
 #===============================================================================
-# - Objects whose value can change are said to be mutable (dicts, lists)
-# - Objects whose value is unchangeable once they are created are called immutable (numbers, strings, tuples)
+# - Objects whose value can change are said to be mutable
+#    - dicts, lists, sets
+# - Objects whose value is unchangeable once they are created are called immutable
+#    - numbers, strings, tuples, NoneType, boolean
 # - Mutable types allow in-place modifications (append in a list, pop in a dictionary...)
-# - Immutable types values may be reused by the interpreter (so their id is the same)
-# - id is guaranteed to be unique and constant during the lifecycle of an object
-# - To check the type of an object, use the builtin function isinstance
+# - Immutable types instances may be reused by the interpreter (so their id is the same)
 #===============================================================================
 
 
-# Let's check how immutable values are reused
+# Let's check how immutables are reused
 sevens = [7, 7, 7, 7, 7]
 print map(id, sevens)
-abcs = ["abc", "abc", "abc", "abc", "abc"]
-print map(id, abcs)
-tuples = [(), (), ()]
-print map(id, tuples)
-lists = [[], [], []]
-print map(id, lists)
+
+abcds = ["abcd", "abcd", "abcd", "abcd", "abcd"]
+print map(id, abcds)
+
+empty_tuples = [(), (), ()]
+print map(id, empty_tuples)
+
+empty_lists = [[], [], []]
+print map(id, empty_lists)
+
+empty_dicts = [{}, {}, {}]
+print map(id, empty_dicts)
+
+seven_tuples = [(7,), (7,), (7,)]
+print map(id, seven_tuples)
 
 
-# Let's change a string value (reassign!)
+# Best effort: it is not possible to reuse absolutely everything
+
+
+# Let's change a string value
 str_inst = 'instance value'
 print str_inst, '@', id(str_inst)
+
+# Reassign
 str_inst = str_inst + ' updated'
 print str_inst, '@', id(str_inst)
 
 
-# Let's change a list content (in-place modification!)
+# Let's change a list content
 lst_inst = ['instance', 'value']
 print lst_inst, '@', id(lst_inst)
+
+# In-place modification
 lst_inst.append('updated')
 print lst_inst, '@', id(lst_inst)
 
@@ -88,17 +124,19 @@ print lst_inst, '@', id(lst_inst)
 
 # Now let's play with dicts
 dict1 = {(1, 2): "1, 2", (3, 4): "3, 4"}
+
 dict2 = {[1, 2]: "1, 2", [3, 4]: "3, 4"}
 
 
 #===============================================================================
-# - Mutable types are not stable, so they can not be used as dict keys
+# - Mutable types are not stable, so they can not be hashed
 #===============================================================================
 
 
 #===============================================================================
 # WARNING!
 # - Mutable and immutable types behavior differences can lead to some common errors!!
+#    - Though sometimes it is the desired behaviour
 #===============================================================================
 
 
@@ -114,26 +152,76 @@ print "intA:", intA, '@', id(intA)
 print "intB:", intB, '@', id(intB)
 
 
+# Notice how we are binding a new value (intA + 1) to the same label (intA)
+
+
 # Ok. Multiple assignment with lists (mutable)
 lstA = lstB = []
 print "lstA:", lstA, '@', id(lstA)
 print "lstB:", lstB, '@', id(lstB)
 
 
-# Let's modify one of the lists
+# Let's modify (in-place) one of the lists
 lstA.extend([1, 2, 3])
+
+# What do you expect to be lstB?
+
 print "lstA:", lstA, '@', id(lstA)
 print "lstB:", lstB, '@', id(lstB)
 
 
 #===============================================================================
 # Mutable and immutable types common errors:
+#
+# - Multiple assignments
+#===============================================================================
+
+
+# Name binding or shallow copy with mutables might lead to errors too
+initial_list = [2, 3, 5]
+
+new_list = initial_list
+for idx in range(len(new_list)):
+    new_list[idx] = new_list[idx] ** 2
+
+print "new_list:", new_list
+
+# What do you expect to be initial_list?
+
+print "initial_list:", initial_list
+
+
+# And the same happens with constructor by copy
+initial_dict = {"ones": [1, 1, 1], "twos": [2, 2, 2]}
+
+upper_dict = dict(initial_dict)
+for key in upper_dict:
+    upper_dict[key.upper()] = upper_dict.pop(key)
+
+print "upper_dict:", upper_dict
+
+# What do you expect to be initial_dict?
+
+print "initial_dict:", initial_dict
+
+# Looks good
+
+upper_dict["TWOS"].append(7)
+
+# And now?
+
+print "initial_dict:", initial_dict
+
+
+#===============================================================================
+# Mutable and immutable types common errors:
+#
 # - Multiple assignments
 #    - The same applies with shallow copy or constructor by copy
 #===============================================================================
 
 
-# Use mutable types as class attributes
+# Use of mutable types as class attributes
 class MutablesClass(object):
     list_inst = []
     int_inst = 0
@@ -143,80 +231,94 @@ inst_A = MutablesClass()
 inst_B = MutablesClass()
 
 
-# Let's change one of the instances and check the other instance values
+# Let's change one of the instances
 inst_A.int_inst += 1
 inst_A.list_inst.extend([5, 7, 9])
+print "inst_A.int_inst:", inst_A.int_inst
+print "inst_A.list_inst:", inst_A.list_inst
+
+# What do you expect to have inst_B?
+
 print "inst_B.int_inst:", inst_B.int_inst
 print "inst_B.list_inst:", inst_B.list_inst
+
 print inst_A.list_inst is inst_B.list_inst
 
+print MutablesClass.list_inst
 
-#===============================================================================
-# Mutable and immutable types common errors:
-# - Multiple assignment
-# - Class attributes
-#===============================================================================
-
-
-# Let's create a function which returns a modified list
-def add_to_list(item, lst=[]):
-    lst.append(item)
-    return lst
-
-# Let's call this function twice
-result1 = add_to_list(1)
-result2 = add_to_list(2)
-print result1 is result2
-print result1, 'vs', result2
+# Class arguments are stored in the class and created on import time
 
 
 #===============================================================================
 # Mutable and immutable types common errors:
+#
 # - Multiple assignment
 #    - The same applies with shallow copy or constructor by copy
+#
 # - Class attributes
-# - Functions parameters default value (created at import time)
 #===============================================================================
 
 
-# Let's create a function which accidentally modifies input parameters
+# Let's implement a function to add the power of a number to a list
+def add_power_to_list(item, powers_lst=[]):
+    powers_lst.append(item ** 2)
+    return powers_lst
+
+# Let's call this function
+result1 = add_power_to_list(2)
+print result1
+
+# Let's call the function again with a different argument
+result2 = add_power_to_list(3)
+
+# What do you expect to be result2?
+
+print result1, 'vs', result2
+print result1 is result2
+
+print add_power_to_list.func_defaults
+
+# Functions default values are stored in the function object and created on import time
+
+
+#===============================================================================
+# Mutable and immutable types common errors:
+#
+# - Multiple assignment
+#    - The same applies with shallow copy or constructor by copy
+#
+# - Class attributes
+#
+# - Functions arguments default value
+#===============================================================================
+
+
+# Let's create a function which returns the middle value of a list
 def get_middle_item(input_lst):
     return input_lst.pop(len(input_lst) / 2)
 
 # Let's call this function
-input = range(1, 6)
-print input
-print get_middle_item(input)
-print input
+input_lst = range(1, 6)
+print input_lst
 
+print get_middle_item(input_lst)
 
-# name binding with mutables might lead to error
-def list_changer(input_list):
-    input_list[0] = 10
+# What do you expect to be input_lst?
 
-    input_list = range(1, 10)
-    print input_list
-    input_list[0] = 10
-    print input_list
-
-test_list = [5, 5, 5]
-list_changer(test_list)
-
-# what do you expect to be test_list?
-# >>> [10, 1, 2, 3, 4, 5, 6, 7, 8, ,9]
-# >>> [10, 5, 5]
-
-print test_list
+print input_lst
 
 
 #===============================================================================
 # Mutable and immutable types common errors:
+#
 # - Multiple assignment
 #    - The same applies with shallow copy or constructor by copy
+#
 # - Class attributes
-# - Functions parameters default value
-# - In-place modifications of function's mutable parameters
-#   - when expecting in-place modifications of function's mutable parameters, consider name binding
+#
+# - Functions arguments default value
+#
+# - In-place modification of function's mutable arguments
 #===============================================================================
 
 
@@ -224,13 +326,13 @@ print test_list
 ##===============================================================================
 ## TIME TO START WORKING!
 ##
-## EXERCISE MOD 01:
+## EXERCISE 1:
 ## - Solve common mutable / immutable types usage errors
 ##
 ## INSTRUCTIONS:
-## - Go to exercices/mod_01 and edit exercise.py
-## - Change the functions and class implementation to let tests.py pass
-## - Check tests with nosetests (if you have them)
+## - Go to exercises/exercise_1 and edit exercise_1.py
+## - Change the functions and class implementation to let tests_1.py pass
+## - Check tests executing 'nosetests -sv'
 ##===============================================================================
 ##===============================================================================
 
@@ -296,8 +398,10 @@ class NumbersList(object):
 
 num_lst_A = NumbersList()
 num_lst_A.append_number(7)
+
 num_lst_B = NumbersList()
-print num_lst_B.even, num_lst_B.odd
+print "num_lst_B.even:", num_lst_B.even
+print "num_lst_B.odd:", num_lst_B.odd
 
 
 # Wrong mutable as function default value
@@ -336,68 +440,103 @@ print update_even_odd(range(100, 111))
 
 #===============================================================================
 # To sum up, mutable and immutable types common errors and solution:
+#
 # - Multiple assignment --> Avoid multiple assignment of mutable types
 #    - The same applies with shallow copy or constructor by copy --> Use copy.deepcopy
+#
 # - Class attributes --> Instantiate in the __init__
-# - Functions parameters default value --> Use None as default value and instantiate inside the function
-# - In-place modifications of function's mutable parameters --> Avoid it. Keep in mind what you are doing
+#
+# - Functions arguments default value --> Use None as default value and instantiate inside the function
+#
+# - In-place modification of function's mutable arguments --> Avoid it. Keep in mind what you are doing
 #===============================================================================
 
-# Reference assignment and copy:
-a = {"1": [1, 2, 3]}
-b = a
-c = a.copy()
-print "@a:", id(a), "@b:", id(b), "@c:", id(c)
-print id(a['1']) == id(c['1'])
-print id(a['1']) == id(b['1'])
-print a, b, c
 
-# b is a reference to a (they point to the same object)
-# c is a shallow copy of a: they are isolated but points to the same object
-# lets change keys
-b["1"].append(4)
-c["1"].append(4444)
+# Let's try to copy an object
 
-# What do you expect to be in a and c:
-# a={"1": [1, 2, 3, 4]}
-# c={"1": [1, 2, 3, 4444]}
+dict_inst = {"a": [1, 2, 3]}
+assign_copy = dict_inst         # Copy by assignment
+method_copy = dict_inst.copy()  # Alternative constructor by copy
+print dict_inst
+print assign_copy
+print method_copy
 
-print a, c
+print "@dict_inst:  ", id(dict_inst)
+print "@assign_copy:", id(assign_copy)
+print "@method_copy:", id(method_copy)
 
-# But what if we add new keys to c:
-c["2"] = "new_key"
-print a, b, c
+# assign_copy is a reference to dict_inst: they point to the same object
+# method_copy is a shallow copy of dict_inst: they are different objects
 
-# Changing c does not change a (they share the reference to the object value)
-c.pop("1")
-print a, b, c
+# lets change their content
+assign_copy["a"].append(4)
+method_copy["a"].append(4444)
+
+# What do you expect to be inside dict_inst and method_copy?
+# dict_inst = {"1": [1, 2, 3, 4]}
+# method_copy = {"1": [1, 2, 3, 4444]}
+
+print dict_inst
+print method_copy
+
+print id(dict_inst['a']) == id(assign_copy['a'])
+print id(dict_inst['a']) == id(method_copy['a'])
+
+# They are different objects but they contain (point to) the same list thanks to shallow copy
+
+# But what if we add new keys to method_copy?
+method_copy["b"] = "new_key"
+print dict_inst
+print assign_copy
+print method_copy
+
+# Changing method_copy content does not change dict_inst
+method_copy.pop("a")
+print dict_inst
+print assign_copy
+print method_copy
+
 
 # And, what about deep copy?
+
 
 spam = [1, 2, 3]
 eggs = {"spam": spam}
 
 import copy
-fooo = copy.deepcopy(eggs)
+eggs_shallow_copy = copy.copy(eggs)
+eggs_deep_copy = copy.deepcopy(eggs)
+print eggs_shallow_copy
+print eggs_deep_copy
 
-print id(spam)
-print id(eggs["spam"])
+print "@eggs:             ", id(eggs)
+print "@eggs_shallow_copy:", id(eggs_shallow_copy)
+print "@eggs_deep_copy:   ", id(eggs_deep_copy)
 
-print id(fooo["spam"])
+print "@spam:        ", id(spam)
+print "@eggs['spam']:", id(eggs["spam"])
 
-fooo["spam"].append("shouldn't appear in 'eggs' or 'spam'")
-print fooo["spam"]
+print "@eggs_shallow_copy['spam']:", id(eggs_shallow_copy["spam"])
+print "@eggs_deep_copy['spam']:   ", id(eggs_deep_copy["spam"])
+
+eggs_shallow_copy["spam"].append("it has to appear in 'eggs' and 'spam'")
+print eggs_shallow_copy["spam"]
+
+eggs_deep_copy["spam"].append("shouldn't appear in 'eggs' or 'spam'")
+print eggs_deep_copy["spam"]
 
 print eggs["spam"]
 print spam
 
 
 #===============================================================================
+# - Assignment does not copy an object, just copies its reference
 # - Use 'copy' to perform copies on demand:
 #    - Function 'copy' for shallow copies
 #    - Function 'deepcopy' for deep copies
 #        - Recursive, this is, slow
-# - You can define how your custom classes are copied or deepcopied (see Advanced Block)
+# - Some standard library data types also have constructor by copy (shallow)
+# - You can define how your custom classes are copied or deepcopied (see Intermediate Block)
 #===============================================================================
 
 
@@ -406,4 +545,5 @@ print spam
 # - http://docs.python.org/2.7/reference/datamodel.html#objects-values-and-types
 # - http://docs.python.org/2/reference/executionmodel.html#naming-and-binding
 # - http://docs.python.org/2/library/copy.html#copy.deepcopy
+# - http://www.pythontutor.com/visualize.html
 #===============================================================================
