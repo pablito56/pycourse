@@ -177,7 +177,7 @@ print "lstB:", lstB, '@', id(lstB)
 #===============================================================================
 
 
-# Name binding or shallow copy with immutables might lead to error too
+# Name binding or shallow copy with mutables might lead to errors too
 initial_list = [2, 3, 5]
 
 new_list = initial_list
