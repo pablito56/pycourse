@@ -326,7 +326,7 @@ print input_lst
 ##===============================================================================
 ## TIME TO START WORKING!
 ##
-## EXERCISE 1:
+## EXERCISE MOD 01:
 ## - Solve common mutable / immutable types usage errors
 ##
 ## INSTRUCTIONS:
