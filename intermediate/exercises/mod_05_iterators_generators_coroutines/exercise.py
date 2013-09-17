@@ -27,15 +27,15 @@ def repeat_items(sequence, num_times=2):
         yield None
 
 
-def zip_generator(*sequences):
+def izip(*sequences):
     '''Return tuples with one element of each sequence
         It returns as many pairs as the shortest sequence
         The same than std lib zip function
 
-    >>> list(zip_generator([1, 2, 3], ['a', 'b', 'c']))
+    >>> list(izip([1, 2, 3], ['a', 'b', 'c']))
     [[1, 'a'], [2, 'b'], [3, 'c']]
 
-    >>> list(zip_generator([1, 2, 3], ['a', 'b', 'c', 'd']))
+    >>> list(izip([1, 2, 3], ['a', 'b', 'c', 'd']))
     [[1, 'a'], [2, 'b'], [3, 'c']]
 
     :param sequences: two or more sequences to loop over
