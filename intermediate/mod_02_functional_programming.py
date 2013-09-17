@@ -220,9 +220,17 @@ print range(0)
 print range(0, 0)
 print range(0, 10, -2)   # Wrong values generate an empty list
 
+# There is also xrange
+
+print xrange(0, 10, 2)
+print list(xrange(0, 10, 2))  # It is a generator, no resources waste, no list created
+
 #==============================================================================
 # range
 #    - http://docs.python.org/2/library/functions.html#range
+#
+# xrange
+#    - http://docs.python.org/2/library/functions.html#xrange
 #==============================================================================
 
 
@@ -259,11 +267,27 @@ print sorted(spam, cmp=lambda x, y: len(x) - len(y))  # Alternatively you may pr
 
 spam = [2, 3, 1, 5, 4]
 print reversed(spam)    # Returns an iterator. Only works with sequences, collections which have index access
+print list(reversed(spam))
 
 #===============================================================================
 # reversed
 #     - http://docs.python.org/2/library/functions.html#reversed
 #===============================================================================
+
+
+##===============================================================================
+##===============================================================================
+## TIME TO START WORKING!
+##
+## EXERCISE 2:
+## - Using functional and sequences manipulation     tools implement the required functions
+##
+## INSTRUCTIONS:
+## - Go to exercises/mod_02_functional_programming and edit exercise.py
+## - Change the functions and class implementation to let tests.py pass
+## - Check tests executing 'nosetests -sv' or 'python tests.py -v'
+##===============================================================================
+##===============================================================================
 
 
 #===============================================================================
