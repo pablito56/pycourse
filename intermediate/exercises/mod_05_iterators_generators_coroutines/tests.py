@@ -157,6 +157,27 @@ class TestMerge(VerboseTestCase):
         self.assertEqual(list(source.merge(sequence_1, sequence_2, sequence_3)), expected)
 
 
+class FlattenList(VerboseTestCase):
+    '''Test mod 05 flatetn exercise
+    '''
+
+    def test_flatten(self):
+        '''Test flatten of several lists works
+        '''
+        self.assertEquals(list(source.flatten([])), [])
+        self.assertEquals(list(source.flatten([[]])), [])
+        self.assertEquals(list(source.flatten([0])), [0])
+        self.assertEquals(list(source.flatten([0, [1]])), [0, 1])
+
+        self.assertEquals(list(source.flatten([0, [1, [3]]])), [0, 1, 3])
+
+        L = [0, 1, [2, 3], 4, [5]]
+        import copy
+        M = copy.deepcopy(L)
+        self.assertTrue(list(source.flatten(L)) == [0, 1, 2, 3, 4, 5])
+        self.assertTrue(L == M)
+
+
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
     unittest.main()
