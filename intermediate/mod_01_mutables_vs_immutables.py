@@ -330,9 +330,9 @@ print input_lst
 ## - Solve common mutable / immutable types usage errors
 ##
 ## INSTRUCTIONS:
-## - Go to exercises/exercise_1 and edit exercise_1.py
-## - Change the functions and class implementation to let tests_1.py pass
-## - Check tests executing 'nosetests -sv'
+## - Go to exercises/mod_01_mutables and edit exercise.py
+## - Change the functions and class implementation to let tests.py pass
+## - Check tests executing 'nosetests -sv' or 'python tests.py -v'
 ##===============================================================================
 ##===============================================================================
 
