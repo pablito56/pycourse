@@ -277,9 +277,9 @@ print list(reversed(spam))
 
 ##===============================================================================
 ##===============================================================================
-## TIME TO START WORKING!
+## TIME TO PRACTICE!
 ##
-## EXERCISE 2:
+## EXERCISE MOD 02:
 ## - Using functional and sequences manipulation     tools implement the required functions
 ##
 ## INSTRUCTIONS:

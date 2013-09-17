@@ -366,6 +366,21 @@ for word in filtered_words:
 f.close()
 
 
+##===============================================================================
+##===============================================================================
+## TIME TO PRACTICE!
+##
+## EXERCISE MOD 05:
+## - Implement the required generators / coroutines
+##
+## INSTRUCTIONS:
+## - Go to exercises/mod_05_iterators_generators_coroutines and edit exercise.py
+## - Change the functions and class implementation to let tests.py pass
+## - Check tests executing 'nosetests -sv' or 'python tests.py -v'
+##===============================================================================
+##===============================================================================
+
+
 #===============================================================================
 # SOURCES:
 #  - http://docs.python.org/2/tutorial/classes.html#iterators
