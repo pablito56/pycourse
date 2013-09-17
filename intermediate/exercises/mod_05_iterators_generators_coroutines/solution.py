@@ -77,3 +77,23 @@ def merge(*sequences):
         for it in its_to_remove:
             # If we modify the list inside the loop we may skip items
             iterators.remove(it)
+
+
+def flatten(L):
+    '''flatten the input list of lists to a flattened list
+
+    >>>list(flatten([1, 2, [3]])
+    [1, 2, 3]
+
+    >>>list(flatten([1, 2, [3, 4], [[5]])
+    [1, 2, ,3 ,4 ,5]
+
+    :param L: list of lists
+    :returns: generator with flattened list
+    '''
+    if isinstance(L, list):
+        for e in L:
+            for item in flatten(e):
+                yield item
+    else:
+        yield L
