@@ -4,7 +4,7 @@ MOD 05: Iterators, generators and coroutines
 '''
 import unittest
 import exercise as source
-# import solution as source
+#import solution as source
 
 
 class VerboseTestCase(unittest.TestCase):
