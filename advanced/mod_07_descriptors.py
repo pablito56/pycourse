@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 u"""
-MOD 08: descriptors
+MOD 07: descriptors
 """
 
 
@@ -170,13 +170,13 @@ print inst.__dict__
 
 
 #===============================================================================
-# EXERCISE: pycourse/advanced/exercises/exercises/mod_08_descriptors/exercise_mod_08
+# EXERCISE: pycourse/advanced/exercises/exercises/mod_07_descriptors/exercise_mod_07
 #
 # - Use descriptor protocol to cache during a certain TTL the return value of a function as an attribute
 #
-# - Run the tests in 'tests_mod_08.py' executing 'nosetests -v' inside its folder
+# - Run the tests in 'tests_mod_07.py' executing 'nosetests -v' inside its folder
 #
-# - Check the solution in module 'solution_mod_08.py'
+# - Check the solution in module 'solution_mod_07.py'
 #===============================================================================
 
 

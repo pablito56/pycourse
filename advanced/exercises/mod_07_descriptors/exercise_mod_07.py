@@ -9,16 +9,16 @@ Created on Nov 13, 2012
 
 @contact: pablito56@gmail.com
 
-Module 08 (descriptors) exercise: Use descriptor protocol to cache an attribute value
+Module 07 (descriptors) exercise: Use descriptor protocol to cache an attribute value
 """
 #===============================================================================
-# EXERCISE: pycourse/advanced/exercises/exercises/mod_08_descriptors/exercise_mod_08
+# EXERCISE: pycourse/advanced/exercises/exercises/mod_07_descriptors/exercise_mod_07
 #
 # - Use descriptor protocol to cache during a certain TTL the return value of a function as an attribute
 #
-# - Run the tests in 'tests_mod_08.py' executing 'nosetests -v' inside its folder
+# - Run the tests in 'tests_mod_07.py' executing 'nosetests -v' inside its folder
 #
-# - Check the solution in module 'solution_mod_08.py'
+# - Check the solution in module 'solution_mod_07.py'
 #===============================================================================
 
 
