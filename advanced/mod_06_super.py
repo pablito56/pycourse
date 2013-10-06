@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 u'''
-MOD 07: Cooperative super call pattern
+MOD 06: Cooperative super call pattern
 '''
 
 
@@ -434,7 +434,7 @@ VerboseAttribDict.__mro__
 
 
 #===============================================================================
-# EXERCISE: pycourse/advanced/exercises/exercises/mod_07_super/exercise_mod_07
+# EXERCISE: pycourse/advanced/exercises/exercises/mod_06_super/exercise_mod_06
 #
 # - Implement all needed changes to let the tests pass. In particular, implement AmazingDict:
 #    - Access keys as attributes only if they already exist
@@ -443,9 +443,9 @@ VerboseAttribDict.__mro__
 #    - Print all attributes and keys accesses for query or modification
 # - Check: http://docs.python.org/2/reference/datamodel.html?highlight=__contains__#object.__contains__
 #
-# - Run the tests in 'tests_mod_07.py' executing 'nosetests -v' inside its folder
+# - Run the tests in 'tests_mod_06.py' executing 'nosetests -v' inside its folder
 #
-# - Check the solution in module 'solution_mod_07.py'
+# - Check the solution in module 'solution_mod_06.py'
 #===============================================================================
 
 

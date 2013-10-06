@@ -9,12 +9,12 @@ Created on Nov 13, 2012
 
 @contact: pablito56@gmail.com
 
-Module XY (cooperative super call pattern) exercise: apply cooperative super call pattern
+Module 06 (cooperative super call pattern) exercise: apply cooperative super call pattern
 """
 from datetime import datetime
 import unittest
-import exercise_mod_07 as src
-# import solution_mod_07 as src
+import exercise_mod_06 as src
+# import solution_mod_06 as src
 
 
 class VerboseTestCase(unittest.TestCase):
