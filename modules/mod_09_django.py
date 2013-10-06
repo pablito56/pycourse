@@ -112,7 +112,7 @@ print(django.get_version())
 #    manage.py syncdb
 #       Creates the database tables for all apps in INSTALLED_APPS whose tables have not
 #       already been created.
-#       Use this command when you’ve added new applications to your project and want to install
+#       Use this command when you've added new applications to your project and want to install
 #       them in the database.
 #       This includes any apps shipped with Django that might be in INSTALLED_APPS by default.
 #       WARNING: syncdb will only create tables for models which have not yet been installed.
@@ -153,7 +153,7 @@ print(django.get_version())
 
 
 # A settings file is just a Python module with module-level variables
-# When you use Django, you have to tell it which settings you’re using.
+# When you use Django, you have to tell it which settings you're using.
 # Do this by using an environment variable, DJANGO_SETTINGS_MODULE.
 
 # The value of DJANGO_SETTINGS_MODULE should be in Python path syntax, e.g. mysite.settings.
@@ -216,7 +216,7 @@ GRANT ALL PRIVILEGES ON mod_django_example.* TO 'user'@'localhost' IDENTIFIED BY
 #
 #  5. Models
 #       A model is the single, definitive source of data about your data.
-#       It contains the essential fields and behaviors of the data you’re storing.
+#       It contains the essential fields and behaviors of the data you're storing.
 #
 #
 #==========================================================================================
@@ -251,7 +251,7 @@ GRANT ALL PRIVILEGES ON mod_django_example.* TO 'user'@'localhost' IDENTIFIED BY
 #    pub_date = models.DateTimeField('date published')
 
 
-# - The name of each Field instance (e.g. question or pub_date ) is the field’s name.
+# - The name of each Field instance (e.g. question or pub_date ) is the field's name.
 
 # - Finally, note a relationship is defined, using ForeignKey.
 #   That tells Django each Choice is related to a single Poll.
@@ -380,7 +380,7 @@ class Choice(models.Model):
 #
 #  Django provides some Generic View to spare us some time
 
-# Generic views abstract common patterns to the point where you don’t even need to write Python code to write an app.
+# Generic views abstract common patterns to the point where you don't even need to write Python code to write an app.
 
 
 #class IndexView(generic.ListView):
@@ -397,22 +397,22 @@ class Choice(models.Model):
 #    template_name = 'polls/detail.html'
 
 
-# We’re using two generic views here: ListView and DetailView.
+# We're using two generic views here: ListView and DetailView.
 # Respectively, those two views abstract the concepts of “display a list of objects”
 # and “display a detail page for a particular type of object.”
 
 
 # Each generic view needs to know what model it will be acting upon. This is provided using the model attribute.
 # The DetailView generic view expects the primary key value captured from the URL to be called "pk",
-# so we’ve changed poll_id to pk for the generic views.
+# so we've changed poll_id to pk for the generic views.
 
 
 #==========================================================================================
 #
 #  8. middlewares
 #
-#    Middleware is a framework of hooks into Django’s request/response processing.
-#    It’s a light, low-level “plugin” system for globally altering Django’s input or output.
+#    Middleware is a framework of hooks into Django's request/response processing.
+#    It's a light, low-level “plugin” system for globally altering Django's input or output.
 #
 #==========================================================================================
 

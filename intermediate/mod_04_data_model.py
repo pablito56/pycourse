@@ -71,7 +71,7 @@ print repr(fract1)
 
 #===============================================================================
 # - There are special method names to customize your classes behavior
-#    - Python’s approach to operator overloading, allowing classes to define
+#    - Python's approach to operator overloading, allowing classes to define
 #      their own behavior with respect to language operators
 # - Python invokes these methods (if present) when special syntax is executed
 #
@@ -331,7 +331,7 @@ print ad_inst.f
 
 #===============================================================================
 # WARNING!
-# - As we will see in next module, this implementation is wrong
+# - As we will see in next block, this implementation is wrong (always use super)
 #===============================================================================
 
 #===============================================================================

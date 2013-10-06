@@ -177,7 +177,7 @@ print two, three
 #        - The scopes of any enclosing functions, which are searched starting with
 #          the nearest enclosing scope, contains non-local, but also non-global names
 #
-#        - The next-to-last scope contains the current module’s global names
+#        - The next-to-last scope contains the current module's global names
 #
 #        - The outermost scope (searched last) is the namespace containing built-in names
 #

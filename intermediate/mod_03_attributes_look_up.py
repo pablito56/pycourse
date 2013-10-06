@@ -153,5 +153,4 @@ except TypeError, e:
 # SOURCES:
 #  - http://docs.python.org/2/library/functions.html#getattr
 #  - http://docs.python.org/2/library/functions.html#setattr
-#  - http://docs.python.org/2/library/functions.html#getattr
 #===============================================================================

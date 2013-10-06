@@ -185,7 +185,8 @@ print type(spam[1:4])                       # It generates a brand new object (s
 #     - It creates a new object looping over the whole original collection, so
 #       it may be slow
 #     - It creates a shallow copy (i.e. it reuses objects inside original list),
-#       which can be problematic with mutables. Check mutables vs. immutables module
+#       which can be problematic with mutables. Check "Mutables vs. immutables
+#       module" in the Intermediate block.
 #===============================================================================
 
 

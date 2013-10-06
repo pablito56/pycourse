@@ -259,7 +259,7 @@ print sorted(spam, cmp=lambda x, y: len(x) - len(y))  # Alternatively you may pr
 #        - Best case performance: O(n)
 #        - Average case performance: O(n log n)
 #        - Worst case space complexity O(n)
-#    - http://docs.python.org/2/library/functions.html#range
+#    - http://docs.python.org/2/library/functions.html#sorted
 #==============================================================================
 
 
@@ -280,7 +280,7 @@ print list(reversed(spam))
 ## TIME TO PRACTICE!
 ##
 ## EXERCISE MOD 02:
-## - Using functional and sequences manipulation     tools implement the required functions
+## - Using functional and sequences manipulation tools implement the required functions
 ##
 ## INSTRUCTIONS:
 ## - Go to exercises/mod_02_functional_programming and edit exercise.py
