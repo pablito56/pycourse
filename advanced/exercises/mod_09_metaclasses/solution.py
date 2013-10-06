@@ -9,7 +9,7 @@ Created on Oct 3, 2013
 
 @contact: ealogar@gmail.com
 
-Module 10 (metaclasses) exercise: apply decorators with metaclasses and generate new functionality
+Module 09 (metaclasses) exercise: apply decorators with metaclasses and generate new functionality
 """
 from time import sleep, time
 from random import randint
@@ -34,8 +34,8 @@ def measure(f):
             res = None
         t1 = time()
         ellapsed_time = t1 - t0
-        # make ellapsed_time available in object as an attribute __time_<method_name>
-        time_internal_var = '__time_{0}'.format(f.__name__)
+        # make ellapsed_time available in object as an attribute _time_<method_name>
+        time_internal_var = '_time_{0}'.format(f.__name__)
         setattr(args[0], time_internal_var, ellapsed_time)
         # bind a function to return ellapsed time of a method
 
@@ -55,9 +55,9 @@ def show_execution_time(obj):
     methods of obj who has it available
     """
     for method in getmembers(obj, ismethod):
-        if not search(r'^__*', method[0]):
+        if not method[0].startswith('__'):
             print 'Method {0} - last execution time {1}'.format(method[0],
-                                    getattr(obj, '__time_{0}'.format(method[0]), 'Na'))
+                                    getattr(obj, '_time_{0}'.format(method[0]), 'Na'))
 
 
 class MeasureMetaclass(type):
@@ -72,13 +72,13 @@ class MeasureMetaclass(type):
 
     """
 
-    def __new__(meta, classname, supers, classdict):  # @NoSelf
-        for attr, attrval in classdict.items():
-            if isfunction(attrval) and not search(r'^__*', attr):
-                classdict[attr] = measure(attrval)
+    def __new__(mcs, classname, bases, attrs_dict):
+        for attr, attrval in attrs_dict.iteritems():
+            if isfunction(attrval) and not attr.startswith('__'):
+                attrs_dict[attr] = measure(attrval)
         # bind a function to the class to show all measure times
-        classdict['show_execution_time'] = show_execution_time
-        return type.__new__(meta, classname, supers, classdict)
+        attrs_dict['show_execution_time'] = show_execution_time
+        return type.__new__(mcs, classname, bases, attrs_dict)
 
 
 class SomeClass(object):

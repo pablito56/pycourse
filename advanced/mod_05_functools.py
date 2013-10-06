@@ -1,34 +1,78 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 u'''
-Mod: functools module 
+MOD 05: functools module
 '''
 
 
+import functools
+
+
 #===============================================================================
-# functools - High-order functions and operators on callables
+# functools - High-order functions and operators for callables
 #
 #   - High-order functions: functions that act on or return other functions
-#   - any callable object can be treated as a function for the purpose of this module
-#
+#   - Any callable object can be treated as a function for the purpose of this module
 #===============================================================================
 
 
-# partial objects 
+print pow(2, 5)
+print pow(2, 10)
+
+
+#===============================================================================
+# EXERCISE: pycourse/advanced/exercises/mod_05_functools
+#
+# - Modify 'power_of' method at 'exercise_mod_05.py' to let the tests succeeded
+#     - Implement a generator of powers of the provided argument
+#     - You must use the 'pow' function in this exercise
+#     - Try to use imap and count (from itertools module)
+#
+# - Run the tests in 'tests_mod_05.py' executing 'nosetests -v' inside its folder
+#
+# - Check the solution in module 'solution_mod_05.py'
+#===============================================================================
+
+
+from itertools import imap, count
+
+
+def power_of(x):
+    """Generator returning powers of the provided number
+    """
+    pow_of_x = functools.partial(pow, x)
+    return imap(pow_of_x, count())
+
+
+it = power_of(5)
+
+print it.next()  # 5 ^ 0
+print it.next()  # 5 ^ 1
+print it.next()  # 5 ^ 2
+print it.next()  # 5 ^ 3
+print it.next()  # 5 ^ 4
+print it.next()  # 5 ^ 5
+
+
+#===============================================================================
+# Partial objects
 #    - created by functools.partial function
 #    - they are like functions in that they are callable but have some minor diffs
-#
+#===============================================================================
 
+
+#===============================================================================
 # functools.partial(func[, *args][, **keywords])
 #
-#      returns a new 'partial' object which when called will behave like func called
+#      Returns a new 'partial' object which when called will behave like func called
 #      with the positional arguments 'args' and keyword arguments 'keywords'.
+#===============================================================================
 
-import functools
 
 def myfunc(a, b=2):
     """Docstring for myfunc()."""
     print '\tcalled myfunc with:', (a, b)
+
 
 def show_details(name, f, is_partial=False):
     """Show details of a callable object."""
@@ -41,6 +85,7 @@ def show_details(name, f, is_partial=False):
         print '\tfunc:', f.func
         print '\targs:', f.args
         print '\tkeywords:', f.keywords
+
 
 show_details('myfunc', myfunc)
 myfunc('a', 3)
@@ -62,15 +107,17 @@ print 'Insufficient arguments:'
 p1()
 
 
-# partial functions does not have a __name__ or __doc__ attributes by default.
-# functools.update_wrapper solves this purpose
+#===============================================================================
+# Partial functions do not have a __name__ or __doc__ attributes by default.
+# functools.update_wrapper solves this issue.
+#===============================================================================
 
 
 def show_details(name, f):
     """Show details of a callable object."""
     print '%s:' % name
     print '\tobject:', f
-    print '\t__name__:', 
+    print '\t__name__:',
     try:
         print f.__name__
     except AttributeError:
@@ -94,9 +141,11 @@ functools.update_wrapper(p1, myfunc)
 show_details('updated wrapper', p1)
 
 
+#===============================================================================
 # functools.wraps(wrapped[,assigned][,updated])
 #   a convenience function for invoking partial(update_wrapper, wrapped=wrapped,
 #                                               assigned=assigned, updated=updated)
+#===============================================================================
 
 
 def simple_decorator(f):

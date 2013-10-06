@@ -9,12 +9,23 @@ Created on Nov 13, 2012
 
 @contact: pablito56@gmail.com
 
-Module 08 (advanced decorators) exercise: tests
+Module 07 (advanced decorators) exercise: tests
 """
+#===============================================================================
+# EXERCISE: pycourse/advanced/exercises/exercises/mod_07_descriptors/exercise_mod_07
+#
+# - Use descriptor protocol to cache during a certain TTL the return value of a function as an attribute
+#
+# - Run the tests in 'tests_mod_07.py' executing 'nosetests -v' inside its folder
+#
+# - Check the solution in module 'solution_mod_07.py'
+#===============================================================================
+
+
 import unittest
 import time
-from exercise_mod_08 import CachedAttrClass
-# from solution_mod_08 import CachedAttrClass
+from exercise_mod_07 import CachedAttrClass
+# from solution_mod_07 import CachedAttrClass
 
 
 class TestCachedAttribute(unittest.TestCase):

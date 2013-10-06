@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 u'''
-MOD 10: creation and instantiation: __new__ and metaclasses
+MOD 09: creation and instantiation: __new__ and metaclasses
 '''
 
 
@@ -94,13 +94,13 @@ print type(VerboseCreatorDict)
 
 # A simple example
 class MyMetaclass(type):
-    def __new__(mcs, name, bases, attrs):
+    def __new__(mcs, classname, bases, attrs_dict):
         print "NEW CLASS"
         print "\t metaclass:", mcs
-        print "\t name:", name
+        print "\t classname:", classname
         print "\t bases:", bases
-        print "\t attrs:", attrs
-        new_class = super(MyMetaclass, mcs).__new__(mcs, name, bases, attrs)
+        print "\t attrs_dict:", attrs_dict
+        new_class = super(MyMetaclass, mcs).__new__(mcs, classname, bases, attrs_dict)
         return new_class
 
 
@@ -115,7 +115,7 @@ class TrueFalseClass(object):
         return True
 
 
-# Our metaclasses has been already called!
+# Our metaclass has already been called!
 
 
 #===============================================================================
@@ -124,7 +124,7 @@ class TrueFalseClass(object):
 #===============================================================================
 
 
-# Let's see a real example
+# Let's see a real world example
 
 
 # Let's implement a logging decorator
@@ -141,19 +141,18 @@ def _logging_decorator(func):
 from inspect import isfunction
 
 
-def _decorate_attrs(attrs):
-    decorated_attrs = {}
-    for name, func in attrs.items():
+def _decorate_attrs(attrs_dict):
+    decorated_attrs_dict = {}
+    for name, func in attrs_dict.iteritems():
         if isfunction(func):
             func = _logging_decorator(func)
-        decorated_attrs[name] = func
-    return decorated_attrs
+        decorated_attrs_dict[name] = func
+    return decorated_attrs_dict
 
 
 class LoggingMetaclass(type):
-    def __new__(mcs, name, bases, attrs):
-#        print "NEW", mcs, name, bases, attrs
-        new_class = super(LoggingMetaclass, mcs).__new__(mcs, name, bases, _decorate_attrs(attrs))
+    def __new__(mcs, classname, bases, attrs_dict):
+        new_class = super(LoggingMetaclass, mcs).__new__(mcs, classname, bases, _decorate_attrs(attrs_dict))
         return new_class
 
 
@@ -186,6 +185,25 @@ tf_inst.ret_false(1, "xyz", arg1=7)
 #    - Timing or profiling
 #    - Caching
 #    - ...
+#===============================================================================
+
+
+#===============================================================================
+# EXERCISE: pycourse/advanced/exercises/exercises/mod_09_metaclasses/exercise_mod_09
+#
+# - Combine a metaclass with a decorator:
+#    - We want to measure the execution time of all class methods (excluding __* methods)
+#    - Implement a decorator as a function to measure the execution time of a function
+#    - Add the execution time to the decorated function as an attribute
+#    - Instead of decorating the class, we decorate in metaclass __new__ method every function
+#    - We can decide which methods to decorate and which not
+#    - Add a function or attributes to show last_execution_time of every method
+#    - We can store the execution time in the decorator as an attribute...
+#    - We can use metaclass to add methods and attributes
+#
+# - Run the tests in 'tests.py' executing 'nosetests -v' inside its folder
+#
+# - Check the solution in module 'solution.py'
 #===============================================================================
 
 
