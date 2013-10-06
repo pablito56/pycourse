@@ -88,7 +88,7 @@ MOD 00: What is Python?
 * 01: Namespaces and scopes
 * 02: Globals and locals
 * 03: Decorators
-* 04: Advanced decorators and functools
+* 04: Advanced decorators
 * 05: Functools module
 * 06: Cooperative super call pattern (MRO and super)
 * 07: Descriptors protocol
