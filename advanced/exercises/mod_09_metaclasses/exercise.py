@@ -9,26 +9,26 @@ Created on Oct 3, 2013
 
 @contact: ealogar@gmail.com
 
-Module 10 (metaclasses) exercise: apply decorators with metaclasses and generate new functionality
+Module 09 (metaclasses) exercise: apply decorators with metaclasses and generate new functionality
 """
 #===============================================================================
-# EXERCISE: pycourse/advanced/exercises/exercises/mod_10_metaclasses/exercise_mod_10
+# EXERCISE: pycourse/advanced/exercises/exercises/mod_09_metaclasses/exercise_mod_09
 #
 # - Combine a metaclass with a decorator:
-#    - We want to measure the execution time of all class methods (excluding _* methods)
+#    - We want to measure the execution time of all class methods (excluding __* methods)
 #    - Implement a decorator as a function to measure the execution time of a function
 #    - Add the execution time to the decorated function as an attribute
 #    - Instead of decorating the class, we decorate in metaclass __new__ method every function
-#    - We can decide with methods to decorate and which not
+#    - We can decide which methods to decorate and which not
 #    - Add a function or attributes to show last_execution_time of every method
 #    - We can store the execution time in the decorator as an attribute...
 #    - We can use metaclass to add methods and attributes
-# - Check: Learning python fourth edition (chapters 38 and 39)
 #
-# - It's common to generate code with metaclasses based on simple classes (e.g. django)
+# - Run the tests in 'tests.py' executing 'nosetests -v' inside its folder
 #
 # - Check the solution in module 'solution.py'
 #===============================================================================
+
 
 from time import sleep, time
 from random import randint
@@ -52,16 +52,15 @@ def measure(f):
 
         # TODO: get ellapsed time here
 
-        # TODO: make ellapsed_time available in object as an attribute __time_<method_name>
-        time_internal_var = '__time_{0}'.format(f.__name__)
+        # TODO: make ellapsed_time available in object as an attribute _time_<method_name>
+        time_internal_var = '_time_{0}'.format(f.__name__)
         setattr()  # Hint: args[0] is the object (self)
 
         def ellapsed_time(obj):
             return getattr(obj, time_internal_var, 'na')
 
-        # TODO: Change None
-        # update wrapper and bind ellapsed_time as a method
-        # Hint: use MethodType to bind functions to instances
+        # TODO: Instead of None bind ellapsed_time as a method
+        # HINT: use MethodType to bind functions to instances
         wrapper.last_time = None
 
         # TODO: Here you must provide code to return the result of decorated function
@@ -76,7 +75,7 @@ def show_execution_time(obj):
     for method in getmembers(obj, ismethod):
         if not search(r'^__*', method[0]):
             print 'Method {0} - last execution time {1}'.format(method[0],
-                                    getattr(obj, '__time_{0}'.format(method[0]), 'Na'))
+                                    getattr(obj, '_time_{0}'.format(method[0]), 'Na'))
 
 
 class MeasureMetaclass(type):
@@ -90,20 +89,21 @@ class MeasureMetaclass(type):
     >>my_class.show_execution_time()
 
     """
-
-    def __new__(meta, classname, supers, classdict):  # @NoSelf
-        for attr, attrval in classdict.items():
+    def __new__(mcs, classname, bases, attrs_dict):
+        for attr, attrval in attrs_dict.iteritems():
             # TODO: Decorate class methods not beginning with __
-            # @decorator
-            # function
-            # is same that decorator(function)
-            # hint use isfunction ...
+            # HINT:
+            #     @decorator
+            #     def function()
+            # is same that
+            #     function = decorator(function)
+            # HINT: use isfunction
             pass
 
-        # TODO: bind show_execution_time provide to the class to show all measure times
-        # you can add key, value to classdict (all class methods)
+        # TODO: bind show_execution_time to the class to show all measure times
+        # HINT: you can add key, value to attrs_dict (all class methods)
 
-        return type.__new__(meta, classname, supers, classdict)
+        return type.__new__(mcs, classname, bases, attrs_dict)
 
 
 class SomeClass(object):
