@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 u'''
-MOD 10: Slots and properties
+MOD 08: Slots and properties
 '''
 
 
@@ -75,11 +75,14 @@ print inst.attr_x
 def f_to_c(f):
     return (f - 32.0) * 5.0 / 9.0
 
+
 def c_to_f(c):
     return c * 9.0 / 5.0 + 32.0
 
+
 def k_to_c(k):
     return k - 273.15
+
 
 def c_to_k(c):
     return c + 273.15
