@@ -142,13 +142,13 @@ if __name__ == "__main__":
 #===============================================================================
 
 #===============================================================================
-# mock library allow to replace parts of our code in a safe and easy way with 
-#     mock objects. You can assert how they are called too.
-# Base class is Mock although is advisable to use MagicMock subclass
-# MagicMock has all "magic" methods already pre-created
-# patch utility allow to monkey patching at module and class level within the 
-# scope of test
-# let's see a quick example 
+# - mock library allows to replace parts of our code in a safe and easy way with 
+#     - mock objects. You can assert how they are called too.
+# - Base class is Mock although is advisable to use MagicMock subclass
+#     - MagicMock has all "magic" methods already pre-created
+# - patch utility allow to monkey patching at module and class level within the 
+#     scope of test
+# - Let's see a quick example 
 #===============================================================================
 
 from mock import MagicMock
@@ -253,6 +253,10 @@ with patch('__builtin__.open', mock_open( read_data='foo')) as m:
         file = f.read()
     print file
 
+#===============================================================================
+# To measure coverage run the nose collector in ../exercises folder with the options:
+#    nosetests -s -v --with-cover --cover-package=mod_11_testing--cover-branches
+#===============================================================================
 
 #===============================================================================
 # SOURCES:
