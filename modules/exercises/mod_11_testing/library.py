@@ -37,7 +37,6 @@ class MyConnection(object):
         We perform the query against a author collection/table.
         An sleep is done to ilustrate a computationally expensive operation. 
         :returns a valid dict with author data or None
-        print "Getting author for name".format(author_name)
         """
         print "Getting author {}".format(author_name)
         sleep(1)
