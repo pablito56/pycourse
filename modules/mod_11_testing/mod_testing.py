@@ -141,6 +141,118 @@ if __name__ == "__main__":
 #        - http://docs.python.org/3/library/unittest.mock.html
 #===============================================================================
 
+#===============================================================================
+# mock library allow to replace parts of our code in a safe and easy way with 
+#     mock objects. You can assert how they are called too.
+# Base class is Mock although is advisable to use MagicMock subclass
+# MagicMock has all "magic" methods already pre-created
+# patch utility allow to monkey patching at module and class level within the 
+# scope of test
+# let's see a quick example 
+#===============================================================================
+
+from mock import MagicMock
+from lib_to_test import ProductionClass
+prod = ProductionClass()
+prod.prod_method = MagicMock(return_value=3)
+print prod.prod_method(40, 3)
+prod.prod_method.assert_called_once_with(40, 3)
+
+# with side_effect we can return several values and raise exceptions too
+prod.prod_method = MagicMock(side_effect=ValueError("not number"))
+prod.prod_method("my_string")
+
+
+prod.prod_method = MagicMock(side_effect=[2, 3, 4])
+prod.prod_method(34, 2)
+prod.prod_method(34, 2)
+prod.prod_method(34, 2)
+
+# But we are modifying our source code, we better use patch
+from mock import patch
+
+# patch as decorator, provides MagicMock in function decorated
+@patch('lib_to_test.ProductionClass')
+def test(mockClass):
+    lib_to_test.ProductionClass()  # Already imported in module..
+    print 'ProductionClass {}'.format(lib_to_test.ProductionClass)
+    assert mockClass is lib_to_test.ProductionClass
+    print mockClass.called
+
+test()
+
+print lib_to_test.ProductionClass
+
+# We can also use patch for system libraries...
+import sys
+
+# patch as context manager
+with patch('sys.exit') as exitMock:
+    try:
+        sys.exit()
+    except SystemExit:
+        print "exiting programm"
+    exitMock.assert_called_once_with()
+
+try:
+    sys.exit()
+except SystemExit:
+    print "exiting programm"
+
+# we can patch some object, dict, open and magic methods....
+
+my_patch = patch.object(prod, 'prod_method')
+method_mock = my_patch.start()
+method_mock.return_value = 5000
+print prod.prod_method(30, 3)
+
+# we stop the patch now ...
+my_patch.stop()
+print prod.prod_method(30, 3)
+
+# WTF ??, yes before we change ProductionClass inside the module....
+prod = ProductionClass()
+my_patch = patch.object(prod, 'prod_method')
+method_mock = my_patch.start()
+method_mock.return_value = 5000
+print prod.prod_method(30, 3)
+my_patch.stop()
+print prod.prod_method(30, 3)
+
+# magic methods
+mock = MagicMock()
+mock.__str__.return_value = 'foobarbaz'
+str(mock)
+mock.__str__.assert_called_with()
+
+# dictionary
+foo = {'key': 'value'}
+original = foo.copy()
+with patch.dict(foo, {'newkey': 'newvalue'}, clear=True):
+    print "dict foo is now: {}".format(foo)
+    assert foo == {'newkey': 'newvalue'}
+
+print "dict foo is {}".format(foo)
+assert foo == original
+
+# open function can be patched tooo....
+from mock import mock_open
+
+# write
+with patch('__builtin__.open', mock_open()) as m:
+    with open('foo.txt', 'w') as f:
+        f.write('something')
+    m.mock_calls
+
+import os
+os.path.exists('foo.txt')
+
+# read
+with patch('__builtin__.open', mock_open( read_data='foo')) as m:
+    with open('foo.txt') as f:
+        file = f.read()
+    print file
+
 
 #===============================================================================
 # SOURCES:
