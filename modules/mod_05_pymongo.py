@@ -32,7 +32,7 @@ dbconn.writers.drop()
 #===============================================================================
 
 # Now we create another client to a replicaset 'sdrepl' with three members
-# To follow this parte, follow the instructions to create a replica set with three members in
+# To follow this part, follow the instructions to create a replica set with three members in
 # See https://github.com/pablito56/pycourse/wiki/Replicaset-Config to create locally 
 
 from pymongo import ReadPreference

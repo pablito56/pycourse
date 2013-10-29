@@ -125,15 +125,39 @@ import subprocess
 
 
 # Execute a command and get its return code
+# It waits for the command to complete
 ret = subprocess.call(["ls", "-lAhtr"], shell=True)
 print ret
 
 # Only check command execution
+# It waits for the command to complete and check the return code
 subprocess.check_call(["ls", "does_not_exist"])
 
 # Execute a command and get its output
 out = subprocess.check_output(["ls", "-lAhtr"])
 print out
+
+
+# you can also use the underlying class Popen, which is more flexible
+raw_file = open('output.txt', 'w+')
+process = subprocess.Popen(['ls', '-lrta'], stdout=raw_file)
+
+
+# check if the process has terminated
+process.poll()
+
+
+# close write file
+raw_file.close()
+
+fd = open('output.txt')
+print fd.read()
+
+
+fd.close()
+
+
+# read result
 
 
 # Time for next module

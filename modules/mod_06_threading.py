@@ -154,6 +154,9 @@ def fib_30_25_th():
     th2.join()
 
 
+# What do you expect to be the time spent now?
+
+
 print "Elapsed threaded:", timeit.timeit(fib_30_25_th, number=10)
 
 

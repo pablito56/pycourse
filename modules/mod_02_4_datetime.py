@@ -76,7 +76,7 @@ print datetime.time(20, 20, 20)
 print datetime.date.today()
 
 
-# It is possible to operate with datetime, time and date objects
+# It is possible to operate with datetime and date objects
 diff = datetime.datetime.now() - datetime.datetime.utcnow()
 print type(diff), diff
 print datetime.datetime.strptime("2013/05/17 20:20:20 CET", "%Y/%m/%d %H:%M:%S %Z") - diff
