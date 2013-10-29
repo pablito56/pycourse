@@ -4,15 +4,18 @@ from mock import MagicMock, patch, ANY, call
 from mod_11_testing.library import ConnectionError
 
 
-# TODO: Implement a couple of test cases for the get_all method
-# Fill the class using mock in your preferred way of mocking
-# Check the process.GetBookAuthor.get_all method and get coverage of 100%
 class TestGetAllBookAuthor(unittest.TestCase):
     """
-    check method get_all
+    Test class for get_info_list method of GetBookAuthor.
+    We will increase coverage of this method.
+    We do not inheritate for TestCase as we dont want to be
+    discovered by nosetests, just for checking
     """
 
     def test_get_all_books_work(self):
+        """
+        When database module is working we check that our process return a valid list
+        """
         with patch('modules.exercises.mod_11_testing.process.MyConnection') as con_class:
             mock_db = MagicMock(name='db_mock')
             con_class.return_value = mock_db
@@ -35,6 +38,9 @@ class TestGetAllBookAuthor(unittest.TestCase):
             self.assertEquals("name_2", data[1]['title'])
 
     def test_get_all_books_failing_db(self):
+        """
+        TEst that database error is handled in our process module and we dont raise any exception up
+        """
         with patch('modules.exercises.mod_11_testing.process.MyConnection') as con_class,\
             patch('modules.exercises.mod_11_testing.process.logger') as logger_mock:
             mock_db = MagicMock(name='db_mock')
@@ -57,7 +63,3 @@ class TestGetAllBookAuthor(unittest.TestCase):
 
             # logger is not called with constructor, so we access mock method directly
             logger_mock.error.assert_called_once_with("Conection with database lost")
-
-
-if __name__ == "__main__":
-    unittest.main()
