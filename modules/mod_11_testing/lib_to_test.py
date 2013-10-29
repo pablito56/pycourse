@@ -32,3 +32,12 @@ def fail(x, y):
     """Raises ValueError(x, y)
     """
     raise ValueError(x, y)
+
+class ProductionClass(object):
+    def prod_method(self, arg1, arg2):
+        return arg1 / arg2
+
+class ProductionClass2(object):
+    def prod_method(self, arg1, arg2):
+        print "prod_method called"
+        return arg1 / arg2
