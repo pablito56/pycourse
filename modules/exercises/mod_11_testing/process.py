@@ -1,5 +1,5 @@
-from mod_11_testing.library import MyConnection
-from mod_11_testing.library import ConnectionError
+from library import MyConnection
+from library import ConnectionError
 import logging
 
 logger = logging.getLogger(__name__)

@@ -1,6 +1,7 @@
 from process import GetBookAuthor
 import unittest
 from mock import MagicMock, patch, ANY, call
+from library import ConnectionError
 
 
 class TestMyDatabaseAccess(unittest.TestCase):
@@ -48,7 +49,7 @@ class TestMyDatabaseAccess(unittest.TestCase):
         self.mock_db_instance.get_author.assert_called_once_with(ANY)
         self.assertEquals("name_mock", data['title'])
 
-    @patch('mod_11_testing.library.sleep')  # sleep is loaded in subpackage process...
+    @patch('modules.exercises.mod_11_testing.library.sleep')  # sleep is loaded in subpackage process...
     def test_get_valid_id_not_mocking_should_not_sleep(self, sleep_mock):
         """
         In this test we dont mock library and call directly.
@@ -68,7 +69,7 @@ class TestMyDatabaseAccess(unittest.TestCase):
         when database raise a Connection exception (invalid id) we shold handle
         properly in our method and convert exception to generic Exception.
         """
-        self.mock_db_instance.get_book.side_effect = Exception("test")
+        self.mock_db_instance.get_book.side_effect = ConnectionError("test")
         self.mock_db_instance.get_author.return_value = {"name": "name_mock", "age": -1, "best_sellers": -5}
 
         get_book = GetBookAuthor()
