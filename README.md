@@ -119,4 +119,4 @@ MOD 00: What is Python?
 >>>
 ```
 
-Pressing intro without introducing a command new explanations and examples will appear in the interpreter. It is posible to manually execute other code to play around with the examples.
+New explanations and examples will appear in the interpreter when pressing INTRO without introducing a command. It is also posible to manually execute other code to play around with the examples.
