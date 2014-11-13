@@ -77,9 +77,7 @@ Each block contains explanations, examples and exercises and is designed to be t
 * 13: Packaging and distribution: distribute
 
 
-> **DISCLAIMER:** Initially the course was planned in 3 blocks, and it was imparted internally at our company 3 times.
-> However, based on the feedback of the attendees, currently (still WIP) it is being split into 4 sessions of around 8 hours.
-> This way, some modules content is being enlarged, more exercises are being added and more time to solved the exercises will be allocated.
+> **DISCLAIMER:** Initially the course was planned in 3 blocks and it was imparted 3 times. However, based on the feedback of the attendees, it was split into 4 sessions of around 8 hours each. This way, some modules content was enlarged, more exercises were added and more time to solve the exercises was allocated.
 > 
 > You can find the old 3-sessions version in this tag: https://github.com/pablito56/pycourse/tree/v1.0_FirstRound
 
