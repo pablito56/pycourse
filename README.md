@@ -9,44 +9,6 @@ It starts from the very beginning, explaining what is Python and its basic data 
 Each block contains explanations, examples and exercises and is designed to be taught in about 8 hours (including time to solve the exercises). However, all the contents are fully documented and it is possible to follow them on your own.
 
 
-# Usage
-
-All the course content is written down in Python scripts, designed to be executed with [pydemo](https://github.com/pablito56/pydemo "pydemo GitHub repository"):
-```shell
-me@my_laptop:~/workspace/pycourse $ cd basic/
-me@my_laptop:~/workspace/pycourse/basic $ pydemo mod_00_what_is_Python.py
-Loaded 1 files, 7 code blocks
-Python 2.7.2 (default, Oct 11 2012, 20:14:37)
-[GCC 4.2.1 Compatible Apple Clang 4.0 (tags/Apple/clang-418.0.60)] on darwin
-Type "help", "copyright", "credits" or "license" for more information.
-(DemoHistoryConsole)
->>>
-#-*- coding: utf-8 -*-
-'''
-MOD 00: What is Python?
-'''
-
-'\nMOD 00: What is Python?\n'
->>>
-#===============================================================================
-# EXERCISE: Execute the following command:
-#     $ python -c "import this"
-#===============================================================================
-
->>>
-#===============================================================================
-# From official website ( http://www.python.org/ ):
-#
-#     Python is a programming language that lets you work more quickly and integrate
-#     your systems more effectively. You can learn to use Python and see almost
-#     immediate gains in productivity and lower maintenance costs.
-#
-#===============================================================================
-
->>>
-```
-
-
 # Course contents
 
 
@@ -121,3 +83,42 @@ MOD 00: What is Python?
 > 
 > You can find the old 3-sessions version in this tag: https://github.com/pablito56/pycourse/tree/v1.0_FirstRound
 
+
+# Usage
+
+All the course content is written down in Python scripts and designed to be executed with [pydemo](https://github.com/pablito56/pydemo "pydemo GitHub repository") interactive interpreter:
+```shell
+me@my_laptop:~/workspace/pycourse $ cd basic/
+me@my_laptop:~/workspace/pycourse/basic $ pydemo mod_00_what_is_Python.py
+Loaded 1 files, 7 code blocks
+Python 2.7.2 (default, Oct 11 2012, 20:14:37)
+[GCC 4.2.1 Compatible Apple Clang 4.0 (tags/Apple/clang-418.0.60)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+(DemoHistoryConsole)
+>>>
+#-*- coding: utf-8 -*-
+'''
+MOD 00: What is Python?
+'''
+
+'\nMOD 00: What is Python?\n'
+>>>
+#===============================================================================
+# EXERCISE: Execute the following command:
+#     $ python -c "import this"
+#===============================================================================
+
+>>>
+#===============================================================================
+# From official website ( http://www.python.org/ ):
+#
+#     Python is a programming language that lets you work more quickly and integrate
+#     your systems more effectively. You can learn to use Python and see almost
+#     immediate gains in productivity and lower maintenance costs.
+#
+#===============================================================================
+
+>>>
+```
+
+Pressing intro without introducing a command new explanations and examples will appear in the interpreter. It is posible to manually execute other code to play around with the examples.
