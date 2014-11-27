@@ -82,6 +82,22 @@ Each block contains explanations, examples and exercises and is designed to be t
 > You can find the old 3-sessions version in this tag: https://github.com/pablito56/pycourse/tree/v1.0_FirstRound
 
 
+# Installation
+
+- Download / checkout / clone the course
+- Install **Python 2.7**: https://www.python.org/downloads/
+- Install **pip**: https://pypi.python.org/pypi/pip
+- Install the **requirements.txt** file:
+
+```
+$ pip install -r requirements.txt
+Downloading/unpacking git+git://github.com/pablito56/pydemo.git (from -r requirements.txt (line 3))
+...
+Successfully installed Pygments nose readline pydemo
+Cleaning up...
+```
+
+
 # Usage
 
 All the course content is written down in Python scripts and designed to be executed with [pydemo](https://github.com/pablito56/pydemo "pydemo GitHub repository") interactive interpreter:
