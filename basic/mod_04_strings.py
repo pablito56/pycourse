@@ -13,7 +13,7 @@ print eggs
 print type(eggs)
 
 #===============================================================================
-# - String literal are written in ingle or double quotes. It's exactly the same
+# - String literal are written in single or double quotes. It's exactly the same
 #===============================================================================
 
 eggs = '\'eggs\''                # another string
@@ -161,17 +161,17 @@ print "{0} {0} {1}".format(spam, 7)        # This is the new string formatting m
 
 print "{} {}".format(spam, 7.12345)
 
-print "[{0:16}|{1:16}]".format(-7.12345, 7.12345)  # Use colon and width of formatted value
+print U"[{0:16}|{1:16}]".format(-7.12345, 7.12345)  # Use colon and width of formatted value
 
-print "[{0:>16}|{1:<16}]".format(-7.12345, 7.12345)  # Use <, >, =, ^ to specify the alignment of the value
+print U"[{0:>16}|{1:<16}]".format(-7.12345, 7.12345)  # Use <, >, =, ^ to specify the alignment of the value
 
-print "[{0:^16.3f}|{1:^16.3f}]".format(-7.12345, 7.12345)  # For floats, use the dot . and the f to specify precission of floats
+print U"[{0:^16.3f}|{1:^16.3f}]".format(-7.12345, 7.12345)  # For floats, use the dot . and the f to specify precission of floats
 
-print "[{0:_^16.3f}|{1:_^16.3f}]".format(-7.12345, 7.12345)  # Specify the filling value before the alignment
+print U"[{0:_^16.3f}|{1:_^16.3f}]".format(-7.12345, 7.12345)  # Specify the filling value before the alignment
 
-print "[{0:^+16.3f}|{1:^+16.3f}]".format(-7.12345, 7.12345)  # Force the sign appearance
+print U"[{0:^+16.3f}|{1:^+16.3f}]".format(-7.12345, 7.12345)  # Force the sign appearance
 
-print "{0:b} {0:c} {0:o} {0:x}".format(65)  # For integers, specify base representation (binary, unicode character, octal, hexadecimal
+print U"{0:b} {0:c} {0:o} {0:x}".format(65)  # For integers, specify base representation (binary, unicode character, octal, hexadecimal
 
 
 #===============================================================================

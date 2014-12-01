@@ -178,7 +178,7 @@ print "Elapsed threaded:", timeit.timeit(fib_30_25_th, number=10)
 # Python's Global Interpreter Lock or GIL:
 #
 # - The Python interpreter is not fully thread-safe.
-# - There’s a global lock, called the global interpreter lock or GIL.
+# - There's a global lock, called the global interpreter lock or GIL.
 # - It must be held by a thread before it can safely access Python objects.
 # - Without the lock, even the simplest operations could cause problems in
 #     a multi-threaded program.
