@@ -2,8 +2,7 @@
 #-*- coding: utf-8 -*-
 
 u'''
-Copyright (c) Telefonica I+D. All rights reserved.
-Description: introductory exercises from pythonmonk.com
+Introductory exercises
 '''
 
 
