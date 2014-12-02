@@ -284,7 +284,7 @@ print "Outside if. This is evaluated always."
 #===============================================================================
 
 
-# How does module lookup work?
+# How does module lookup work?
 
 
 ##===============================================================================
@@ -350,5 +350,4 @@ print "Outside if. This is evaluated always."
 #===============================================================================
 # SOURCES:
 #  - http://docs.python.org/2/tutorial/modules.html
-#  - https://colabora.pdi.inet/kbportal/PLCwiki/Guidelines/DEV/Standard%20directory%20structure%20for%20projects/in%20Python/Django.aspx
 #===============================================================================
