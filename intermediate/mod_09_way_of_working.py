@@ -157,6 +157,5 @@ print MyClass.method.__doc__  # Even you can access docstring
 # - https://pypi.python.org/pypi/distribute
 # - http://docs.python.org/2/library/copy.html#copy.deepcopy
 # - http://www.python.org/dev/peps/pep-0008/
-# - http://wikis.hi.inet/kg/images/9/91/Pep8_cheat.pdf
 # - http://sphinx-doc.org/
 #===============================================================================

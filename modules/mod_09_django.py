@@ -63,9 +63,6 @@ print(django.get_version())
 #       - An app in django is a module that does something
 #       - A project is a configuration with some related apps that makes a web site
 #
-#   WARNING: check out the recommended folder structure in a Django project
-#       https://colabora.pdi.inet/kbportal/PLCwiki/Guidelines/DEV/Standard%20directory%20structure%20for%20projects/in%20Python/Django.aspx
-#
 #==========================================================================================
 
 # To create the scaffold for a django project, use the django-admin.py script
@@ -463,7 +460,7 @@ MIDDLEWARE_CLASSES = (
 #
 
 
-# Example  <https://pdihub.hi.inet/TDAF/tdaf-ebooks-python/blob/develop/ebooks/commons/middleware.py>
+# Example
 #
 #
 #    class RequestTransactionIDMiddleware(object):
@@ -542,9 +539,6 @@ MIDDLEWARE_CLASSES = (
 #  10. Django REST Framework
 #
 #       django plugin than eases the development of Web API
-#
-#     There is a framework in-house which everyone should follow:
-#        https://pdihub.hi.inet/TDAF/tdaf-ebooks-python
 #
 #==========================================================================================
 

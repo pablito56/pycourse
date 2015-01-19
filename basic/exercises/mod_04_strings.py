@@ -35,15 +35,6 @@ def remove_identation_multiline_string(text):
     pass
 
 
-def join_str_unicode(*items):
-    '''given some items joins them with a space as a separator. return a str type (utf-8)
-
-        >>> print join_str_unicode(u'el señor', 'de los anillos')
-        'el señor de los anillos'
-    '''
-    pass
-
-
 class ModStringTestCase(unittest.TestCase):
 
     def test_sum_chars_text(self):
@@ -62,10 +53,6 @@ class ModStringTestCase(unittest.TestCase):
                     Flat is better than nested."""
         assert remove_identation_multiline_string(text) == 'Complex is better than complicated. '\
                                                            'Flat is better than nested.'
-
-    def test_join_str_and_unicode(self):
-        items = ('el señor', u'de los anillos')
-        assert join_str_unicode(items) == 'el se\xc3\xb1or de los anillos'
 
 
 if __name__ == '__main__':
