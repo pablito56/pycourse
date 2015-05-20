@@ -59,7 +59,7 @@ MOD 02: Tools and environment
 
 #===============================================================================
 # - IDE?
-#     - PyCharm (we have licenses, ask EPG)
+#     - PyCharm (we have licenses, ask IT)
 #     - Eclipse + Pydev
 #     - NetBeans
 #     - Eric
