@@ -13,7 +13,7 @@ if spam:
 else:
     print "spam is False"
 
-print "outside the conditional"  # Notice that theres is no closing fi statement
+print "outside the conditional"  # Notice that there's is no closing fi statement
 
 
 if spam:
@@ -100,7 +100,7 @@ for letter in eggs:      # It can loop over characters of a string
 spam = {"one": 1,
         "two": 2,
         "three": 3}
-for key in spam:         # Or even it can interate through a dictionary
+for key in spam:         # Or even it can iterate through a dictionary
     print spam[key]      # Note that it iterates over the keys of the dictionary
 
 
@@ -267,7 +267,7 @@ except:
 #===============================================================================
 # Python context managers
 #  - Encapsulate common patterns used wrapping code blocks where real runs the program logic
-#     -  Usually try/exceopt/finally patterns
+#     -  Usually try/except/finally patterns
 #  - Several uses:
 #     - Automatic cleanup, closing files or network or DB connections when exiting the context block
 #     - Set temporary environment, like enable/disable logging, timing, profiling...

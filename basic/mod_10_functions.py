@@ -6,8 +6,8 @@ MOD 10: Functions
 # Let's declare a function
 
 
-def spam():       # Functions are declared with the 'def' keyword, its name, parrentheses and a colon
-    print "spam"  # Remeber to use indentation!
+def spam():       # Functions are declared with the 'def' keyword, its name, parentheses and a colon
+    print "spam"  # Remember to use indentation!
 
 spam()  # Functions are executed with its name followed by parentheses
 
@@ -102,7 +102,7 @@ function_caller(func_as_arg)  # Functions can be passed as arguments
 
 #===============================================================================
 # REMEMBER:
-#     - Functions are declared with the 'def' keyword, its name, parrentheses and a colon
+#     - Functions are declared with the 'def' keyword, its name, parentheses and a colon
 #         - Specify arguments inside the parentheses
 #         - Define arguments' default values with an equal, after arguments without def val
 #         - Specify arbitrary arguments or keyword arguments with *args or **kwargs

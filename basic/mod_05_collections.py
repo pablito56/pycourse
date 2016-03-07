@@ -112,13 +112,13 @@ print m
 #     - Comma-separated with parentheses
 #     - Parentheses only required in empty tuple
 #     - Immutable
-#     - Slightly better traversing perfomance than lists
+#     - Slightly better traversing performance than lists
 #  - str and unicode:
 #     - One or three single or double quotes
 #     - They have special methods
 #     - Immutable
 #
-#  - Standard library also provides other bult-in collection formats:
+#  - Standard library also provides other built-in collection formats:
 #     - set and frozenset: unordered, without repeated values (content must be hashable)
 #        - High performant in operations like intersection, union, difference, membership check
 #     - bytearray, buffer, xrange: special sequences for concrete use cases

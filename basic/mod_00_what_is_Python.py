@@ -48,7 +48,7 @@ MOD 00: What is Python?
 #  - dynamic semantics (aka execution semantics)
 #  - fully dynamic typing
 #  - dynamic binding
-#  - low programs manteinance cost
+#  - low programs maintenance cost
 #  - modularity and code reuse
 #  - no licensing costs
 #  - extensive standard library, "batteries included"

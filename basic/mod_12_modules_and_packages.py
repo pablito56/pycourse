@@ -191,7 +191,7 @@ print "Outside if. This is evaluated always."
 #                                           module_name_3, module_name_4)
 #    - from packages.path.to.module import module_name as new_module_name
 #        - You are binding the module to another name, like you do with lists or strings
-# - Modules is indepent on how you call (bind) them when importing
+# - Modules is independent on how you call (bind) them when importing
 #===============================================================================
 
 
@@ -275,8 +275,8 @@ print "Outside if. This is evaluated always."
 # THERE IS STILL MORE:
 # - You could use relative imports
 #    - from . import mod_03_strings
-#    - from .. import advaqnced
-#    - from ..advaqnced import mod_XX_data_model_customisation
+#    - from .. import advanced
+#    - from ..advanced import mod_XX_data_model_customisation
 #        - Single dot . represents current package
 #        - Additional dots represent parent packages
 # - Note that these imports are resolved with the __name__ of the importing module,
