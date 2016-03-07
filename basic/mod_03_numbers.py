@@ -7,7 +7,7 @@ MOD 03: Numbers
 spam = 65              # an integer declaration. Yes, no semicolon ; at the end
 print spam             # print is a reserved keyword / statement
 
-print type(spam)       # this is a functiona call
+print type(spam)       # this is a function call
 
 #===============================================================================
 # WARNING!
@@ -34,7 +34,7 @@ print spam // eggs     # floored quotient
 
 print spam % eggs      # remainder or module
 
-print pow(spam, eggs)  # power (yes, this is how a funtion is called)
+print pow(spam, eggs)  # power (yes, this is how a function is called)
 
 print spam ** eggs     # power
 
@@ -54,7 +54,7 @@ print long(fooo)       # convert to long integer
 
 print float(fooo)      # convert to float
 
-fooo += 1              # autoincremental (there is no ++)
+fooo += 1              # auto incremental (there is no ++)
 print fooo
 
 # More on the quotient
@@ -121,7 +121,7 @@ print round(spam + (eggs / spam), 3)  # round to n digits, 0 by default
 # Python numeric types:
 #  - int:
 #     - Traditional integer
-#     - Implemented using long in C, at least 32 bits precission
+#     - Implemented using long in C, at least 32 bits precision
 #     - Its values are [-sys.maxint - 1, sys.maxint]
 #  - long:
 #     - Long integer with unlimited precision
@@ -132,7 +132,7 @@ print round(spam + (eggs / spam), 3)  # round to n digits, 0 by default
 #     - Implemented using double in C
 #     - Check sys.float_info for its internal representation
 #
-#  - Standard library also provides other bult-in numeric formats:
+#  - Standard library also provides other built-in numeric formats:
 #     - complex: using a float for real and imaginary part
 #     - fractions: to hold rationals
 #     - decimal: floating to hold user-defined precision

@@ -114,7 +114,7 @@ print spam.capitalize()                    # Return a copy with first character 
 print spam
 
 #===============================================================================
-# - WARNING! String are immutables. Its methods return always a new copy 
+# - WARNING! String are immutables. Its methods return always a new copy
 #===============================================================================
 
 print spam.decode()                        # Decode the str with given or default encoding
@@ -165,7 +165,7 @@ print U"[{0:16}|{1:16}]".format(-7.12345, 7.12345)  # Use colon and width of for
 
 print U"[{0:>16}|{1:<16}]".format(-7.12345, 7.12345)  # Use <, >, =, ^ to specify the alignment of the value
 
-print U"[{0:^16.3f}|{1:^16.3f}]".format(-7.12345, 7.12345)  # For floats, use the dot . and the f to specify precission of floats
+print U"[{0:^16.3f}|{1:^16.3f}]".format(-7.12345, 7.12345)  # For floats, use the dot . and the f to specify precision of floats
 
 print U"[{0:_^16.3f}|{1:_^16.3f}]".format(-7.12345, 7.12345)  # Specify the filling value before the alignment
 
@@ -184,7 +184,7 @@ print U"{0:b} {0:c} {0:o} {0:x}".format(65)  # For integers, specify base repres
 #===============================================================================
 
 #==============================================================================
-# TIME TO START WORKIN:
+# TIME TO START WORKING:
 #   - go to basic\exercises directory
 #   - execute the mod_04_strings.py
 #   - try to implement the functions indicated

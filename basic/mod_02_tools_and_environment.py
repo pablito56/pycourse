@@ -45,7 +45,7 @@ MOD 02: Tools and environment
 
 #===============================================================================
 # - PyPi: The Python Package Index is a repository of software for the Python programming language.
-# - There are currently 29653 packages here.
+# - There are currently 75967 packages here.
 # - The packages are 'eggs'
 #===============================================================================
 

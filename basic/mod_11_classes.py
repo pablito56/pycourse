@@ -30,7 +30,7 @@ class Eggs(Spam):                       # Ancestor superclasses inside parenthes
 
     def second_method(self):
         self.attr = 99.99
-        self.method("FROM 2nd")         # Methos may call other methods using self with a dot .
+        self.method("FROM 2nd")         # Methods may call other methods using self with a dot .
 
 
 # Still easy?
@@ -224,7 +224,7 @@ spammer = Spam()
 
 spammer.method(10)
 
-Spam.method(spammer, 100)   # Although it works, this is not exacty the same
+Spam.method(spammer, 100)   # Although it works, this is not exactly the same
 
 print spammer.method
 print Spam.method           # It is unbounded, not related with an instance
@@ -262,7 +262,7 @@ print Eggs.cls_method     # Now it is bounded to the subclass
 #===============================================================================
 # REMEMBER:
 #     - Classes are declared with the 'class' keyword, its name in camel case and a colon
-#         - Specify ancestors superclasses list between parrentheses after the class name
+#         - Specify ancestors superclasses list between parentheses after the class name
 #         - So you must inherit ALWAYS from 'object' to have new-style classes
 #     - Use indentation for class body declarations (attributes and methods)
 #     - Specify class attributes (with value) inside the class, outside any method

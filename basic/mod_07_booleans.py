@@ -92,7 +92,7 @@ print spam and (eggs or "abcd" and False)
 #  - They are short-circuited, so second argument is not always evaluated
 #  - Can take any object type as arguments
 #     - Even function calls, so boolean operands are used for flow control
-#  - Parentheses may be used to change order of boolean operands or comparissons
+#  - Parentheses may be used to change order of boolean operands or comparisons
 #===============================================================================
 
 

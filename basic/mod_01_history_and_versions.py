@@ -26,8 +26,8 @@ MOD 01: Python history and versions
 
 
 #===============================================================================
-# 1994: Important milestone in the growth of Python's userbase: comp.lang.python, the
-#       primary discussion forum for Python, was formed
+# 1994: Important milestone in the growth of Python's user base: comp.lang.python,
+#       the primary discussion forum for Python, was formed
 #===============================================================================
 
 
@@ -48,7 +48,7 @@ MOD 01: Python history and versions
 
 
 #===============================================================================
-# 13 June 2000: PEP (Python Enhancement Proposal) system stablished, to let the
+# 13 June 2000: PEP (Python Enhancement Proposal) system established, to let the
 #               community submit extensions and new features. Even Guido uses it
 #===============================================================================
 
@@ -105,7 +105,7 @@ MOD 01: Python history and versions
 
 
 #===============================================================================
-# 19th January 2015: Last versions released: 3.4.2 and 2.7.9
+# 7th March 2016: Last versions released: 3.5.1 and 2.7.11
 #===============================================================================
 
 
