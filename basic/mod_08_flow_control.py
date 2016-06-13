@@ -46,7 +46,7 @@ if eggs:
 elif max(spam) > 5:
     print "eggs is False and second condition is True"
 elif len(spam) == 3 and not eggs is None:
-    print "thirs condition is true"
+    print "third condition is true"
 else:
     print "everything is False"
 
